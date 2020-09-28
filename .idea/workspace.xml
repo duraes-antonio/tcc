@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="d">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tcc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tcc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +17,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Antônio Carlos Durães da S ⚡ &lt;37306576+duraes-antonio@users.noreply.github.com&gt;" />
         <option value="duraes-antonio &lt;garotoseis@gmail.com&gt;" />
       </list>
     </option>
@@ -97,7 +91,7 @@
       <workItem from="1594045094935" duration="87000" />
       <workItem from="1594045281336" duration="20000" />
       <workItem from="1596234202972" duration="36000" />
-      <workItem from="1601244336438" duration="17875000" />
+      <workItem from="1601244336438" duration="18126000" />
     </task>
     <task id="LOCAL-00001" summary="Teste com as bibliotecas e texto &quot;A Cartomante&quot;">
       <created>1583831588067</created>
@@ -113,7 +107,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601263033312</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="NEW: Funções para download/atualização das imagens com base no arquivo de metadados + IDE arquivos">
+      <created>1601264083659</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601264083659</updated>
+    </task>
+    <task id="LOCAL-00004" summary="TEST: Commit teste usuário">
+      <created>1601264191228</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601264191228</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +130,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Teste com as bibliotecas e texto &quot;A Cartomante&quot;" />
     <MESSAGE value="NEW+DOC: Dataset com imagens de tumografia de pneunomia viral, bacteriana e fungica + Metadados" />
-    <option name="LAST_COMMIT_MESSAGE" value="NEW+DOC: Dataset com imagens de tumografia de pneunomia viral, bacteriana e fungica + Metadados" />
+    <MESSAGE value="NEW: Funções para download/atualização das imagens com base no arquivo de metadados + IDE arquivos" />
+    <MESSAGE value="TEST: Commit teste usuário" />
+    <option name="LAST_COMMIT_MESSAGE" value="TEST: Commit teste usuário" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -136,10 +146,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1601254029065" />
-    <state x="124" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1601263185884">
+    <state x="124" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1601264190417">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="124" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1601263185884" />
+    <state x="124" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1601264190417" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1601254046850">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -164,10 +174,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1601254096769" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1601263049262">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1601264192872">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1601263049262" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1601264192872" />
     <state x="487" y="69" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForExport" timestamp="1601248106821">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
