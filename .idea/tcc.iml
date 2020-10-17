@@ -3,7 +3,13 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/modelos" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/util" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/modelos/keras-deeplab-v3-plus" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/modelos/deeplab" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/modelos/pytorch-deeplab-xception" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/src/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/tensorflow_models" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/venv_trab" />
     </content>

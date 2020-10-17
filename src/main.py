@@ -1,69 +1,96 @@
 import asyncio
+
+import numpy as np
+import glob
+import io
 from pathlib import Path
-from typing import List, Dict
+from random import randint, uniform
+from typing import Dict, List, Coroutine
 
-import pandas as pd
-from pandas import DataFrame
+from PIL import Image as PILImage
+from PIL.Image import Image
 
-from helpers import baixar_imagens_remotas
-
-
-def filtrar_por_causas(df: DataFrame, col='finding', bacteria=False, virus=False, fungo=False) -> DataFrame:
-	opcoes: dict = {'Bacteria': bacteria, 'Viral': virus, 'Fungal': fungo}
-
-	# Concatenação usada para filtrar por nenhum ou múltiplas opções
-	condicao = '|'.join([chave for chave in opcoes if opcoes[chave]])
-	return df[df[col].str.contains(condicao)]
+import imagem_transform as it
+from arquivo_util import gerar_lista_validacao_treino
+from imagem_util import atualizar_imagens
 
 
-def filtrar_por_causa(df: DataFrame, causa: str, col='finding') -> DataFrame:
-	return df[df[col].str.contains(causa)]
+def gerar_lista_arquivos(dir_treino: str, dir_val: str, dir_saida='../dataset/ImageSets'):
+	dic: Dict[str, set] = gerar_lista_validacao_treino(dir_treino, dir_val, restringir_somente_treino=True)
+
+	def criar_arq_lista_nomes(nome_arq_saida: str, nomes_arq: List[str]):
+		Path(dir_saida).mkdir(parents=True, exist_ok=True)
+
+		with open(nome_arq_saida, 'w') as arq:
+			ult_indice = len(nomes_arq) - 1
+			arq.writelines([nome + '\n' if i != ult_indice else nome for i, nome in enumerate(nomes_arq)])
+
+	treino_ord = sorted(dic['treino'])
+	criar_arq_lista_nomes(f'{dir_saida}/train.txt', treino_ord)
+	criar_arq_lista_nomes(f'{dir_saida}/val.txt', sorted(dic['validacao']))
+	treino_ord.extend(sorted(dic['validacao']))
+	criar_arq_lista_nomes(f'{dir_saida}/trainval.txt', list(treino_ord))
 
 
-def capturar_causas(df: DataFrame, col='finding', bacteria=False, virus=False, fungo=False) -> List[str]:
-	return sorted(filtrar_por_causas(df, col, bacteria, virus, fungo)[col].unique())
+def gerar_dados_adicionais(img_treino_path: str, img_path: str):
+	def modificar_img(img_url: str, grau: float, gauss: int, zoom: float) -> Image:
+		img: Image = PILImage.open(img_url)
+		img = it.rotacionar(img, grau)
+		img = it.gauss_blur(img, gauss)
+		img = it.zoom(img, zoom)
+		return img
+
+	def salvar_img(arq_path: str, img: Image, i: int):
+		path_ext = arq_path.rsplit('.', 1)
+		mascara = 'mask' in arq_path
+		novo_path = f'{path_ext[0]}_{i}.{path_ext[1]}'
+
+		if (mascara):
+			novo_path = f"{path_ext[0].replace('_mask', '')}_{i}_mask.{path_ext[1]}"
+
+		img_bytes = io.BytesIO()
+		pixels = np.array(img)
+		img_array = PILImage.fromarray(pixels)
+		img_array.save(img_bytes, path_ext[1])
+
+		with open(novo_path, 'wb') as arq:
+			arq.write(img_bytes.getvalue())
+
+	for i in range(1, 11):
+		grau_rotacao = uniform(-15, 15)
+		gauss_fator = randint(0, 2)
+		porcent_zoom = uniform(0, 15)
+
+		salvar_img(img_path, modificar_img(img_path, grau_rotacao, gauss_fator, porcent_zoom), i)
+		salvar_img(img_treino_path, modificar_img(img_treino_path, grau_rotacao, gauss_fator, porcent_zoom), i)
 
 
-async def atualizar_imagens(
-		df_metadados: DataFrame, col_causa='finding', col_img_nome='filename',
-		fungo=False, bacteria=False, virus=False
-):
-	url_github = 'https://raw.githubusercontent.com/ieee8023/covid-chestxray-dataset/master/images/'
-
-	opcoes_causas: Dict[str, bool] = {'Bacterial': bacteria, 'Viral': virus, 'Fungal': fungo}
-	co_rotinas = []
-	formatos_aceitos = ('png', 'jpg', 'jpeg')
-
-	for causa in opcoes_causas:
-
-		if not opcoes_causas[causa]:
-			continue
-
-		# filtre as linhas pela causa atual
-		dados_filtrados: DataFrame = filtrar_por_causa(df_metadados, causa, col_causa)
-
-		# obtenha somente o nome das imagens
-		imgs_nome = [img_nome for img_nome in dados_filtrados[col_img_nome].unique()
-					 if img_nome.lower().endswith(formatos_aceitos)]
-
-		# Monte o nome do diretório e o crie (se não existir)
-		dir_nome = f'../dataset/{causa.lower()}'
-		Path(dir_nome).mkdir(parents=True, exist_ok=True)
-
-		paths_saida = [dir_nome for i in range(len(imgs_nome))]
-		urls_down = [f'{url_github}/{nome}' for nome in imgs_nome]
-
-		co_rotinas.append(baixar_imagens_remotas(imgs_nome, paths_saida, urls_down))
-
-	await asyncio.gather(*co_rotinas)
+def obter_path_arquivos(dir: str, formatos=('jpg', 'jpeg', 'png')) -> List[str]:
+	return [
+		nome_arq
+		for arquivos_por_ext in [glob.glob(f'{dir}/**/*.{ext}', recursive=True) for ext in formatos]
+		for nome_arq in arquivos_por_ext
+	]
 
 
 def main():
-	# Abra o arquivo com os metadados
-	df = pd.read_csv('../dataset/metadata.csv', delimiter=',')
+	dir_saida_anot = '../dataset/SegmentationClassRaw'
+	dir_saida_img = '../dataset/JPEGImages'
+	# tarefas: Coroutine = atualizar_imagens(
+	# 	dir_saida_img, dir_saida_anot, True, virus=True,
+	# 	bacteria=True
+	# )
+	# asyncio.get_event_loop().run_until_complete(tarefas)
+	#
+	# arquivos_path = obter_path_arquivos(dir_saida_anot)
+	# for arq_path in arquivos_path:
+	# 	gerar_dados_adicionais(
+	# 		arq_path,
+	# 		arq_path.replace('_mask.png', '.jpeg').replace('SegmentationClassRaw', 'JPEGImages')
+	# 	)
 
-	# co_rotina = atualizar_imagens(df, fungo=True, bacteria=True, virus=True)
-	# asyncio.get_event_loop().run_until_complete(co_rotina)
+	gerar_lista_arquivos(dir_saida_anot, dir_saida_img)
 	return 0
+
 
 main()
