@@ -25,58 +25,50 @@ from deeplab.core import preprocess_utils
 _PROB_OF_FLIP = 0.5
 
 
-def preprocess_image_and_label(image,
-							   label,
-							   crop_height,
-							   crop_width,
-							   min_resize_value=None,
-							   max_resize_value=None,
-							   resize_factor=None,
-							   min_scale_factor=1.,
-							   max_scale_factor=1.,
-							   scale_factor_step_size=0,
-							   ignore_label=255,
-							   is_training=True,
-							   model_variant=None):
+def preprocess_image_and_label(
+		image, label, crop_height, crop_width, min_resize_value=None,
+		max_resize_value=None, resize_factor=None, min_scale_factor=1.,
+		max_scale_factor=1., scale_factor_step_size=0, ignore_label=255,
+		is_training=True, model_variant=None
+):
 	"""Preprocesses the image and label.
 
 	Args:
-	  image: Input image.
-	  label: Ground truth annotation label.
-	  crop_height: The height value used to crop the image and label.
-	  crop_width: The width value used to crop the image and label.
-	  min_resize_value: Desired size of the smaller image side.
-	  max_resize_value: Maximum allowed size of the larger image side.
-	  resize_factor: Resized dimensions are multiple of factor plus one.
-	  min_scale_factor: Minimum scale factor value.
-	  max_scale_factor: Maximum scale factor value.
-	  scale_factor_step_size: The step size from min scale factor to max scale
-		factor. The input is randomly scaled based on the value of
-		(min_scale_factor, max_scale_factor, scale_factor_step_size).
-	  ignore_label: The label value which will be ignored for training and
-		evaluation.
-	  is_training: If the preprocessing is used for training or not.
-	  model_variant: Model variant (string) for choosing how to mean-subtract the
-		images. See feature_extractor.network_map for supported model variants.
+		image: Input image.
+		label: Ground truth annotation label.
+		crop_height: The height value used to crop the image and label.
+		crop_width: The width value used to crop the image and label.
+		min_resize_value: Desired size of the smaller image side.
+		max_resize_value: Maximum allowed size of the larger image side.
+		resize_factor: Resized dimensions are multiple of factor plus one.
+		min_scale_factor: Minimum scale factor value.
+		max_scale_factor: Maximum scale factor value.
+		scale_factor_step_size: The step size from min scale factor to max scale
+			factor. The input is randomly scaled based on the value of
+			(min_scale_factor, max_scale_factor, scale_factor_step_size).
+		ignore_label: The label value which will be ignored for training and evaluation.
+		is_training: If the preprocessing is used for training or not.
+		model_variant: Model variant (string) for choosing how to mean-subtract the
+			images. See feature_extractor.network_map for supported model variants.
 
 	Returns:
-	  original_image: Original image (could be resized).
-	  processed_image: Preprocessed image.
-	  label: Preprocessed ground truth segmentation label.
+		original_image: Original image (could be resized).
+		processed_image: Preprocessed image.
+		label: Preprocessed ground truth segmentation label.
 
 	Raises:
-	  ValueError: Ground truth label not provided during training.
+		ValueError: Ground truth label not provided during training.
 	"""
 	if is_training and label is None:
 		raise ValueError('During training, label must be provided.')
 	if model_variant is None:
-		tf.logging.warning('Default mean-subtraction is performed. Please specify '
-						   'a model_variant. See feature_extractor.network_map for '
-						   'supported model variants.')
+		tf.logging.warning(
+			'Default mean-subtraction is performed. Please specify '
+			'a model_variant. See feature_extractor.network_map for supported model variants.'
+		)
 
 	# Keep reference to original image.
 	original_image = image
-
 	processed_image = tf.cast(image, tf.float32)
 
 	if label is not None:
@@ -91,7 +83,9 @@ def preprocess_image_and_label(image,
 				min_size=min_resize_value,
 				max_size=max_resize_value,
 				factor=resize_factor,
-				align_corners=True))
+				align_corners=True
+			)
+		)
 		# The `original_image` becomes the resized image.
 		original_image = tf.identity(processed_image)
 

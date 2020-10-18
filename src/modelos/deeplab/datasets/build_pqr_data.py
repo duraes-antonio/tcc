@@ -95,17 +95,13 @@ The Example proto contains the following fields:
   image/segmentation/class/format: semantic segmentation file format.
 """
 import collections
-
 import six
 import tensorflow as tf
 
 FLAGS = tf.app.flags.FLAGS
 
-tf.app.flags.DEFINE_enum('image_format', 'png', ['jpg', 'jpeg', 'png'],
-						 'Image format.')
-
-tf.app.flags.DEFINE_enum('label_format', 'png', ['png'],
-						 'Segmentation label format.')
+tf.app.flags.DEFINE_enum('image_format', 'png', ['jpg', 'jpeg', 'png'], 'Image format.')
+tf.app.flags.DEFINE_enum('label_format', 'png', ['png'], 'Segmentation label format.')
 
 # A map from image format to expected data format.
 _IMAGE_FORMAT_MAP = {
@@ -122,8 +118,8 @@ class ImageReader(object):
 		"""Class constructor.
 
 		Args:
-		  image_format: Image format. Only 'jpeg', 'jpg', or 'png' are supported.
-		  channels: Image channels.
+			image_format: Image format. Only 'jpeg', 'jpg', or 'png' are supported.
+			channels: Image channels.
 		"""
 		with tf.Graph().as_default():
 			self._decode_data = tf.placeholder(dtype=tf.string)
@@ -134,32 +130,31 @@ class ImageReader(object):
 			elif self._image_format == 'png':
 				self._decode = tf.image.decode_png(self._decode_data, channels=channels)
 
-	def read_image_dims(self, image_data):
+	def read_image_dims(self, image_data: str):
 		"""Reads the image dimensions.
 
 		Args:
-		  image_data: string of image data.
+			image_data: string of image data.
 
 		Returns:
-		  image_height and image_width.
+			image_height and image_width.
 		"""
 		image = self.decode_image(image_data)
 		return image.shape[:2]
 
-	def decode_image(self, image_data):
+	def decode_image(self, image_data: str):
 		"""Decodes the image data string.
 
 		Args:
-		  image_data: string of image data.
+			image_data: string of image data.
 
 		Returns:
-		  Decoded image data.
+			Decoded image data.
 
 		Raises:
-		  ValueError: Value of image channels not supported.
+			ValueError: Value of image channels not supported.
 		"""
-		image = self._session.run(self._decode,
-								  feed_dict={self._decode_data: image_data})
+		image = self._session.run(self._decode, feed_dict={self._decode_data: image_data})
 		if len(image.shape) != 3 or image.shape[2] not in (1, 3):
 			raise ValueError('The image channels not supported.')
 
@@ -170,10 +165,10 @@ def _int64_list_feature(values):
 	"""Returns a TF-Feature of int64_list.
 
 	Args:
-	  values: A scalar or list of values.
+		values: A scalar or list of values.
 
 	Returns:
-	  A TF-Feature.
+		A TF-Feature.
 	"""
 	if not isinstance(values, collections.Iterable):
 		values = [values]
@@ -185,10 +180,10 @@ def _bytes_list_feature(values):
 	"""Returns a TF-Feature of bytes.
 
 	Args:
-	  values: A string.
+		values: A string.
 
 	Returns:
-	  A TF-Feature.
+		A TF-Feature.
 	"""
 
 	def norm2bytes(value):
@@ -198,7 +193,7 @@ def _bytes_list_feature(values):
 		bytes_list=tf.train.BytesList(value=[norm2bytes(values)]))
 
 
-def image_seg_to_tfexample(image_data, filename, height, width, seg_data):
+def image_seg_to_tfexample(image_data: str, filename: str, height: int, width: int, seg_data: str):
 	"""Converts one image/segmentation pair to tf example.
 
 	Args:
@@ -209,9 +204,9 @@ def image_seg_to_tfexample(image_data, filename, height, width, seg_data):
 		seg_data: string of semantic segmentation data.
 
 	Returns:
-  		tf example of one image/segmentation pair.
+		tf example of one image/segmentation pair.
 	"""
-	return tf.train.Example(features=tf.train.Features(feature={
+	feature = {
 		'image/encoded': _bytes_list_feature(image_data),
 		'image/filename': _bytes_list_feature(filename),
 		'image/format': _bytes_list_feature(
@@ -223,7 +218,8 @@ def image_seg_to_tfexample(image_data, filename, height, width, seg_data):
 			_bytes_list_feature(seg_data)),
 		'image/segmentation/class/format': _bytes_list_feature(
 			FLAGS.label_format),
-	}))
+	}
+	return tf.train.Example(features=tf.train.Features(feature=feature))
 
 
 FLAGS = tf.app.flags.FLAGS
@@ -261,10 +257,10 @@ def _convert_dataset(dataset_split):
 	"""Converts the specified dataset split to TFRecord format.
 
 	Args:
-	  dataset_split: The dataset split (e.g., train, test).
+		dataset_split: The dataset split (e.g., train, test).
 
 	Raises:
-	  RuntimeError: If loaded image and label have different shape.
+		RuntimeError: If loaded image and label have different shape.
 	"""
 	dataset = os.path.basename(dataset_split)[:-4]
 	sys.stdout.write('Processing ' + dataset)
@@ -278,36 +274,37 @@ def _convert_dataset(dataset_split):
 	for shard_id in range(_NUM_SHARDS):
 		output_filename = os.path.join(
 			FLAGS.output_dir,
-			'%s-%05d-of-%05d.tfrecord' % (dataset, shard_id, _NUM_SHARDS))
+			'%s-%05d-of-%05d.tfrecord' % (dataset, shard_id, _NUM_SHARDS)
+		)
 		with tf.python_io.TFRecordWriter(output_filename) as tfrecord_writer:
 			start_idx = shard_id * num_per_shard
 			end_idx = min((shard_id + 1) * num_per_shard, num_images)
+
 			for i in range(start_idx, end_idx):
-				sys.stdout.write('\r>> Converting image %d/%d shard %d' % (
-					i + 1, len(filenames), shard_id))
+				sys.stdout.write(
+					'\r>> Converting image %d/%d shard %d' % (i + 1, len(filenames), shard_id)
+				)
 				sys.stdout.flush()
+
 				# Read the image.
 				image_filename = os.path.join(
-					# MH:
-					# FLAGS.image_folder, filenames[i] + '.' + FLAGS.image_format)
-					FLAGS.image_folder, filenames[i].replace('_mask', '') + '.jpeg')
-				# END MH
+					FLAGS.image_folder, f"{filenames[i].replace('_mask', '')}.{FLAGS.image_format}")
 				image_data = tf.gfile.GFile(image_filename, 'rb').read()
 				height, width = image_reader.read_image_dims(image_data)
+
 				# Read the semantic segmentation annotation.
 				seg_filename = os.path.join(
 					FLAGS.semantic_segmentation_folder,
-					# MH:
-					# filenames[i] + '.' + FLAGS.label_format)
-					filenames[i].replace('_mask', '') + '_mask.png')
-				# END MH
+					f"{filenames[i].replace('_mask', '')}_mask.{FLAGS.label_format})"
+				)
 				seg_data = tf.gfile.GFile(seg_filename, 'rb').read()
 				seg_height, seg_width = label_reader.read_image_dims(seg_data)
+
 				if height != seg_height or width != seg_width:
 					raise RuntimeError('Shape mismatched between image and label.')
+
 				# Convert to tf example.
-				example = image_seg_to_tfexample(
-					image_data, filenames[i], height, width, seg_data)
+				example = image_seg_to_tfexample(image_data, filenames[i], height, width, seg_data)
 				tfrecord_writer.write(example.SerializeToString())
 		sys.stdout.write('\n')
 		sys.stdout.flush()
