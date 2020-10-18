@@ -40,7 +40,7 @@ def zoom(img: Image, porcentagem=10) -> Image:
 	return img.resize(larg_alt, box=tuple(box))
 
 
-def gauss_blur(img: Image, fator=1):
+def gauss_blur(img: Image, fator=1) -> Image:
 	return img.filter(ImageFilter.GaussianBlur(fator))
 
 

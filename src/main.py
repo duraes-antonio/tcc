@@ -1,18 +1,14 @@
-import asyncio
-
 import numpy as np
 import glob
 import io
 from pathlib import Path
 from random import randint, uniform
-from typing import Dict, List, Coroutine
-
+from typing import Dict, List
 from PIL import Image as PILImage
 from PIL.Image import Image
 
 import imagem_transform as it
 from arquivo_util import gerar_lista_validacao_treino
-from imagem_util import atualizar_imagens
 
 
 def gerar_lista_arquivos(dir_treino: str, dir_val: str, dir_saida='../dataset/ImageSets'):
