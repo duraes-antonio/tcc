@@ -28,10 +28,10 @@ label_dir = './PQR/SegmentationClass/'
 new_label_dir = './PQR/SegmentationClassRaw/'
 
 if not os.path.isdir(new_label_dir):
-	print("creating folder: ", new_label_dir)
+	print('creating folder: ', new_label_dir)
 	os.mkdir(new_label_dir)
 else:
-	print("Folder alread exists. Delete the folder and re-run the code!!!")
+	print('Folder alread exists. Delete the folder and re-run the code!!!')
 
 label_files = os.listdir(label_dir)
 

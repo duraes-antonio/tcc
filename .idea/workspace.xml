@@ -6,47 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/common_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/core/conv2d_ws_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/core/dense_prediction_cell_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/core/nas_network_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/core/preprocess_utils_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/core/resnet_v1_beta_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/core/utils_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/core/xception_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/deeplab/common.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/datasets/build_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/deeplab/datasets/build_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/datasets/build_pqr_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/deeplab/datasets/build_pqr_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/datasets/convert_rgb_to_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/deeplab/datasets/convert_rgb_to_index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/datasets/data_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/deeplab/datasets/data_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/datasets/data_generator_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/panoptic_quality_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/parsing_covering_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/streaming_metrics_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/test_utils_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/bird_gt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/bird_pred_class.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/bird_pred_instance.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/cat_gt.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/cat_pred_class.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/cat_pred_instance.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/coco_gt.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/coco_gt/bird.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/coco_gt/cat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/coco_gt/congress.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/coco_gt/team.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/coco_pred.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/coco_pred/bird.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/coco_pred/cat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/coco_pred/congress.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/coco_pred/team.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/team_gt_instance.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/team_pred_class.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/evaluation/testdata/team_pred_instance.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/input_preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/deeplab/input_preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/local_test.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/model_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/utils/get_dataset_colormap_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/deprecated/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/deprecated/segmentation_dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/deeplab/eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/eval-pqr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/eval-pqr.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/frozen-model.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/frozen-model.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/train-pqr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/train-pqr.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/vis-pqr.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/vis-pqr.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/arquivo_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/arquivo_util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/imagem_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/imagem_util.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +66,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="grid.search.filter.rows" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -117,18 +90,19 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos\pytorch-deeplab-xception" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos\keras-deeplab-v3-plus" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos\deeplab" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos\deeplab\datasets\PQR\exp\train_on_trainval_set\init_models" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\util" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos\pytorch-deeplab-xception" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos\keras-deeplab-v3-plus" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -287,7 +261,8 @@
       <workItem from="1602859399039" duration="1051000" />
       <workItem from="1602889890066" duration="23935000" />
       <workItem from="1602977143413" duration="1752000" />
-      <workItem from="1603056927909" duration="4190000" />
+      <workItem from="1603056927909" duration="21990000" />
+      <workItem from="1603144635849" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="Teste com as bibliotecas e texto &quot;A Cartomante&quot;">
       <created>1583831588067</created>
@@ -338,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603057535055</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="CLEAN: Remoção de arquivos e trechos de código não usados">
+      <created>1603061277798</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603061277798</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +338,8 @@
     <MESSAGE value="TEST: Commit teste usuário" />
     <MESSAGE value="TEST: Commit teste usuário 3" />
     <MESSAGE value="TEST: Indicadores (IoU, F1, Precision, Recall)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TEST: Indicadores (IoU, F1, Precision, Recall)" />
+    <MESSAGE value="CLEAN: Remoção de arquivos e trechos de código não usados" />
+    <option name="LAST_COMMIT_MESSAGE" value="CLEAN: Remoção de arquivos e trechos de código não usados" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -384,10 +367,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1603060852467" />
-    <state x="94" y="6" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1603057532369">
+    <state x="94" y="6" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1603061276313">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="94" y="6" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1603057532369" />
+    <state x="94" y="6" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1603061276313" />
     <state width="1534" height="440" key="DebuggerActiveHint" timestamp="1602551056262">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -404,22 +387,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602553585726" />
-    <state width="723" height="324" key="GridCell.Tab.0.bottom" timestamp="1602976855895">
+    <state width="1493" height="292" key="GridCell.Tab.0.bottom" timestamp="1603142040884">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="723" height="324" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602976855895" />
-    <state width="723" height="324" key="GridCell.Tab.0.center" timestamp="1602976855895">
+    <state width="1493" height="292" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603142040884" />
+    <state width="1493" height="292" key="GridCell.Tab.0.center" timestamp="1603142040884">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="723" height="324" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602976855895" />
-    <state width="723" height="324" key="GridCell.Tab.0.left" timestamp="1602976855895">
+    <state width="1493" height="292" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603142040884" />
+    <state width="1493" height="292" key="GridCell.Tab.0.left" timestamp="1603142040884">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="723" height="324" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602976855895" />
-    <state width="723" height="324" key="GridCell.Tab.0.right" timestamp="1602976855895">
+    <state width="1493" height="292" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603142040884" />
+    <state width="1493" height="292" key="GridCell.Tab.0.right" timestamp="1603142040884">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="723" height="324" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602976855895" />
+    <state width="1493" height="292" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603142040884" />
     <state width="723" height="324" key="GridCell.Tab.1.bottom" timestamp="1602976855896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -440,10 +423,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="17" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603057908354" />
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1603057540521">
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1603061279262">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603057540521" />
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603061279262" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1602478903389">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -452,6 +435,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="487" y="69" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForExport/0.0.1536.824@0.0.1536.824" timestamp="1601248106821" />
+    <state x="680" y="21" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603086494649">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="680" y="21" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1603086494649" />
     <state x="-6" y="0" width="585" height="809" key="dock-window-1" timestamp="1602551441408">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -460,14 +447,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="562" y="8" width="572" height="809" key="dock-window-2/0.0.1536.824@0.0.1536.824" timestamp="1602548563275" />
-    <state x="349" y="67" key="editAsTableFormatDialogDimension" timestamp="1602547601292">
+    <state x="349" y="67" key="editAsTableFormatDialogDimension" timestamp="1603078025311">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="349" y="67" key="editAsTableFormatDialogDimension/0.0.1536.824@0.0.1536.824" timestamp="1602547601292" />
-    <state x="433" y="14" width="1010" height="801" key="find.popup" timestamp="1603061042714">
+    <state x="349" y="67" key="editAsTableFormatDialogDimension/0.0.1536.824@0.0.1536.824" timestamp="1603078025311" />
+    <state x="373" y="23" width="1010" height="801" key="find.popup" timestamp="1603123793405">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="433" y="14" width="1010" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1603061042714" />
+    <state x="373" y="23" width="1010" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1603123793405" />
     <state x="996" y="187" key="refactoring.ChangeSignatureDialog" timestamp="1602917329296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -494,7 +481,7 @@
     <SUITE FILE_PATH="coverage/tcc$manipular_imagens.coverage" NAME="manipular_imagens Coverage Results" MODIFIED="1602388961784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/util" />
     <SUITE FILE_PATH="coverage/tcc$Twisted_Trial_for_model_test_DeeplabModelTest.coverage" NAME="Twisted Trial for model_test.DeeplabModelTest Coverage Results" MODIFIED="1602207161276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/modelos/deeplab" />
     <SUITE FILE_PATH="coverage/tcc$arquivo_util.coverage" NAME="arquivo_util Coverage Results" MODIFIED="1602566666857" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/util" />
-    <SUITE FILE_PATH="coverage/tcc$main.coverage" NAME="main Coverage Results" MODIFIED="1602957730694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/tcc$main.coverage" NAME="main Coverage Results" MODIFIED="1603139505761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/tcc$atualizar_imagens.coverage" NAME="atualizar_imagens Coverage Results" MODIFIED="1602859862047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/util" />
   </component>
 </project>

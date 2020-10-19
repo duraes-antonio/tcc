@@ -17,7 +17,7 @@
 
 See model.py for more details and usage.
 """
-from typing import Any, Dict
+from typing import Any
 
 import numpy as np
 import six

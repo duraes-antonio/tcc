@@ -12,20 +12,20 @@ DATASET="${WORK_DIR}/${DATASET_DIR}/${PQR_FOLDER}/tfrecord"
 #mkdir -p "${WORK_DIR}/${DATASET_DIR}/${PQR_FOLDER}/exp"
 #mkdir -p "${TRAIN_LOGDIR}"
 
-NUM_ITERATIONS=5000
+NUM_ITERATIONS=2000
 python3 "${WORK_DIR}/train.py" \
-  --atrous_rates=6 \
   --atrous_rates=12 \
-  --atrous_rates=18 \
+  --atrous_rates=24 \
+  --atrous_rates=36 \
   --dataset="pqr" \
   --dataset_dir="${DATASET}" \
-  --decoder_output_stride=4 \
+  --decoder_output_stride=8 \
   --fine_tune_batch_norm=false \
   --logtostderr \
   --model_variant="xception_65" \
-  --optimizer="adam" \
-  --output_stride=16 \
-  --train_batch_size=8 \
+  --optimizer="momentum" \
+  --output_stride=8 \
+  --train_batch_size=4 \
   --train_crop_size=600,600 \
   --train_logdir="${TRAIN_LOGDIR}" \
   --train_split="train" \

@@ -115,32 +115,23 @@ async def baixar_salvar_anot(
 		df_imgs: DataFrame, causas: Iterable[str], dir_saida: str, agrupar_por_causa=False
 ) -> Coroutine:
 	# Extraia o nome dos arquivos de imagens anotadas
-	url_anotacoes_gh = 'https://github.com/ieee8023/covid-chestxray-dataset/tree/master/annotations/lungVAE-masks'
+	url_anotacoes_gh = 'https://raw.githubusercontent.com/ieee8023/covid-chestxray-dataset/master/annotations/lungVAE-masks/'
 	arq_nomes = extrair_nome_anotacoes(url_anotacoes_gh, 'js-navigation-open link-gray-dark')
 
 	causa_anot_nome: Dict[str, List[str]] = relacionar_anotacao_com_causa_pd(df_imgs, arq_nomes, causas)
-
-	# Concatene a url de download COM o nome de cada arquivo, para baixá-los
-	url_anotacoes = 'https://raw.githubusercontent.com/ieee8023/covid-chestxray-dataset/master/annotations/lungVAE-masks'
-
-	corotinas: List[Coroutine] = []
+	tarefas: List[Coroutine] = []
 	cores_label = {'viral': (128, 64, 128), 'covid': (0, 192, 128), 'bacterial': (128, 192, 128)}
 
-	if agrupar_por_causa:
-		for causa in causa_anot_nome:
-			urls_download = [f'{url_anotacoes}/{arq_nome}' for arq_nome in causa_anot_nome[causa]]
-			tarefa = baixar_imagens(urls_download, f'{dir_saida}/{causa}', formato_saida='png',
-									label_cor=cores_label[causa])
-			corotinas.append(tarefa)
-		return await asyncio.gather(*corotinas)
+	# Concatene a url de download COM o nome de cada arquivo, para baixá-los
+	for causa in causa_anot_nome:
+		urls_download = [f'{url_anotacoes_gh}/{arq_nome}' for arq_nome in causa_anot_nome[causa]]
+		tarefa = baixar_imagens(
+			urls_download, f"{dir_saida}/{causa if agrupar_por_causa else ''}",
+			formato_saida='png', label_cor=cores_label[causa]
+		)
+		tarefas.append(tarefa)
 
-	else:
-		urls_download = [
-			f'{url_anotacoes}/{arq_nome}'
-			for causa in causa_anot_nome
-			for arq_nome in causa_anot_nome[causa]
-		]
-		return await asyncio.gather(baixar_imagens(urls_download, dir_saida, formato_saida='png'))
+	return await asyncio.gather(*tarefas)
 
 
 async def atualizar_imagens(

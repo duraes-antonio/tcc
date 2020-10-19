@@ -100,7 +100,7 @@ import tensorflow as tf
 
 FLAGS = tf.app.flags.FLAGS
 
-tf.app.flags.DEFINE_enum('image_format', 'png', ['jpg', 'jpeg', 'png'], 'Image format.')
+tf.app.flags.DEFINE_enum('image_format', 'jpeg', ['jpg', 'jpeg', 'png'], 'Image format.')
 tf.app.flags.DEFINE_enum('label_format', 'png', ['png'], 'Segmentation label format.')
 
 # A map from image format to expected data format.
@@ -295,7 +295,7 @@ def _convert_dataset(dataset_split):
 				# Read the semantic segmentation annotation.
 				seg_filename = os.path.join(
 					FLAGS.semantic_segmentation_folder,
-					f"{filenames[i].replace('_mask', '')}_mask.{FLAGS.label_format})"
+					f"{filenames[i].replace('_mask', '')}_mask.{FLAGS.label_format}"
 				)
 				seg_data = tf.gfile.GFile(seg_filename, 'rb').read()
 				seg_height, seg_width = label_reader.read_image_dims(seg_data)

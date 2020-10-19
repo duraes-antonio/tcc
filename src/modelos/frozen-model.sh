@@ -11,9 +11,9 @@ python3 deeplab/export_model.py \
   --atrous_rates=6 \
   --atrous_rates=12 \
   --atrous_rates=18 \
-  --output_stride=16 \
+  --output_stride=8 \
   --num_classes=5 \
-  --decoder_output_stride=4 \
+  --decoder_output_stride=8 \
   --crop_size=600 \
   --crop_size=600 \
   --dataset="PQR" \

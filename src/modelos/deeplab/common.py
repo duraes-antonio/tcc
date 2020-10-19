@@ -25,21 +25,12 @@ import tensorflow as tf
 flags = tf.app.flags
 
 # Flags for input preprocessing.
-
-flags.DEFINE_integer('min_resize_value', None,
-					 'Desired size of the smaller image side.')
-
-flags.DEFINE_integer('max_resize_value', None,
-					 'Maximum allowed size of the larger image side.')
-
-flags.DEFINE_integer('resize_factor', None,
-					 'Resized dimensions are multiple of factor plus one.')
-
-flags.DEFINE_boolean('keep_aspect_ratio', True,
-					 'Keep aspect ratio after resizing or not.')
+flags.DEFINE_integer('min_resize_value', None, 'Desired size of the smaller image side.')
+flags.DEFINE_integer('max_resize_value', None, 'Maximum allowed size of the larger image side.')
+flags.DEFINE_integer('resize_factor', None, 'Resized dimensions are multiple of factor plus one.')
+flags.DEFINE_boolean('keep_aspect_ratio', True, 'Keep aspect ratio after resizing or not.')
 
 # Model dependent flags.
-
 flags.DEFINE_integer('logits_kernel_size', 1,
 					 'The kernel size for the convolutional kernel that '
 					 'generates logits.')
@@ -50,11 +41,8 @@ flags.DEFINE_integer('logits_kernel_size', 1,
 # See core/feature_extractor.py for supported model variants.
 flags.DEFINE_string('model_variant', 'mobilenet_v2', 'DeepLab model variant.')
 
-flags.DEFINE_multi_float('image_pyramid', None,
-						 'Input scales for multi-scale feature extraction.')
-
-flags.DEFINE_boolean('add_image_level_feature', True,
-					 'Add image level feature.')
+flags.DEFINE_multi_float('image_pyramid', None, 'Input scales for multi-scale feature extraction.')
+flags.DEFINE_boolean('add_image_level_feature', True, 'Add image level feature.')
 
 flags.DEFINE_list(
 	'image_pooling_crop_size', None,
@@ -66,16 +54,12 @@ flags.DEFINE_list(
 	'image_pooling_stride', '1,1',
 	'Image pooling stride [height, width] used in the ASPP image pooling. ')
 
-flags.DEFINE_boolean('aspp_with_batch_norm', True,
-					 'Use batch norm parameters for ASPP or not.')
-
-flags.DEFINE_boolean('aspp_with_separable_conv', True,
-					 'Use separable convolution for ASPP or not.')
+flags.DEFINE_boolean('aspp_with_batch_norm', True, 'Use batch norm parameters for ASPP or not.')
+flags.DEFINE_boolean('aspp_with_separable_conv', True, 'Use separable convolution for ASPP or not.')
 
 # Defaults to None. Set multi_grid = [1, 2, 4] when using provided
 # 'resnet_v1_{50,101}_beta' checkpoints.
-flags.DEFINE_multi_integer('multi_grid', None,
-						   'Employ a hierarchy of atrous rates for ResNet.')
+flags.DEFINE_multi_integer('multi_grid', None, 'Employ a hierarchy of atrous rates for ResNet.')
 
 flags.DEFINE_float('depth_multiplier', 1.0,
 				   'Multiplier for the depth (number of channels) for all '
@@ -94,11 +78,9 @@ flags.DEFINE_list('decoder_output_stride', None,
 				  'most one output stride (i.e., either None or a list with '
 				  'only one element.')
 
-flags.DEFINE_boolean('decoder_use_separable_conv', True,
-					 'Employ separable convolution for decoder or not.')
+flags.DEFINE_boolean('decoder_use_separable_conv', True, 'Employ separable convolution for decoder or not.')
 
-flags.DEFINE_enum('merge_method', 'max', ['max', 'avg'],
-				  'Scheme to merge multi scale features.')
+flags.DEFINE_enum('merge_method', 'max', ['max', 'avg'], 'Scheme to merge multi scale features.')
 
 flags.DEFINE_boolean(
 	'prediction_with_upsampled_logits', True,
@@ -125,22 +107,12 @@ flags.DEFINE_bool('use_bounded_activation', False,
 				  'Whether or not to use bounded activations. Bounded '
 				  'activations better lend themselves to quantized inference.')
 
-flags.DEFINE_boolean('aspp_with_concat_projection', True,
-					 'ASPP with concat projection.')
-
-flags.DEFINE_boolean('aspp_with_squeeze_and_excitation', False,
-					 'ASPP with squeeze and excitation.')
-
+flags.DEFINE_boolean('aspp_with_concat_projection', True, 'ASPP with concat projection.')
+flags.DEFINE_boolean('aspp_with_squeeze_and_excitation', False, 'ASPP with squeeze and excitation.')
 flags.DEFINE_integer('aspp_convs_filters', 256, 'ASPP convolution filters.')
-
-flags.DEFINE_boolean('decoder_use_sum_merge', False,
-					 'Decoder uses simply sum merge.')
-
+flags.DEFINE_boolean('decoder_use_sum_merge', False, 'Decoder uses simply sum merge.')
 flags.DEFINE_integer('decoder_filters', 256, 'Decoder filters.')
-
-flags.DEFINE_boolean('decoder_output_is_logits', False,
-					 'Use decoder output as logits or not.')
-
+flags.DEFINE_boolean('decoder_output_is_logits', False, 'Use decoder output as logits or not.')
 flags.DEFINE_boolean('image_se_uses_qsigmoid', False, 'Use q-sigmoid.')
 
 flags.DEFINE_multi_float(
@@ -173,63 +145,65 @@ TEST_SET = 'test'
 
 
 class ModelOptions(
-	collections.namedtuple('ModelOptions', [
-		'outputs_to_num_classes',
-		'crop_size',
-		'atrous_rates',
-		'output_stride',
-		'preprocessed_images_dtype',
-		'merge_method',
-		'add_image_level_feature',
-		'image_pooling_crop_size',
-		'image_pooling_stride',
-		'aspp_with_batch_norm',
-		'aspp_with_separable_conv',
-		'multi_grid',
-		'decoder_output_stride',
-		'decoder_use_separable_conv',
-		'logits_kernel_size',
-		'model_variant',
-		'depth_multiplier',
-		'divisible_by',
-		'prediction_with_upsampled_logits',
-		'dense_prediction_cell_config',
-		'nas_architecture_options',
-		'use_bounded_activation',
-		'aspp_with_concat_projection',
-		'aspp_with_squeeze_and_excitation',
-		'aspp_convs_filters',
-		'decoder_use_sum_merge',
-		'decoder_filters',
-		'decoder_output_is_logits',
-		'image_se_uses_qsigmoid',
-		'label_weights',
-		'sync_batch_norm_method',
-		'batch_norm_decay',
-	])):
+	collections.namedtuple(
+		'ModelOptions',
+		[
+			'outputs_to_num_classes',
+			'crop_size',
+			'atrous_rates',
+			'output_stride',
+			'preprocessed_images_dtype',
+			'merge_method',
+			'add_image_level_feature',
+			'image_pooling_crop_size',
+			'image_pooling_stride',
+			'aspp_with_batch_norm',
+			'aspp_with_separable_conv',
+			'multi_grid',
+			'decoder_output_stride',
+			'decoder_use_separable_conv',
+			'logits_kernel_size',
+			'model_variant',
+			'depth_multiplier',
+			'divisible_by',
+			'prediction_with_upsampled_logits',
+			'dense_prediction_cell_config',
+			'nas_architecture_options',
+			'use_bounded_activation',
+			'aspp_with_concat_projection',
+			'aspp_with_squeeze_and_excitation',
+			'aspp_convs_filters',
+			'decoder_use_sum_merge',
+			'decoder_filters',
+			'decoder_output_is_logits',
+			'image_se_uses_qsigmoid',
+			'label_weights',
+			'sync_batch_norm_method',
+			'batch_norm_decay',
+		]
+	)
+):
 	"""Immutable class to hold model options."""
 
 	__slots__ = ()
 
-	def __new__(cls,
-				outputs_to_num_classes,
-				crop_size=None,
-				atrous_rates=None,
-				output_stride=8,
-				preprocessed_images_dtype=tf.float32):
+	def __new__(
+			cls, outputs_to_num_classes, crop_size=None, atrous_rates=None,
+			output_stride=8, preprocessed_images_dtype=tf.float32
+	):
 		"""Constructor to set default values.
 
 		Args:
-		  outputs_to_num_classes: A dictionary from output type to the number of
-			classes. For example, for the task of semantic segmentation with 21
-			semantic classes, we would have outputs_to_num_classes['semantic'] = 21.
-		  crop_size: A tuple [crop_height, crop_width].
-		  atrous_rates: A list of atrous convolution rates for ASPP.
-		  output_stride: The ratio of input to output spatial resolution.
-		  preprocessed_images_dtype: The type after the preprocessing function.
+			outputs_to_num_classes: A dictionary from output type to the number of
+				classes. For example, for the task of semantic segmentation with 21
+				semantic classes, we would have outputs_to_num_classes['semantic'] = 21.
+			crop_size: A tuple [crop_height, crop_width].
+			atrous_rates: A list of atrous convolution rates for ASPP.
+			output_stride: The ratio of input to output spatial resolution.
+			preprocessed_images_dtype: The type after the preprocessing function.
 
 		Returns:
-		  A new ModelOptions instance.
+			A new ModelOptions instance.
 		"""
 		dense_prediction_cell_config = None
 		if FLAGS.dense_prediction_cell_json:
@@ -240,8 +214,7 @@ class ModelOptions(
 			decoder_output_stride = [
 				int(x) for x in FLAGS.decoder_output_stride]
 			if sorted(decoder_output_stride, reverse=True) != decoder_output_stride:
-				raise ValueError('Decoder output stride need to be sorted in the '
-								 'descending order.')
+				raise ValueError('Decoder output stride need to be sorted in the descending order.')
 		image_pooling_crop_size = None
 		if FLAGS.image_pooling_crop_size:
 			image_pooling_crop_size = [int(x) for x in FLAGS.image_pooling_crop_size]
@@ -289,8 +262,8 @@ class ModelOptions(
 			FLAGS.batch_norm_decay)
 
 	def __deepcopy__(self, memo):
-		return ModelOptions(copy.deepcopy(self.outputs_to_num_classes),
-							self.crop_size,
-							self.atrous_rates,
-							self.output_stride,
-							self.preprocessed_images_dtype)
+		return ModelOptions(
+			copy.deepcopy(self.outputs_to_num_classes),
+			self.crop_size, self.atrous_rates, self.output_stride,
+			self.preprocessed_images_dtype
+		)
