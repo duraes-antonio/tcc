@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/modelos/keras-deeplab-v3-plus" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/modelos/deeplab" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/modelos/pytorch-deeplab-xception" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/modelos/Pytorch-UNet" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/src/venv" />
       <excludeFolder url="file://$MODULE_DIR$/tensorflow_models" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />

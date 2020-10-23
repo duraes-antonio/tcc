@@ -40,6 +40,42 @@ from deeplab.datasets import data_generator
 
 flags = tf.app.flags
 FLAGS = flags.FLAGS
+flags.DEFINE_string('master', '', 'BNS name of the tensorflow server')
+
+# Settings for log directories.
+flags.DEFINE_string('eval_logdir', None, 'Where to write the event logs.')
+flags.DEFINE_string('checkpoint_dir', None, 'Directory of model checkpoints.')
+
+# Settings for evaluating the model.
+flags.DEFINE_integer('eval_batch_size', 1,
+					 'The number of images in each batch during evaluation.')
+flags.DEFINE_list('eval_crop_size', '200,200', 'Image crop size [height, width] for evaluation.')
+flags.DEFINE_integer('eval_interval_secs', 60 * 5, 'How often (in seconds) to run evaluation.')
+
+# For `xception_65`, use atrous_rates = [12, 24, 36] if output_stride = 8, or
+# rates = [6, 12, 18] if output_stride = 16. For `mobilenet_v2`, use None. Note
+# one could use different atrous_rates/output_stride during training/evaluation.
+flags.DEFINE_multi_integer('atrous_rates', None, 'Atrous rates for atrous spatial pyramid pooling.')
+
+flags.DEFINE_integer('output_stride', 16, 'The ratio of input to output spatial resolution.')
+
+# Change to [0.5, 0.75, 1.0, 1.25, 1.5, 1.75] for multi-scale test.
+flags.DEFINE_multi_float('eval_scales', [1.0], 'The scales to resize images for evaluation.')
+
+# Change to True for adding flipped images during test.
+flags.DEFINE_bool('add_flipped_images', False, 'Add flipped images for evaluation or not.')
+
+flags.DEFINE_integer(
+	'quantize_delay_step', -1,
+	'Steps to start quantized training. If < 0, will not quantize model.')
+
+# Dataset settings.
+flags.DEFINE_string('dataset', 'pascal_voc_seg', 'Name of the segmentation dataset.')
+flags.DEFINE_string('eval_split', 'val', 'Which split of the dataset used for evaluation')
+flags.DEFINE_string('dataset_dir', None, 'Where the dataset reside.')
+flags.DEFINE_integer('max_number_of_evaluations', 0,
+					 'Maximum number of eval iterations. Will loop '
+					 'indefinitely upon nonpositive values.')
 
 
 def define_flags_eval_default() -> Any:
@@ -53,7 +89,7 @@ def define_flags_eval_default() -> Any:
 	# Settings for evaluating the model.
 	flags.DEFINE_integer('eval_batch_size', 1,
 						 'The number of images in each batch during evaluation.')
-	flags.DEFINE_list('eval_crop_size', '513,513', 'Image crop size [height, width] for evaluation.')
+	flags.DEFINE_list('eval_crop_size', '200,200', 'Image crop size [height, width] for evaluation.')
 	flags.DEFINE_integer('eval_interval_secs', 60 * 5, 'How often (in seconds) to run evaluation.')
 
 	# For `xception_65`, use atrous_rates = [12, 24, 36] if output_stride = 8, or
@@ -83,7 +119,7 @@ def define_flags_eval_default() -> Any:
 	return flags
 
 
-flags = define_flags_eval_default()
+# flags = define_flags_eval_default()
 
 
 @tf_export(v1=['metrics.f1score'])

@@ -26,7 +26,6 @@ def main(argv):
 
 	# set fn as your 4d nifti file
 	image_array = nibabel.load(inputfile).get_data()
-	print(len(image_array.shape))
 
 	# ask if rotate
 	# ask_rotate = input('Would you like to rotate the orientation? (y/n) ')

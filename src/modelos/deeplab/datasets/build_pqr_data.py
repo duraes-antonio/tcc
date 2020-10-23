@@ -295,7 +295,7 @@ def _convert_dataset(dataset_split):
 				# Read the semantic segmentation annotation.
 				seg_filename = os.path.join(
 					FLAGS.semantic_segmentation_folder,
-					f"{filenames[i].replace('_mask', '')}_mask.{FLAGS.label_format}"
+					f"{filenames[i].replace('_mask', '')}.{FLAGS.label_format}"
 				)
 				seg_data = tf.gfile.GFile(seg_filename, 'rb').read()
 				seg_height, seg_width = label_reader.read_image_dims(seg_data)

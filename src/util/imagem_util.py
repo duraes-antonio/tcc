@@ -1,11 +1,11 @@
 import asyncio
+import glob
 import io
 import warnings
-from typing import List, Dict, Coroutine, Iterable, Set, Optional, Tuple
-
 import pandas as pd
 import numpy as np
 import requests
+from typing import List, Dict, Coroutine, Iterable, Set, Optional, Tuple, Union
 from PIL import Image
 from bs4 import BeautifulSoup
 from pandas import DataFrame
@@ -17,12 +17,12 @@ warnings.filterwarnings('ignore', 'This pattern has match groups')
 
 async def baixar_imagens(
 		urls_download: List[str], dir_saida='../../dataset', formatos=('jpeg', 'jpg', 'png'),
-		formato_saida='jpeg', label_cor: Optional[Tuple[int, int, int]] = None,
-		altura=600, largura=600
+		formato_saida='jpeg', label_cor: int = None,
+		altura_largura=(600, 600)
 ) -> None:
-	def preparar_img(img_bytes: io.BytesIO, altura=altura, largura=largura) -> bytes:
+	def preparar_img(img_bytes: io.BytesIO, altura_largura=altura_largura) -> bytes:
 		img_original_pb: Image = Image.open(img_bytes).convert('LA').convert('RGB')
-		img_redim: Image = img_original_pb.resize((altura, largura))
+		img_redim: Image = img_original_pb.resize(altura_largura)
 		img_bytes = io.BytesIO()
 		pixels = np.array(img_redim)
 		cor_branca = (255, 255, 255)
@@ -78,10 +78,10 @@ def relacionar_anotacao_com_causa_pd(
 		regex = fr'(^.*{causa}.*$)'
 		df_arq_causa[col_causa] = df_arq_causa[col_causa].str.replace(regex, causa, regex=True, case=False)
 
-	def fn_converter_nome_masc(arq_nome: str, sufixo=sufixo_anotacao):
+	def fn_converter_nome_mascara(arq_nome: str, sufixo=sufixo_anotacao):
 		return arq_nome.rsplit('.', 1)[0] + sufixo
 
-	df_arq_causa[col_arq] = df_arq_causa[col_arq].transform(fn_converter_nome_masc)
+	df_arq_causa[col_arq] = df_arq_causa[col_arq].transform(fn_converter_nome_mascara)
 
 	return {
 		causa: df_arq_causa.loc[df_arq_causa[col_causa] == causa, col_arq].to_list()
@@ -90,7 +90,8 @@ def relacionar_anotacao_com_causa_pd(
 
 
 async def baixar_salvar_imagens(
-		df_meta: DataFrame, causas: Iterable[str], dir_saida: str, agrupar_por_causa=False
+		df_meta: DataFrame, causas: Iterable[str], dir_saida: str, agrupar_por_causa=False,
+		altura_largura=(600, 600)
 ) -> Coroutine:
 	url_imagens_github = 'https://raw.githubusercontent.com/ieee8023/covid-chestxray-dataset/master/images/'
 	corotinas: List[Coroutine] = []
@@ -106,52 +107,88 @@ async def baixar_salvar_imagens(
 
 		# Concatene a url de download COM o nome de cada arquivo, para baixá-los
 		download_urls = [f'{url_imagens_github}/{arq_nome}' for arq_nome in df_part['filename'].to_list()]
-		corotinas.append(baixar_imagens(download_urls, f"{dir_saida}/{causa if agrupar_por_causa else ''}"))
+		corotinas.append(
+			baixar_imagens(
+				download_urls, f"{dir_saida}/{causa if agrupar_por_causa else ''}",
+				altura_largura=altura_largura
+			)
+		)
 
 	return await asyncio.gather(*corotinas)
 
 
 async def baixar_salvar_anot(
-		df_imgs: DataFrame, causas: Iterable[str], dir_saida: str, agrupar_por_causa=False
+		df_imgs: DataFrame, causas: Iterable[str], dir_saida: str, agrupar_por_causa=False,
+		altura_largura=(600, 600), sufixo_anotacao='.png'
 ) -> Coroutine:
+	url_anotacoes_gh = 'https://github.com/ieee8023/covid-chestxray-dataset/tree/master/annotations/lungVAE-masks'
+
 	# Extraia o nome dos arquivos de imagens anotadas
-	url_anotacoes_gh = 'https://raw.githubusercontent.com/ieee8023/covid-chestxray-dataset/master/annotations/lungVAE-masks/'
 	arq_nomes = extrair_nome_anotacoes(url_anotacoes_gh, 'js-navigation-open link-gray-dark')
 
-	causa_anot_nome: Dict[str, List[str]] = relacionar_anotacao_com_causa_pd(df_imgs, arq_nomes, causas)
+	url_anotacoes_down = 'https://raw.githubusercontent.com/ieee8023/covid-chestxray-dataset/master/annotations/lungVAE-masks'
+
+	causa_anot_nome: Dict[str, List[str]] = relacionar_anotacao_com_causa_pd(
+		df_imgs, arq_nomes, causas
+	)
 	tarefas: List[Coroutine] = []
-	cores_label = {'viral': (128, 64, 128), 'covid': (0, 192, 128), 'bacterial': (128, 192, 128)}
+	# viral (128, 64, 128): 1,
+	# covid (0, 192, 128): 2,
+	# bacterial (128, 192, 128): 3
+
+	cores_label = {'viral': 1, 'covid': 2, 'bacterial': 3}
 
 	# Concatene a url de download COM o nome de cada arquivo, para baixá-los
 	for causa in causa_anot_nome:
-		urls_download = [f'{url_anotacoes_gh}/{arq_nome}' for arq_nome in causa_anot_nome[causa]]
+		urls_download = [f'{url_anotacoes_down}/{arq_nome}' for arq_nome in causa_anot_nome[causa]]
 		tarefa = baixar_imagens(
 			urls_download, f"{dir_saida}/{causa if agrupar_por_causa else ''}",
-			formato_saida='png', label_cor=cores_label[causa]
+			formato_saida='png', label_cor=cores_label[causa], altura_largura=altura_largura
 		)
 		tarefas.append(tarefa)
 
 	return await asyncio.gather(*tarefas)
 
 
+def imgs_nao_existem(
+		dir_img: str, imgs_nome: List[str], dir_treino: str, imgs_treino_nome: List[str],
+		img_ext='jpeg', treino_ext='png'
+) -> List[str]:
+	imgs = glob.glob(f'{dir_img}/**/*.{img_ext}', recursive=True)
+	imgs_treino = glob.glob(f'{dir_treino}/**/*.{treino_ext}', recursive=True)
+
+	def img_existe(lista_imgs: List[str], img_nome: str) -> bool:
+		return any(img_nome in caminho for caminho in lista_imgs)
+
+	imgs_existentes = {nome for nome in imgs_nome if not img_existe(imgs, nome)}
+	imgs_treino_existentes = {nome for nome in imgs_treino_nome if not img_existe(imgs_treino, nome)}
+
+	print(len(imgs_existentes))
+	print(len(imgs_treino_existentes))
+
+	return list(imgs_existentes.union(imgs_treino_existentes))
+
+
 async def atualizar_imagens(
 		dir_saida_img: Optional[str], dir_saida_anot: Optional[str],
-		agrupar_por_causa=False, bacteria=False, covid=False, virus=False
+		agrupar_por_causa=False, bacteria=False, covid=False, virus=False,
+		altura_largura=(600, 600)
 ) -> Coroutine:
 	causas = ('covid', 'viral', 'bacterial')
 
 	# Baixar planilha de metadados das IMAGENS
 	url_metadados = 'https://raw.githubusercontent.com/ieee8023/covid-chestxray-dataset/master/metadata.csv'
-	df_imgs = filtrar_por_causas(
-		pd.read_csv(url_metadados), bacteria=bacteria, covid=covid, virus=virus
-	)
+	df_imgs = filtrar_por_causas(pd.read_csv(url_metadados), bacteria=bacteria, covid=covid, virus=virus)
 
 	tarefas: List[Coroutine] = []
+	# nomes_imgs = df_imgs['filename'].to_list()
+
+	# df_imgs = df_imgs[df_imgs['filename'].isin(imgs_nao_existem(dir_saida_img, nomes_imgs, dir_saida_anot, nomes_imgs))]
 
 	if (dir_saida_img):
-		tarefas.append(baixar_salvar_imagens(df_imgs, causas, dir_saida_img, agrupar_por_causa))
+		tarefas.append(baixar_salvar_imagens(df_imgs, causas, dir_saida_img, agrupar_por_causa, altura_largura))
 
 	if (dir_saida_anot):
-		tarefas.append(baixar_salvar_anot(df_imgs, causas, dir_saida_anot, agrupar_por_causa))
+		tarefas.append(baixar_salvar_anot(df_imgs, causas, dir_saida_anot, agrupar_por_causa, altura_largura))
 
 	return await asyncio.gather(*tarefas)

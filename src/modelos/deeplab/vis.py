@@ -81,6 +81,8 @@ def define_initial_flags() -> Any:
 		'Maximum number of visualization iterations. Will loop ''indefinitely upon nonpositive values.'
 	)
 
+	return flags
+
 
 flags = define_initial_flags()
 
@@ -372,6 +374,17 @@ def main(unused_argv):
 
 	train_id_to_eval_id = None
 
+	# Prepare for visualization.
+	tf.gfile.MakeDirs(FLAGS.vis_logdir)
+
+	save_dir = os.path.join(FLAGS.vis_logdir, _SEMANTIC_PREDICTION_SAVE_FOLDER)
+	tf.gfile.MakeDirs(save_dir)
+
+	raw_save_dir = os.path.join(FLAGS.vis_logdir, _RAW_SEMANTIC_PREDICTION_SAVE_FOLDER)
+	tf.gfile.MakeDirs(raw_save_dir)
+
+	tf.logging.info('Visualizing on %s set', FLAGS.vis_split)
+
 	with tf.Graph().as_default():
 		samples = dataset.get_one_shot_iterator().get_next()
 
@@ -451,14 +464,17 @@ def main(unused_argv):
 
 				while not sess.should_stop():
 					tf.logging.info('Visualizing batch %d', batch + 1)
-					_process_batch2(
+					imagens = _process_batch(
 						sess=sess,
 						original_images=samples[common.ORIGINAL_IMAGE],
 						semantic_predictions=predictions,
 						image_names=samples[common.IMAGE_NAME],
 						image_heights=samples[common.HEIGHT],
 						image_widths=samples[common.WIDTH],
-						train_id_to_eval_id=train_id_to_eval_id
+						image_id_offset=image_id_offset,
+						train_id_to_eval_id=train_id_to_eval_id,
+						save_dir=save_dir,
+						raw_save_dir=raw_save_dir
 					)
 					image_id_offset += FLAGS.vis_batch_size
 					batch += 1

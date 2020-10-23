@@ -12,8 +12,7 @@ warnings.filterwarnings('ignore', 'This pattern has match groups')
 
 
 async def baixar_arquivo(url_download: str, sessao: ClientSession) -> bytes:
-	await asyncio.sleep(1)
-	async with sessao.get(url_download) as resposta:
+	async with sessao.get(url_download, timeout=400) as resposta:
 		if resposta.status != 200:
 			print(resposta)
 		return await resposta.read()
@@ -32,15 +31,17 @@ async def baixar_arquivos(
 	imgs_nome = [path.basename(url_arq) for url_arq in url_download_tipos_filtrados]
 	paths_saida = [f'{dir_saida}/{nome}' for _, nome in enumerate(imgs_nome)]
 
-	async with ClientSession() as sessaoHttp:
-		lista_params = [(url_download_tipos_filtrados[i], sessaoHttp) for i in range(len(imgs_nome))]
-		arquivos = await asyncio.gather(*[baixar_arquivo(*params) for params in lista_params])
+	semaforo = asyncio.Semaphore(1)
 
-		for i, arq in enumerate(arquivos):
-			path_saida = paths_saida[i] if fmt_saida is None else f"{paths_saida[i].rsplit('.', 1)[0]}.{fmt_saida}"
-			print(path_saida)
-			with open(path_saida, 'wb') as handle:
-				handle.write(arq if fn_map is None else fn_map(io.BytesIO(arq)))
+	async with semaforo:
+		async with ClientSession(trust_env=True, timeout=400) as sessaoHttp:
+			lista_params = [(url_download_tipos_filtrados[i], sessaoHttp) for i in range(len(imgs_nome))]
+			arquivos = await asyncio.gather(*[baixar_arquivo(*params) for params in lista_params])
+
+			for i, arq in enumerate(arquivos):
+				path_saida = paths_saida[i] if fmt_saida is None else f"{paths_saida[i].rsplit('.', 1)[0]}.{fmt_saida}"
+				with open(path_saida.replace('_mask', ''), 'wb') as handle:
+					handle.write(arq if fn_map is None else fn_map(io.BytesIO(arq)))
 	return
 
 
