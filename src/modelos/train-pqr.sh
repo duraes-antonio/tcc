@@ -29,7 +29,6 @@ python3 "${WORK_DIR}/train.py" \
   --logtostderr \
   --train_split="train" \
   --model_variant="xception_65" \
-  --tf_initial_checkpoint="${INIT_MODEL}/deeplabv3_pascal_train_aug/model.ckpt" \
   --atrous_rates=6 \
   --atrous_rates=12 \
   --atrous_rates=18 \
