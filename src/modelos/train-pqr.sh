@@ -45,5 +45,7 @@ python3 "${WORK_DIR}/train.py" \
   --dataset_dir="${DATASET}" \
   --dataset="pqr" \
   --optimizer="adam" \
+  --base_learning_rate=0.01 \
+  --adam_learning_rate=0.01 \
   --initialize_last_layer=False \
   --last_layers_contain_logits_only=False
