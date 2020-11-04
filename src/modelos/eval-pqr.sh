@@ -17,7 +17,7 @@ python3 "${WORK_DIR}/eval.py" \
   --atrous_rates=18 \
   --output_stride=8 \
   --decoder_output_stride=8 \
-  --eval_crop_size=600,600 \
+  --eval_crop_size=192,192 \
   --checkpoint_dir="${TRAIN_LOGDIR}" \
   --eval_logdir="${EVAL_LOGDIR}" \
   --dataset_dir="${DATASET}" \

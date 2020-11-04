@@ -34,11 +34,11 @@ python3 "${WORK_DIR}/train.py" \
   --atrous_rates=18 \
   --output_stride=16 \
   --decoder_output_stride=4 \
-  --train_crop_size=400,400 \
-  --min_resize_value=200 \
-  --max_resize_value=500 \
+  --train_crop_size=192,192 \
+  --min_resize_value=96 \
+  --max_resize_value=192 \
   --resize_factor=16 \
-  --train_batch_size=4 \
+  --train_batch_size=16 \
   --training_number_of_steps="${NUM_ITERATIONS}" \
   --fine_tune_batch_norm=True \
   --train_logdir="${TRAIN_LOGDIR}" \
