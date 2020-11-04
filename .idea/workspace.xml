@@ -23,22 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="UP: Aplicação CLI para manipulação e download de imagens (repo. Chest Ray - IEEE)">
-      <change afterPath="$PROJECT_DIR$/src/compartilhado/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/compartilhado/constantes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/dataset_util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/v7labs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/v7labs/links_download/bacterial.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/v7labs/links_download/covid.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/v7labs/links_download/viral.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/v7labs/v7labs_json/bacteria.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/v7labs/v7labs_json/covid.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/datasets/v7labs/v7labs_json/virus.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelos/SegmentationModels/data_augmentation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelos/SegmentationModels/dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelos/deeplab/datasets/PQR/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/github_util.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PSDraw.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PaletteFile.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PcfFontFile.py" afterDir="false" />
@@ -440,8 +424,6 @@
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/token.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/unistring.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tcc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tcc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset/ImageSets/train.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset/ImageSets/trainval.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset/ImageSets/val.txt" beforeDir="false" />
@@ -1391,16 +1373,6 @@
       <change beforePath="$PROJECT_DIR$/dataset/JPEGImages/yxppt-2020-02-19_00-51-27_287214-day10.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset/JPEGImages/yxppt-2020-02-19_00-51-27_287214-day12.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset/JPEGImages/yxppt-2020-02-19_00-51-27_287214-day8.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DeepLab_v3+_TensorFlow.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/Pytorch-UNet/hubconf.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/Pytorch-UNet/hubconf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/Pytorch-UNet/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/Pytorch-UNet/predict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/Pytorch-UNet/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/Pytorch-UNet/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/Pytorch-UNet/utils/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/Pytorch-UNet/utils/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/datasets/data_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/deeplab/datasets/data_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/arquivo_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/arquivo_util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/dataset_util.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/imagem_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/imagem_util.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1674,7 +1646,7 @@
       <workItem from="1604035207147" duration="4879000" />
       <workItem from="1604089381370" duration="4544000" />
       <workItem from="1604330828608" duration="3401000" />
-      <workItem from="1604341098230" duration="12475000" />
+      <workItem from="1604341098230" duration="13359000" />
     </task>
     <task id="LOCAL-00001" summary="Teste com as bibliotecas e texto &quot;A Cartomante&quot;">
       <created>1583831588067</created>
@@ -1760,7 +1732,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603719241096</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="UP: Atualização de modelos e novo dataset (v7labs - covid-19-xray-dataset)">
+      <created>1604499993010</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1604499993010</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1830,7 +1809,8 @@
     <MESSAGE value="NEW: Upload dataset parcial com máscaras (virus, bacteria) + imagens" />
     <MESSAGE value="Ajustes scripts, sufixo de anotações,timeout p/ baixar imagens" />
     <MESSAGE value="UP: Aplicação CLI para manipulação e download de imagens (repo. Chest Ray - IEEE)" />
-    <option name="LAST_COMMIT_MESSAGE" value="UP: Aplicação CLI para manipulação e download de imagens (repo. Chest Ray - IEEE)" />
+    <MESSAGE value="UP: Atualização de modelos e novo dataset (v7labs - covid-19-xray-dataset)" />
+    <option name="LAST_COMMIT_MESSAGE" value="UP: Atualização de modelos e novo dataset (v7labs - covid-19-xray-dataset)" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -1858,10 +1838,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1603060852467" />
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1604499556288">
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1604500047616">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1604499556288" />
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1604500047616" />
     <state width="1534" height="440" key="DebuggerActiveHint" timestamp="1603532000780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1922,10 +1902,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1603563828195" />
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1603719257645">
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1604500057067">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603719257645" />
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604500057067" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1602478903389">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
