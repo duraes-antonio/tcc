@@ -224,7 +224,7 @@ def image_seg_to_tfexample(image_data: str, filename: str, height: int, width: i
 
 FLAGS = tf.app.flags.FLAGS
 
-path_dataset = 'PQR'
+path_dataset = './PQR'
 
 tf.app.flags.DEFINE_string(
 	'image_folder',
