@@ -11,7 +11,6 @@ from PIL.ImageOps import grayscale
 
 def contem_cor(imagem: Image, cor: Tuple[int, int, int]) -> bool:
 	pixels = np.array(imagem)
-	# return cor in np.all(imagem)
 	return len(pixels[np.all(pixels == cor, axis=-1)]) > 0
 
 
@@ -59,10 +58,26 @@ def ruido(img: Image, img_cinza=False, porcentagem=10):
 	return img_copia
 
 
+def substituir_cor(
+		img_bytes: io.BytesIO, cor_atual_rgb: Tuple[int, int, int],
+		cor_nova_rgb: Tuple[int, int, int], restante_preto=True,
+		formato_saida='jpeg'
+) -> bytes:
+	img_original: Image = PILImage.open(img_bytes).convert('RGB')
+	pixels = np.array(img_original)
+
+	if (restante_preto):
+		pixels[np.all(pixels != cor_atual_rgb, axis=-1)] = 0
+
+	pixels[np.all(pixels == cor_atual_rgb, axis=-1)] = cor_nova_rgb
+	return converter_img_para_bytes(PILImage.fromarray(pixels), formato_saida)
+
+
 def substituir_cores_por_indice(
 		imagem: Image, cores_indice: Dict[Tuple[int, int, int], int]
 ) -> Image:
 	pixels = np.array(imagem)
+	pixels[np.all(pixels == (255, 0, 0), axis=-1)] = (0, 0, 0)
 
 	for cor in cores_indice:
 		pixels[np.all(pixels == cor, axis=-1)] = cores_indice[cor]

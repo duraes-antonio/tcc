@@ -83,11 +83,11 @@ _PASCAL_VOC_SEG_INFORMATION = DatasetDescriptor(
 
 _PQR_INFORMATION = DatasetDescriptor(
 	splits_to_sizes={
-		'train': 453,
-		'val': 136,
-		'trainval': 589,
+		'train': 127,
+		'val': 55,
+		'trainval': 182,
 	},
-	num_classes=5,
+	num_classes=2,
 	ignore_label=255,
 )
 

@@ -3,7 +3,7 @@ import asyncio
 import glob
 import io
 import warnings
-from os import path, rename
+from os import path, replace
 from pathlib import Path
 from shutil import copyfile
 from typing import List, Optional, Callable, Tuple, Iterable, Set, Dict
@@ -27,20 +27,25 @@ async def baixar_arquivo(url_download: str, sessao: ClientSession) -> bytes:
 
 
 async def baixar_arquivos(
-		urls_download: List[str], dir_saida: str, formatos: Tuple[str],
-		fn_map: Optional[Callable[[io.BytesIO], bytes]], fmt_saida: Optional[str],
+		urls_download: List[str], dir_saida: str,
+		formatos: Optional[Tuple[str]] = None,
+		fn_map: Optional[Callable[[io.BytesIO], bytes]] = None,
+		fmt_saida: Optional[str] = None,
 		verbose=True
 ) -> None:
 	# Monte o nome do diretório e o crie (se não existir)
 	Path(dir_saida).mkdir(parents=True, exist_ok=True)
 
 	# Filtre somente os nomes de arquivos com as extensões aceitas
-	url_download_tipos_filtrados = [url for url in urls_download if url.lower().endswith(formatos)]
+	url_download_tipos_filtrados = [
+		url for url in urls_download
+		if formatos is None or url.lower().endswith(formatos)
+	]
 
 	imgs_nome = [path.basename(url_arq) for url_arq in url_download_tipos_filtrados]
 	paths_saida = [f'{dir_saida}/{nome}' for _, nome in enumerate(imgs_nome)]
 
-	semaforo = asyncio.Semaphore(2)
+	semaforo = asyncio.Semaphore(8)
 
 	async with semaforo:
 		async with ClientSession(trust_env=True, timeout=2000) as sessaoHttp:
@@ -115,7 +120,7 @@ def renomear_arquivo(arq_path: str, novo_nome: str) -> None:
 	:param novo_nome:
 	"""
 	novo_path = path.join(path.dirname(arq_path), path.basename(novo_nome))
-	rename(arq_path, novo_path)
+	replace(arq_path, novo_path)
 
 
 def extair_nome_arq(path_arq: str) -> str:
