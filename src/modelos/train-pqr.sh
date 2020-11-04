@@ -20,7 +20,6 @@ DATASET_DIR="datasets"
 # Set up the working directories.
 PQR_FOLDER="PQR"
 EXP_FOLDER="exp/train_on_trainval_set"
-INIT_MODEL="${WORK_DIR}/${DATASET_DIR}/${PQR_FOLDER}/${EXP_FOLDER}/init_models"
 TRAIN_LOGDIR="${WORK_DIR}/${DATASET_DIR}/${PQR_FOLDER}/${EXP_FOLDER}/train"
 DATASET="${WORK_DIR}/${DATASET_DIR}/${PQR_FOLDER}/tfrecord"
 
