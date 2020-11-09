@@ -5,5 +5,6 @@
     <mapping directory="$PROJECT_DIR$/src/modelos/Pytorch-UNet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/modelos/keras-deeplab-v3-plus" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/modelos/pytorch-deeplab-xception" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/temp/segmentation_models" vcs="Git" />
   </component>
 </project>

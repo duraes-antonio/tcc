@@ -23,6 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="UP: Aplicação CLI para manipulação e download de imagens (repo. Chest Ray - IEEE)">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PSDraw.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PaletteFile.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PcfFontFile.py" afterDir="false" />
@@ -424,7 +425,18 @@
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/token.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/unistring.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compartilhado/constantes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/compartilhado/constantes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasets/v7labs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/v7labs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasets/v7labs/v7labs_json/bacteria.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/v7labs/json_causas/bacteria.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasets/v7labs/v7labs_json/covid.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/v7labs/json_causas/covid.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasets/v7labs/v7labs_json/virus.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/v7labs/json_causas/virus.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/SegmentationModels/data_augmentation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelos/SegmentationModels/dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/imagem_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/imagem_util.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -476,7 +488,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -510,7 +522,7 @@
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\datasets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.v7labs (1)">
+  <component name="RunManager" selected="Python.main">
     <configuration name="arquivo_util" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="tcc" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -645,9 +657,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.v7labs (1)" />
         <item itemvalue="Python.v7labs" />
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.arquivo_util" />
         <item itemvalue="Python.dataset_util" />
       </list>
@@ -698,7 +710,9 @@
       <workItem from="1604035207147" duration="4879000" />
       <workItem from="1604089381370" duration="4544000" />
       <workItem from="1604330828608" duration="3401000" />
-      <workItem from="1604341098230" duration="18616000" />
+      <workItem from="1604341098230" duration="41695000" />
+      <workItem from="1604881165552" duration="933000" />
+      <workItem from="1604892127064" duration="3635000" />
     </task>
     <task id="LOCAL-00001" summary="Teste com as bibliotecas e texto &quot;A Cartomante&quot;">
       <created>1583831588067</created>
@@ -833,7 +847,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604507221719</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="FIX: Dimensões de crop de imagens de treino e validação">
+      <created>1604508332283</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1604508332283</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -910,7 +931,8 @@
     <MESSAGE value="UP: Remoção de path de modelo inicial para treinamento da Deeplab" />
     <MESSAGE value="FIX: Remoção de path de checkpoint de modelo inicial" />
     <MESSAGE value="FIX: Ajuste em Taxa de Aprendizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIX: Ajuste em Taxa de Aprendizado" />
+    <MESSAGE value="FIX: Dimensões de crop de imagens de treino e validação" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIX: Dimensões de crop de imagens de treino e validação" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -938,10 +960,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1603060852467" />
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1604507219806">
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1604898597722">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1604507219806" />
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1604898597722" />
     <state width="1534" height="440" key="DebuggerActiveHint" timestamp="1603532000780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -958,54 +980,54 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="238" y="164" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603262354520" />
-    <state width="1493" height="214" key="GridCell.Tab.0.bottom" timestamp="1604376950291">
+    <state width="1493" height="214" key="GridCell.Tab.0.bottom" timestamp="1604763435473">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="214" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604376950291" />
-    <state width="1493" height="214" key="GridCell.Tab.0.center" timestamp="1604376950291">
+    <state width="1493" height="214" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604763435473" />
+    <state width="1493" height="214" key="GridCell.Tab.0.center" timestamp="1604763435473">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="214" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604376950291" />
-    <state width="1493" height="214" key="GridCell.Tab.0.left" timestamp="1604376950291">
+    <state width="1493" height="214" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604763435473" />
+    <state width="1493" height="214" key="GridCell.Tab.0.left" timestamp="1604763435473">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="214" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604376950291" />
-    <state width="1493" height="214" key="GridCell.Tab.0.right" timestamp="1604376950291">
+    <state width="1493" height="214" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604763435473" />
+    <state width="1493" height="214" key="GridCell.Tab.0.right" timestamp="1604763435473">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="214" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604376950291" />
-    <state width="1493" height="214" key="GridCell.Tab.1.bottom" timestamp="1604376950291">
+    <state width="1493" height="214" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604763435473" />
+    <state width="1493" height="214" key="GridCell.Tab.1.bottom" timestamp="1604763435474">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="214" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604376950291" />
-    <state width="1493" height="214" key="GridCell.Tab.1.center" timestamp="1604376950291">
+    <state width="1493" height="214" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604763435474" />
+    <state width="1493" height="214" key="GridCell.Tab.1.center" timestamp="1604763435474">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="214" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1604376950291" />
-    <state width="1493" height="214" key="GridCell.Tab.1.left" timestamp="1604376950291">
+    <state width="1493" height="214" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1604763435474" />
+    <state width="1493" height="214" key="GridCell.Tab.1.left" timestamp="1604763435474">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="214" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1604376950291" />
-    <state width="1493" height="214" key="GridCell.Tab.1.right" timestamp="1604376950291">
+    <state width="1493" height="214" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1604763435474" />
+    <state width="1493" height="214" key="GridCell.Tab.1.right" timestamp="1604763435474">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="214" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1604376950291" />
+    <state width="1493" height="214" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1604763435474" />
     <state x="393" y="114" key="RollbackChangesDialog" timestamp="1603563524811">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="393" y="114" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603563524811" />
-    <state x="555" y="17" key="SettingsEditor" timestamp="1603939037765">
+    <state x="555" y="17" key="SettingsEditor" timestamp="1604898650559">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="555" y="17" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603939037765" />
+    <state x="555" y="17" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1604898650559" />
     <state x="618" y="326" key="VCS.ChangelistChooser" timestamp="1603563828195">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1603563828195" />
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1604507224552">
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1604508334282">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604507224552" />
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604508334282" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1602478903389">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1014,10 +1036,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="487" y="69" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForExport/0.0.1536.824@0.0.1536.824" timestamp="1601248106821" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604333937436">
+    <state x="93" y="93" width="1350" height="638" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604896186809">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1604333937436" />
+    <state x="93" y="93" width="1350" height="638" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1604896186809" />
     <state x="673" y="21" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603937583146">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1038,10 +1060,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="349" y="67" key="editAsTableFormatDialogDimension/0.0.1536.824@0.0.1536.824" timestamp="1603078025311" />
-    <state x="373" y="23" width="1010" height="801" key="find.popup" timestamp="1604506434346">
+    <state x="373" y="23" width="1010" height="801" key="find.popup" timestamp="1604721839011">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="373" y="23" width="1010" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1604506434346" />
+    <state x="373" y="23" width="1010" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1604721839011" />
     <state x="996" y="187" key="refactoring.ChangeSignatureDialog" timestamp="1602917329296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1070,8 +1092,8 @@
     <SUITE FILE_PATH="coverage/tcc$ieee8023.coverage" NAME="ieee8023 Coverage Results" MODIFIED="1603862200021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/datasets" />
     <SUITE FILE_PATH="coverage/tcc$Twisted_Trial_for_model_test_DeeplabModelTest.coverage" NAME="Twisted Trial for model_test.DeeplabModelTest Coverage Results" MODIFIED="1602207161276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/modelos/deeplab" />
     <SUITE FILE_PATH="coverage/tcc$arquivo_util.coverage" NAME="arquivo_util Coverage Results" MODIFIED="1603554020089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/util" />
-    <SUITE FILE_PATH="coverage/tcc$main.coverage" NAME="main Coverage Results" MODIFIED="1603858273859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/tcc$v7labs__1_.coverage" NAME="v7labs (1) Coverage Results" MODIFIED="1604376937924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/datasets" />
+    <SUITE FILE_PATH="coverage/tcc$v7labs__1_.coverage" NAME="v7labs (1) Coverage Results" MODIFIED="1604726006018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/datasets" />
+    <SUITE FILE_PATH="coverage/tcc$main.coverage" NAME="main Coverage Results" MODIFIED="1604733974680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/tcc$atualizar_imagens.coverage" NAME="atualizar_imagens Coverage Results" MODIFIED="1602859862047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/util" />
   </component>
 </project>

@@ -1,10 +1,11 @@
 import argparse
 import asyncio
 import datetime
+import shutil
 from os import path, remove
 from pathlib import Path
-from random import shuffle, uniform
-from typing import Dict, List, Coroutine, Optional, Tuple, Iterable
+from random import uniform
+from typing import Dict, List, Coroutine, Optional, Tuple, Iterable, Set
 
 from PIL import Image as PILImage
 from PIL.Image import Image
@@ -15,13 +16,9 @@ from datasets.dataset_util import atualizar_imagens
 
 
 def gerar_lista_arquivos(
-		dir_treino: str, dir_val: str, dir_saida='../dataset/ImageSets',
-		porcent_treino=0.7, porcent_val=0.2, porcent_teste=0.1, aleatorio=True
+		dir_treino: str, dir_val: str, dir_saida: str = None,
+		porcent_treino=0.7, porcent_val=0.2, porcent_teste=0.1
 ):
-	dic: Dict[str, set] = au.gerar_lista_validacao_treino(
-		dir_treino, dir_val, restringir_somente_treino=True
-	)
-
 	def criar_arq_lista_nomes(nome_arq_saida: str, nomes_arq: List[str]):
 		Path(dir_saida).mkdir(parents=True, exist_ok=True)
 
@@ -29,20 +26,27 @@ def gerar_lista_arquivos(
 			ult_indice = len(nomes_arq) - 1
 			arq.writelines([nome + '\n' if i != ult_indice else nome for i, nome in enumerate(nomes_arq)])
 
-	treino_ord = sorted(dic['treino'])
+	dir_saida = dir_saida or path.join(path.dirname(dir_treino), 'ImageSets')
+	dic: Dict[str, Set[str]] = au.gerar_lista_validacao_treino(
+		dir_treino, dir_val, restringir_somente_treino=True
+	)
+	arqs_nome = dic['treino']
 
-	if aleatorio:
-		shuffle(treino_ord)
+	arq_nome_bacteria = sorted({nome for nome in arqs_nome if nome.endswith('bacterial')})
+	arq_nome_covid = sorted({nome for nome in arqs_nome if nome.endswith('covid')})
+	arq_nome_virus = sorted({nome for nome in arqs_nome if nome.endswith('viral')})
+	fatia_nome_porcent = {'train': porcent_treino, 'val': porcent_val, 'test': porcent_teste}
+	porcent_inic = 0
 
-	treino_fatia = sorted(treino_ord[:int(len(treino_ord) * porcent_treino)])
-	validacao_ord = sorted(list(set(treino_ord) - set(treino_fatia))[:int(len(treino_ord) * porcent_val)])
-	teste_ord = sorted(
-		list(set(treino_ord) - set(treino_fatia) - set(validacao_ord))[:int(len(treino_ord) * porcent_teste)])
-
-	criar_arq_lista_nomes(f'{dir_saida}/train.txt', treino_fatia)
-	criar_arq_lista_nomes(f'{dir_saida}/val.txt', validacao_ord)
-	criar_arq_lista_nomes(f'{dir_saida}/test.txt', teste_ord)
-	criar_arq_lista_nomes(f'{dir_saida}/trainval.txt', treino_fatia + validacao_ord + teste_ord)
+	for nome_subset in fatia_nome_porcent:
+		porcent_fim = porcent_inic + fatia_nome_porcent[nome_subset]
+		arqs_bacteria = arq_nome_bacteria[
+						int(len(arq_nome_bacteria) * porcent_inic):int(len(arq_nome_bacteria) * porcent_fim)]
+		arqs_covid = arq_nome_covid[int(len(arq_nome_covid) * porcent_inic):int(len(arq_nome_covid) * porcent_fim)]
+		arqs_virus = arq_nome_virus[int(len(arq_nome_virus) * porcent_inic):int(len(arq_nome_virus) * porcent_fim)]
+		arqs_nome_salvar = [*arqs_bacteria, *arqs_covid, *arqs_virus]
+		criar_arq_lista_nomes(f'{dir_saida}/{nome_subset}.txt', arqs_nome_salvar)
+		porcent_inic += fatia_nome_porcent[nome_subset]
 
 
 def gerar_anot_img_adicional(
@@ -89,7 +93,7 @@ def gerar_anot_img_adicional(
 
 def padronizar_imgs(
 		arquivos_path: Iterable[str],
-		cores_indice: Optional[Dict[Tuple[int, int, int], int]] = None,
+		cores_indice: Optional[Dict[Tuple[int, int, int], Tuple[int, int, int]]] = None,
 		tamanho: Optional[Tuple[int, int]] = None,
 		formato: Optional[str] = None
 ):
@@ -182,6 +186,18 @@ def ler_args():
 		help="Altura e largura em pixels que as imagens"
 			 " serão salvas [default: None]",
 	)
+	parser.add_argument(
+		'--porcent_treino', '-ptreino', type=float, default=0.7, metavar='porcent_treino', required=False,
+		help='Porcentagem de dados para treino',
+	)
+	parser.add_argument(
+		'--porcent_val', '-pval', type=float, default=0.2, metavar='porcent_val', required=False,
+		help='Porcentagem de dados para validação',
+	)
+	parser.add_argument(
+		'--porcent_teste', '-pteste', type=float, default=0.1, metavar='porcent_teste', required=False,
+		help='Porcentagem de dados para teste',
+	)
 
 	return parser.parse_args()
 
@@ -241,6 +257,11 @@ def main():
 	args = ler_args()
 	dir_saida_img = args.dir_imagens
 	dir_saida_anot = args.dir_anotacoes
+
+	porc_treino = args.porcent_treino
+	porc_val = args.porcent_val
+	porc_teste = args.porcent_teste
+
 	img_fmt = args.formato_imagem
 	anot_fmt = args.formato_anotacao
 	tamanho = [int(t) for t in args.tamanho] if args.tamanho else None
@@ -256,13 +277,20 @@ def main():
 
 	cor_indice = {
 		# covid
-		(0, 192, 128): 1,
+		(0, 192, 128): (1, 1, 1),
 		# bacterial
-		(128, 192, 128): 2,
+		(128, 192, 128): (2, 2, 2),
 		# viral
-		(128, 64, 128): 3
+		(128, 64, 128): (3, 3, 3)
 	}
-	# cor_indice = {cor_indice[cor]: cor for cor in cor_indice}
+	cor_indice_reverso = {
+		# covid
+		(1, 1, 1): (0, 192, 128),
+		# bacterial
+		(2, 2, 2): (128, 192, 128),
+		# viral
+		(3, 3, 3): (128, 64, 128)
+	}
 
 	if args.gerar and args.gerar > 0:
 		print_msg('Geração de dados: Iniciada!')
@@ -289,8 +317,50 @@ def main():
 		padronizar_imgs(imagens_path, tamanho=tamanho, formato='jpeg')
 		print_msg(f'{msgs}: Finalizada!')
 
-	gerar_lista_arquivos(dir_saida_anot, dir_saida_img, porcent_treino=0.07, porcent_val=0.02, porcent_teste=0.01)
+	gerar_lista_arquivos(
+		dir_saida_anot, dir_saida_img, porcent_treino=porc_treino,
+		porcent_val=porc_val, porcent_teste=porc_teste
+	)
 	return 0
 
 
+def organizar_dados(
+		imgs_path: str, anots_path: str, img_ext='jpeg', anot_ext='png'
+):
+	arqs_sets_path = '../dataset/custom/ImageSets'
+	nomes_arq_sets = ['test', 'train', 'val']
+
+	for nome_set in nomes_arq_sets:
+		Path(path.join(imgs_path, nome_set)).mkdir()
+		Path(path.join(anots_path, f'{nome_set}_gt')).mkdir()
+
+	def copiar_img_anot(nome_set: str, nome_arq: str):
+		img_nome = f'{nome_arq}.{img_ext}'
+		anot_nome = f'{nome_arq}.{anot_ext}'
+		shutil.copyfile(
+			path.join(imgs_path, img_nome),
+			path.join(f'{imgs_path}/{nome_set}', img_nome)
+		)
+		shutil.copyfile(
+			path.join(anots_path, anot_nome),
+			path.join(f'{anots_path}/{nome_set}_gt', anot_nome)
+		)
+
+	for nome_arq_set in nomes_arq_sets:
+		with open(path.join(arqs_sets_path, f'{nome_arq_set}.txt'), 'r') as arq_set:
+			linhas_nome_arq = arq_set.readlines()
+			qtd_arqs = len(linhas_nome_arq)
+			print(f'---> Copiando e organizando - Dataset {nome_arq_set}')
+			print_barra_prog(0, qtd_arqs, length=50)
+
+			for i, arq_nome in enumerate(linhas_nome_arq):
+				copiar_img_anot(nome_arq_set, arq_nome.strip())
+				print_barra_prog(i + 1, qtd_arqs, length=50)
+
+
 main()
+
+# organizar_dados(
+# 	'../dataset/custom/JPEGImages',
+# 	'../dataset/custom/SegmentationClassIndex',
+# )

@@ -74,7 +74,7 @@ def substituir_cor(
 
 
 def substituir_cores_por_indice(
-		imagem: Image, cores_indice: Dict[Tuple[int, int, int], int]
+		imagem: Image, cores_indice: Dict[Tuple[int, int, int], Tuple[int, int, int]]
 ) -> Image:
 	pixels = np.array(imagem)
 	pixels[np.all(pixels == (255, 0, 0), axis=-1)] = (0, 0, 0)

@@ -52,10 +52,22 @@ def extrair_id_nome_json(
 		return {img_dados['id']: path.basename(img_dados['key']).rsplit('.', 1)[0] for img_dados in imgs_dados}
 
 
+def extrair_ids_arquivos_json(
+		path_json_causa: str, labels_ignorar: Optional[Set[int]] = None
+) -> Set[int]:
+	with open(path_json_causa, 'r') as json_file:
+		imgs_dados = [
+			img['dataset_image']['image'] for img in json.load(json_file)['items']
+			if labels_ignorar is None
+			   or not any(label in set(img['labels']) for label in labels_ignorar)
+		]
+		return {img_dados['id'] for img_dados in imgs_dados}
+
+
 def renomear_imgs_id(dir_base='../../dataset/v7labs/'):
-	anot_bacteria_cor = extrair_id_nome_json('datasets/v7labs/v7labs_json/bacteria.json')
-	anot_covid_cor = extrair_id_nome_json('datasets/v7labs/v7labs_json/covid.json')
-	anot_virus_cor = extrair_id_nome_json('datasets/v7labs/v7labs_json/virus.json', {8190})
+	anot_bacteria_cor = extrair_id_nome_json('datasets/v7labs/json_causas/bacteria.json')
+	anot_covid_cor = extrair_id_nome_json('datasets/v7labs/json_causas/covid.json')
+	anot_virus_cor = extrair_id_nome_json('datasets/v7labs/json_causas/virus.json', {8190})
 
 	for dic in [anot_bacteria_cor, anot_covid_cor, anot_virus_cor]:
 		for id in dic:
@@ -85,9 +97,9 @@ def apagar_anotacoes_imagens_ausentes():
 async def baixar_dataset(dir_anots: Optional[str] = None, dir_imgs: Optional[str] = None):
 	# tags_id_nome = {3241: 'viral', 3243: 'bacterial', 8190: 'covid'}
 	cor_dic_id_url = {
-		const.anot_bacteria_cor: extrair_id_url_json('datasets/v7labs/v7labs_json/covid.json'),
-		const.anot_covid_cor: extrair_id_url_json('datasets/v7labs/v7labs_json/bacteria.json'),
-		const.anot_virus_cor: extrair_id_url_json('datasets/v7labs/v7labs_json/virus.json', {8190})
+		const.anot_bacteria_cor: extrair_id_url_json('datasets/v7labs/json_causas/covid.json'),
+		const.anot_covid_cor: extrair_id_url_json('datasets/v7labs/json_causas/bacteria.json'),
+		const.anot_virus_cor: extrair_id_url_json('datasets/v7labs/json_causas/virus.json', {8190})
 	}
 	tarefas: List[Coroutine] = []
 
@@ -120,5 +132,39 @@ async def baixar_dataset(dir_anots: Optional[str] = None, dir_imgs: Optional[str
 	return await asyncio.gather(*tarefas)
 
 
+def adicionar_causa_nome_arquivo(
+		dir_anots: Optional[str] = None, dir_imgs: Optional[str] = None
+):
+	anot_bacteria_cor = {
+		id: 'bacterial' for id in
+		extrair_ids_arquivos_json('v7labs/json_causas/bacteria.json')
+	}
+	anot_covid_cor = {
+		id: 'covid' for id in
+		extrair_ids_arquivos_json('v7labs/json_causas/covid.json')
+	}
+	anot_virus_cor = {
+		id: 'viral' for id in
+		extrair_ids_arquivos_json('v7labs/json_causas/virus.json', {8190})
+	}
+	ids_causas = {**anot_bacteria_cor, **anot_covid_cor, **anot_virus_cor}
+	anots_path = au.obter_path_arquivos(dir_anots)
+	imgs_path = au.obter_path_arquivos(dir_imgs)
+
+	def renomear_com_causa(ids_causa: Dict[int, str], arqs_path: Set[str]):
+		for anot_path in arqs_path:
+			arq_nome_ext = path.basename(anot_path)
+			arq_ext = arq_nome_ext.rsplit('.', 1)[1]
+			arq_nome = arq_nome_ext.rsplit('.', 1)[0]
+			au.renomear_arquivo(
+				anot_path,
+				path.join(path.dirname(anot_path), f'{arq_nome}_{ids_causa[int(arq_nome)]}.{arq_ext}')
+			)
+
+	renomear_com_causa(ids_causas, anots_path)
+	renomear_com_causa(ids_causas, imgs_path)
+
+
 v7_dir = '../../dataset/v7labs/'
-asyncio.get_event_loop().run_until_complete(baixar_dataset(f'{v7_dir}/anot', None))
+# asyncio.get_event_loop().run_until_complete(baixar_dataset(f'{v7_dir}/anot', None))
+adicionar_causa_nome_arquivo('../../dataset/custom/SegmentationClass', '../../dataset/custom/JPEGImages')
