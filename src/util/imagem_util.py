@@ -76,13 +76,13 @@ def substituir_cor(
 def substituir_cores_por_indice(
 		imagem: Image, cores_indice: Dict[Tuple[int, int, int], Tuple[int, int, int]]
 ) -> Image:
-	pixels = np.array(imagem)
-	pixels[np.all(pixels == (255, 0, 0), axis=-1)] = (0, 0, 0)
+	img_arr = np.array(imagem, dtype=np.uint8)
+	pixels = np.zeros(shape=img_arr.shape, dtype=np.uint8)
 
-	for cor in cores_indice:
-		pixels[np.all(pixels == cor, axis=-1)] = cores_indice[cor]
+	for i, cor in enumerate(cores_indice):
+		pixels[np.all(img_arr == cor, axis=-1)] = i
 
-	img_cores_indexadas: Image = PILImage.fromarray(pixels)
+	img_cores_indexadas: Image = PILImage.fromarray((pixels).astype(np.uint8))
 	return img_cores_indexadas
 
 
@@ -103,12 +103,3 @@ def zoom(img: Image, porcentagem: float = 10) -> Image:
 	arr2 = np.array(larg_alt) * (1 - perc)
 	box = np.concatenate([arr, arr2])
 	return img.resize(larg_alt, box=tuple(box))
-
-# def translacionar(img: Image, esq=0, baixo=0, dir=0, cima=0):
-# 	image = img.copy()
-# 	shift = 20
-# 	# Shift the image 5 pixels
-# 	width, height = image.size
-# 	shifted_image = Image.new('RGB', (width + shift, height))
-# 	shifted_image.paste(image, (shift, 0))
-# 	shifted_image.resize(img.size, box=(0, 0, width, height))

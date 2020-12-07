@@ -167,4 +167,5 @@ def adicionar_causa_nome_arquivo(
 
 v7_dir = '../../dataset/v7labs/'
 # asyncio.get_event_loop().run_until_complete(baixar_dataset(f'{v7_dir}/anot', None))
-adicionar_causa_nome_arquivo('../../dataset/custom/SegmentationClass', '../../dataset/custom/JPEGImages')
+adicionar_causa_nome_arquivo('../../dataset/custom_original/SegmentationClass',
+							 '../../dataset/custom_original/JPEGImages')

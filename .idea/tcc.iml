@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/datasets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/compartilhado" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/correcoes" />
+      <excludeFolder url="file://$MODULE_DIR$/dataset" />
       <excludeFolder url="file://$MODULE_DIR$/src/venv" />
       <excludeFolder url="file://$MODULE_DIR$/tensorflow_models" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
