@@ -23,6 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="UP: Aplicação CLI para manipulação e download de imagens (repo. Chest Ray - IEEE)">
+      <change afterPath="$PROJECT_DIR$/src/util/cli_util.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PSDraw.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PaletteFile.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PcfFontFile.py" afterDir="false" />
@@ -424,6 +425,10 @@
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/token.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/unistring.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/imagem_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/imagem_util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/manipular_imagens.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -719,7 +724,8 @@
       <workItem from="1606766086899" duration="3884000" />
       <workItem from="1607054535200" duration="11732000" />
       <workItem from="1607605447285" duration="27000" />
-      <workItem from="1607649447429" duration="369000" />
+      <workItem from="1607649447429" duration="5375000" />
+      <workItem from="1607655038827" duration="2184000" />
     </task>
     <task id="LOCAL-00001" summary="Teste com as bibliotecas e texto &quot;A Cartomante&quot;">
       <created>1583831588067</created>
@@ -875,7 +881,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607337406240</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="CLEAN: Remoção de código de modelos e datasets">
+      <created>1607650093903</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1607650093903</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -955,7 +968,8 @@
     <MESSAGE value="FIX: Dimensões de crop de imagens de treino e validação" />
     <MESSAGE value="UP: Código p/ adicionar causa ao nome das imgs, divisor de diretórios por pocentagem e porcentagens na CLI" />
     <MESSAGE value="UP: Funções p/ particionar, renomear, padronizar imagens e máscaras" />
-    <option name="LAST_COMMIT_MESSAGE" value="UP: Funções p/ particionar, renomear, padronizar imagens e máscaras" />
+    <MESSAGE value="CLEAN: Remoção de código de modelos e datasets" />
+    <option name="LAST_COMMIT_MESSAGE" value="CLEAN: Remoção de código de modelos e datasets" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -983,10 +997,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1603060852467" />
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1607337384243">
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1607650043238">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1607337384243" />
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1607650043238" />
     <state width="1534" height="440" key="DebuggerActiveHint" timestamp="1603532000780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1047,10 +1061,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1603563828195" />
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1607337409892">
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1607650099976">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607337409892" />
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607650099976" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1602478903389">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1083,10 +1097,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="349" y="67" key="editAsTableFormatDialogDimension/0.0.1536.824@0.0.1536.824" timestamp="1603078025311" />
-    <state x="373" y="23" width="1010" height="801" key="find.popup" timestamp="1606667401386">
+    <state x="373" y="23" width="1010" height="801" key="find.popup" timestamp="1607652572580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="373" y="23" width="1010" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1606667401386" />
+    <state x="373" y="23" width="1010" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1607652572580" />
     <state x="996" y="187" key="refactoring.ChangeSignatureDialog" timestamp="1602917329296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -2,11 +2,19 @@ import io
 from random import random
 from typing import Dict, Tuple, Optional
 
+import cv2
 import numpy as np
 from PIL import Image as PILImage
 from PIL import ImageFilter
 from PIL.Image import Image
 from PIL.ImageOps import grayscale
+
+
+def aplicar_transf_morf(img: Image, kernel_tamanho=(32, 32)):
+	kernel = np.ones(kernel_tamanho, np.uint8)
+	th = cv2.morphologyEx(img, cv2.MORPH_TOPHAT, kernel)
+	bh = cv2.morphologyEx(img, cv2.MORPH_BLACKHAT, kernel)
+	return cv2.subtract(cv2.add(img, th), bh)
 
 
 def contem_cor(imagem: Image, cor: Tuple[int, int, int]) -> bool:
@@ -24,6 +32,18 @@ def converter_img_para_bytes(img: Image, formato: str) -> bytes:
 
 def gauss_blur(img: Image, fator=1) -> Image:
 	return img.filter(ImageFilter.GaussianBlur(fator))
+
+
+def imagepil_para_opencv_hist_equal(img: Image):
+	numpy_image = np.array(img.convert('L'))
+	img_open_cv = cv2.equalizeHist(np.array(numpy_image))
+	return img_open_cv
+
+
+def imagepil_para_opencv(img: Image):
+	numpy_image = np.array(img.convert('L'))
+	img_open_cv = np.array(numpy_image)
+	return img_open_cv
 
 
 def modificar_img(
