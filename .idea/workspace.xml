@@ -424,12 +424,6 @@
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/token.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/unistring.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tcc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tcc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/datasets/v7labs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/datasets/v7labs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelos/deeplab/datasets/data_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelos/deeplab/datasets/data_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/imagem_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/imagem_util.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -723,7 +717,9 @@
       <workItem from="1606636202382" duration="9828000" />
       <workItem from="1606722749395" duration="4960000" />
       <workItem from="1606766086899" duration="3884000" />
-      <workItem from="1607054535200" duration="11613000" />
+      <workItem from="1607054535200" duration="11732000" />
+      <workItem from="1607605447285" duration="27000" />
+      <workItem from="1607649447429" duration="369000" />
     </task>
     <task id="LOCAL-00001" summary="Teste com as bibliotecas e texto &quot;A Cartomante&quot;">
       <created>1583831588067</created>
@@ -872,7 +868,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604898802486</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="UP: Funções p/ particionar, renomear, padronizar imagens e máscaras">
+      <created>1607337406239</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1607337406240</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -951,7 +954,8 @@
     <MESSAGE value="FIX: Ajuste em Taxa de Aprendizado" />
     <MESSAGE value="FIX: Dimensões de crop de imagens de treino e validação" />
     <MESSAGE value="UP: Código p/ adicionar causa ao nome das imgs, divisor de diretórios por pocentagem e porcentagens na CLI" />
-    <option name="LAST_COMMIT_MESSAGE" value="UP: Código p/ adicionar causa ao nome das imgs, divisor de diretórios por pocentagem e porcentagens na CLI" />
+    <MESSAGE value="UP: Funções p/ particionar, renomear, padronizar imagens e máscaras" />
+    <option name="LAST_COMMIT_MESSAGE" value="UP: Funções p/ particionar, renomear, padronizar imagens e máscaras" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -979,10 +983,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1603060852467" />
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1606292768987">
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1607337384243">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1606292768987" />
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1607337384243" />
     <state width="1534" height="440" key="DebuggerActiveHint" timestamp="1603532000780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1043,10 +1047,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1603563828195" />
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1604898807530">
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1607337409892">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604898807530" />
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607337409892" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1602478903389">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
