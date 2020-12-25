@@ -41,7 +41,8 @@ def imagepil_para_opencv_hist_equal(img: Image):
 
 
 def imagepil_para_opencv(img: Image):
-	numpy_image = np.array(img.convert('L'))
+	# numpy_image = np.array(img.convert('L'))
+	numpy_image = np.array(img.convert('RGB'))
 	img_open_cv = np.array(numpy_image)
 	return img_open_cv
 

@@ -2,7 +2,7 @@ import argparse
 import datetime
 from typing import Iterable
 
-import arquivo_util as au
+import util.arquivo_util as au
 
 
 def boolean(valor: str) -> bool:
@@ -27,7 +27,7 @@ class CLIArgs:
 			porcent_treino=.7, porcent_val=.2, porcent_teste=.1,
 			tamanho: Iterable[int] = (512, 512), equalizar_histograma=False,
 			transformacao_morfologica=False,
-			imagem_formato='jpeg', anotacao_formato='png'
+			imagem_formato='jpeg', anotacao_formato='png', voc=False, causa=True
 	):
 		self.transformacao_morfologica = transformacao_morfologica
 		self.equalizar_histograma = equalizar_histograma
@@ -41,6 +41,8 @@ class CLIArgs:
 		self.tamanho = tamanho
 		self.imagem_formato = imagem_formato
 		self.anotacao_formato = anotacao_formato
+		self.voc = voc
+		self.causa = causa
 
 
 def ler_args() -> CLIArgs:
@@ -100,6 +102,14 @@ def ler_args() -> CLIArgs:
 		'--transf_morfologica', '-tm', type=boolean, default=False, metavar='trans_morf', required=False,
 		help='Define se transformações morfológicas serão usadas nas imagens [default: False]',
 	)
+	parser.add_argument(
+		'--voc', '-v', type=boolean, default=False, metavar='voc', required=False,
+		help='Define se o dataset será gerado no formato PASCAL VOC [default: False]',
+	)
+	parser.add_argument(
+		'--causa', '-c', type=boolean, default=False, metavar='causa', required=True,
+		help='Define se a causa da pneumonia irá no nome dos arquivos [default: True]',
+	)
 	_args = parser.parse_args()
 	args_obj = CLIArgs(
 		dir_imagens=_args.dir_imagens, dir_anotacoes=_args.dir_anotacoes,
@@ -107,17 +117,20 @@ def ler_args() -> CLIArgs:
 		porcent_treino=_args.porcent_treino, porcent_val=_args.porcent_val,
 		porcent_teste=_args.porcent_teste,
 		tamanho=[int(t) for t in _args.tamanho] if _args.tamanho else None,
-		equalizar_histograma=_args.equalizar, transformacao_morfologica=_args.trans_morf,
-		imagem_formato=_args.formato_imagem, anotacao_formato=_args.formato_anotacao
+		equalizar_histograma=_args.equal_histograma,
+		transformacao_morfologica=_args.transf_morfologica,
+		imagem_formato=_args.formato_imagem, anotacao_formato=_args.formato_anotacao,
+		voc=_args.voc,
+		causa=_args.causa
 	)
 	return args_obj
 
 
 def print_barra_prog(
 		iteracao: int, total: float, prefix='Progresso', suffix='Finalizado',
-		decimals=1, comprimento=100, fill='█', print_char_end='\r'
+		decimals=1, comprimento=50, fill='█', print_char_end='\r'
 ):
-	prog = 100 * (iteracao / max(float(total), 1))
+	prog = comprimento * (iteracao / max(float(total), 1))
 	percent = ("{0:." + str(decimals) + "f}").format(prog)
 	qtd_atingida = int(comprimento * iteracao // max(total, 1))
 	bar = fill * qtd_atingida + '-' * (comprimento - qtd_atingida)

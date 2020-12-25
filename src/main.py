@@ -1,21 +1,17 @@
-import asyncio
 import json
 import shutil
 import sys
 from os import path, listdir
 from pathlib import Path
-from random import uniform
-from typing import Dict, List, Coroutine, Optional, Tuple, Iterable, Set
+from typing import Dict, List, Optional, Tuple, Iterable, Set
 
 import cv2
 import numpy
 from PIL import Image as PILImage
-from PIL.Image import Image
 
 import util.arquivo_util as au
-import util.imagem_util as iu
 import util.cli_util as cli
-from datasets.dataset_util import atualizar_imagens
+import util.imagem_util as iu
 
 numpy.set_printoptions(threshold=sys.maxsize)
 
@@ -79,7 +75,7 @@ def gerar_lista_arquivos(
 def padronizar_imgs(
 		arquivos_path: Iterable[str],
 		cores_indice: Optional[Dict[Tuple[int, int, int], Tuple[int, int, int]]] = None,
-		tamanho: Optional[Iterable[int, int]] = None,
+		tamanho: Optional[Iterable[int]] = None,
 		formato: Optional[str] = None, dir_saida: Optional[str] = None,
 		equalizar=False, aplicar_transf_morf=False
 ):
@@ -109,7 +105,7 @@ def padronizar_imgs(
 			if equalizar:
 				img_open_cv = iu.imagepil_para_opencv_hist_equal(img)
 			elif aplicar_transf_morf:
-				img_open_cv = iu.imagepil_para_opencv_hist_equal(img)
+				img_open_cv = iu.aplicar_transf_morf(iu.imagepil_para_opencv(img))
 			else:
 				img_open_cv = iu.imagepil_para_opencv(img)
 			cv2.imwrite(path.join(dir_saida or path.dirname(arq_path), arq_novo_nome), img_open_cv)
@@ -201,7 +197,7 @@ def padronizar_dir_completo(
 		dir_saida_imgs: str = None, dir_saida_anots: str = None,
 		tamanho: Iterable[int] = None,
 		cor_indice: Dict[Tuple[int, int, int], Tuple[int, int, int]] = None,
-		img_ext='jpeg', anot_ext='png', equalizar=False
+		img_ext='jpeg', anot_ext='png', equalizar=False, transf_morf=False
 ):
 	msg_conversao_cor = 'Conversão de cor' if cor_indice else ''
 	msg_tamanho = 'Padronização de tamanho' if tamanho else ''
@@ -215,7 +211,10 @@ def padronizar_dir_completo(
 	dir_saida_imgs = dir_saida_imgs or path.dirname(dir_imgs)
 
 	padronizar_imgs(anotacoes_path, cor_indice, tamanho, anot_ext, dir_saida=dir_saida_anots)
-	padronizar_imgs(imagens_path, tamanho=tamanho, formato=img_ext, dir_saida=dir_saida_imgs, equalizar=equalizar)
+	padronizar_imgs(
+		imagens_path, tamanho=tamanho, formato=img_ext,
+		dir_saida=dir_saida_imgs, equalizar=equalizar, aplicar_transf_morf=transf_morf
+	)
 	cli.print_msg(f'{msgs}: Finalizada!')
 
 
@@ -223,7 +222,7 @@ def padronizar_particionar_imgs(
 		dir_imgs: str, dir_anots: str, dir_sets_txt: str,
 		dir_raiz_saida: str, tamanho: Iterable[int] = None,
 		cor_indice: Dict[Tuple[int, int, int], Tuple[int, int, int]] = None,
-		img_ext='jpeg', anot_ext='png', equalizar=False
+		img_ext='jpeg', anot_ext='png', equalizar=False, transf_morf=False
 ):
 	msg_conversao_cor = 'Conversão de cor' if cor_indice else ''
 	msg_tamanho = 'Padronização de tamanho' if tamanho else ''
@@ -253,7 +252,51 @@ def padronizar_particionar_imgs(
 
 		cli.print_msg(f'Padronizando imagens - Dataset {part}')
 		padronizar_imgs(anotacoes_path, cor_indice, tamanho, anot_ext, dir_saida=dir_saida_anots)
-		padronizar_imgs(imagens_path, tamanho=tamanho, formato=img_ext, dir_saida=dir_saida_imgs, equalizar=equalizar)
+		padronizar_imgs(
+			imagens_path, tamanho=tamanho, formato=img_ext, dir_saida=dir_saida_imgs,
+			equalizar=equalizar, aplicar_transf_morf=transf_morf
+		)
+
+	cli.print_msg(f'{msgs}: Finalizada!')
+
+
+def padronizar_particionar_imgs_VOC(
+		dir_imgs: str, dir_anots: str, dir_sets_txt: str,
+		dir_raiz_saida: str, tamanho: Iterable[int] = None,
+		cor_indice: Dict[Tuple[int, int, int], Tuple[int, int, int]] = None,
+		img_ext='jpeg', anot_ext='png', equalizar=False, transf_morf=False
+):
+	msg_conversao_cor = 'Conversão de cor' if cor_indice else ''
+	msg_tamanho = 'Padronização de tamanho' if tamanho else ''
+	msgs = ' e '.join([msg for msg in [msg_conversao_cor, msg_tamanho] if msg.strip()])
+	cli.print_msg(f'{msgs}: Iniciada!')
+	particoes = ['test', 'train', 'val']
+	dir_saida_anot = 'SegmentationClass'
+	dir_saida_img = 'JPEGImages'
+
+	for part in particoes:
+		with open(path.join(dir_sets_txt, f'{part}.txt'), 'r') as set_txt:
+			arqs_nome = {linha.strip() for linha in set_txt.readlines()}
+
+		anotacoes_path = [
+			path.join(dir_anots, path.basename(arq_nome))
+			for arq_nome in au.obter_path_arquivos(dir_anots)
+			if path.basename(arq_nome).rsplit('.', 1)[0] in arqs_nome
+		]
+		imagens_path = [
+			path.join(dir_imgs, path.basename(arq_nome))
+			for arq_nome in au.obter_path_arquivos(dir_imgs)
+			if path.basename(arq_nome).rsplit('.', 1)[0] in arqs_nome
+		]
+		dir_saida_anots = path.join(dir_raiz_saida, dir_saida_anot) or path.dirname(dir_anots)
+		dir_saida_imgs = path.join(dir_raiz_saida, dir_saida_img) or path.dirname(dir_imgs)
+
+		cli.print_msg(f'Padronizando imagens - Dataset {part}')
+		padronizar_imgs(anotacoes_path, cor_indice, tamanho, anot_ext, dir_saida=dir_saida_anots)
+		padronizar_imgs(
+			imagens_path, tamanho=tamanho, formato=img_ext, dir_saida=dir_saida_imgs,
+			equalizar=equalizar, aplicar_transf_morf=transf_morf
+		)
 
 	cli.print_msg(f'{msgs}: Finalizada!')
 
@@ -261,7 +304,7 @@ def padronizar_particionar_imgs(
 def gerar_nome_diretorio_saida(
 		tamanho: Iterable[int], porc_treino: float, porc_val: float,
 		porc_teste: float, nome_base: str, equalizar_hist=False,
-		transf_morf=False
+		transf_morf=False, voc=False, cor_indice=True, exibir_causa=True
 ) -> str:
 	nome_partes = [
 		nome_base or '',
@@ -271,12 +314,41 @@ def gerar_nome_diretorio_saida(
 		str(int(porc_teste * 100)),
 		'hist-equal' if equalizar_hist else '',
 		'transf-morf' if transf_morf else '',
+		'VOC' if voc else '',
+		'' if cor_indice else 'cor',
+		'causa' if exibir_causa else '',
 	]
 	return '_'.join([parte for parte in nome_partes if parte])
 
 
+def remover_causa_imagesets(dir_imagesets: str, sep='_'):
+	import os
+	_path = path.join(dir_imagesets, 'ImageSets')
+	arqs_nome = [path.join(_path, arq) for arq in os.listdir(_path)]
+
+	for nome_set in arqs_nome:
+		linhas = []
+		with open(nome_set, 'r') as arq_leitura:
+			linhas = arq_leitura.readlines()
+
+		with open(nome_set, 'w') as arq_escrita:
+			linhas_novas = [l.split(sep)[0] + '\n' for l in linhas]
+			arq_escrita.writelines(linhas_novas)
+
+
+def remover_causa_imagens(dir_imagens: str, sep='_'):
+	imagens_path = au.obter_path_arquivos(dir_imagens)
+	for p in imagens_path:
+		dir = path.dirname(p)
+		arq_nome_ext = path.basename(p)
+		arq_nome = arq_nome_ext.rsplit('.', 1)[0].split(sep)[0]
+		ext = arq_nome_ext.rsplit('.', 1)[1]
+		au.renomear_arquivo(p, path.join(dir, f'{arq_nome}.{ext}'))
+
+
 def main():
 	args = cli.ler_args()
+	print(args.cor_indice)
 	cor_indice = {
 		(1, 1, 1): (0, 0, 0),
 		# covid
@@ -304,7 +376,8 @@ def main():
 	dir_saida = gerar_nome_diretorio_saida(
 		args.tamanho, args.porcent_treino, args.porcent_val,
 		args.porcent_teste, dir_saida_raiz, args.equalizar_histograma,
-		args.transformacao_morfologica
+		args.transformacao_morfologica, args.voc, args.cor_indice,
+		args.causa
 	)
 
 	if padronizar_particionar:
@@ -313,11 +386,18 @@ def main():
 			porcent_treino=args.porcent_treino, porcent_val=args.porcent_val,
 			porcent_teste=args.porcent_teste, formato_VOC=True
 		)
-		padronizar_particionar_imgs(
-			args.dir_imagens, args.dir_anotacoes, path.join(dir_saida, 'ImageSets'),
-			dir_saida, args.tamanho, cor_indice, args.imagem_formato,
-			args.anotacao_formato, args.equalizar_histograma
-		)
+		if (args.voc):
+			padronizar_particionar_imgs_VOC(
+				args.dir_imagens, args.dir_anotacoes, path.join(dir_saida, 'ImageSets'),
+				dir_saida, args.tamanho, cor_indice if args.cor_indice else None, args.imagem_formato,
+				args.anotacao_formato, args.equalizar_histograma, args.transformacao_morfologica
+			)
+		else:
+			padronizar_particionar_imgs(
+				args.dir_imagens, args.dir_anotacoes, path.join(dir_saida, 'ImageSets'),
+				dir_saida, args.tamanho, cor_indice if args.cor_indice else None, args.imagem_formato,
+				args.anotacao_formato, args.equalizar_histograma, args.transformacao_morfologica
+			)
 
 	elif args.particionar:
 		gerar_lista_arquivos(
@@ -339,8 +419,12 @@ def main():
 			path.join(dir_saida, path.basename(args.dir_imagens)),
 			path.join(dir_saida, path.basename(args.dir_anotacoes)),
 			args.tamanho, cor_indice, args.imagem_formato, args.anotacao_formato,
-			args.equalizar_histograma
+			args.equalizar_histograma, args.transformacao_morfologica
 		)
+
+	if not args.causa:
+		remover_causa_imagesets(dir_saida)
+		remover_causa_imagens(dir_saida)
 
 	return 0
 
