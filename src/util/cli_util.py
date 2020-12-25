@@ -128,7 +128,7 @@ def ler_args() -> CLIArgs:
 
 def print_barra_prog(
 		iteracao: int, total: float, prefix='Progresso', suffix='Finalizado',
-		decimals=1, comprimento=50, fill='█', print_char_end='\r'
+		decimals=1, comprimento=100, fill='█', print_char_end='\r'
 ):
 	prog = comprimento * (iteracao / max(float(total), 1))
 	percent = ("{0:." + str(decimals) + "f}").format(prog)
