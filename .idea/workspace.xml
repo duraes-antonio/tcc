@@ -22,412 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="UP: Aplicação CLI para manipulação e download de imagens (repo. Chest Ray - IEEE)">
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PSDraw.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PaletteFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PcfFontFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PcxImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PdfImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PdfParser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PixarImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PngImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PpmImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PsdImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/PyAccess.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/SgiImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/SpiderImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/SunImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/TarIO.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/TgaImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/TiffImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/TiffTags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/WalImageFile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/WebPImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/WmfImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/XVThumbImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/XbmImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/XpmImagePlugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_binary.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_imaging.cp36-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_imagingcms.cp36-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_imagingft.cp36-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_imagingmath.cp36-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_imagingmorph.cp36-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_imagingtk.cp36-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_tkinter_finder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_util.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/PIL/_webp.cp36-win_amd64.pyd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/Pillow-6.2.0.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/Pillow-6.2.0.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/Pillow-6.2.0.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/Pillow-6.2.0.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/Pillow-6.2.0.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/Pillow-6.2.0.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/Pillow-6.2.0.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/Pillow-6.2.0.dist-info/zip-safe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandas-0.25.3.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandas-0.25.3.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandas-0.25.3.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandas-0.25.3.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandas-0.25.3.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandas-0.25.3.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandas-0.25.3.dist-info/entry_points.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandas-0.25.3.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandocfilters-1.4.2.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandocfilters-1.4.2.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandocfilters-1.4.2.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandocfilters-1.4.2.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandocfilters-1.4.2.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pandocfilters-1.4.2.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso-0.7.1.dist-info/AUTHORS.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso-0.7.1.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso-0.7.1.dist-info/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso-0.7.1.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso-0.7.1.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso-0.7.1.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso-0.7.1.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/__init__.pyi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/_compatibility.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/cache.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/file_io.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/grammar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/grammar.pyi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/normalizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/pgen2/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/pgen2/__init__.pyi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/pgen2/generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/pgen2/generator.pyi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/pgen2/grammar_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/pgen2/grammar_parser.pyi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/py.typed" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/diff.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/errors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/grammar27.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/grammar310.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/grammar33.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/grammar34.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/grammar35.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/grammar36.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/grammar37.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/grammar38.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/grammar39.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/pep8.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/prefix.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/token.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/token.pyi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/tokenize.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/tokenize.pyi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/python/tree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/tree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/parso/utils.pyi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/augment/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/augment/errors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/augment/import_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/augment/import_utils_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/augment/inline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/augment/inline_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/augment/rename.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/augment/rename_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/annotate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/annotate_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/ast_constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/ast_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/ast_utils_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/codegen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/codegen_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/formatting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/fstring_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/scope.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/scope_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/test_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/test_utils_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pasta/base/token_generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc-2.0.2.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc-2.0.2.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc-2.0.2.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc-2.0.2.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc-2.0.2.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/Auth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/C_snode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/C_stringCore.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/_colors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/debug.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/dgmsocket.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/error.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/local_ip.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/other.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/pfmisc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pfmisc/pfmisc2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pickleshare-0.7.5.dist-info/DESCRIPTION.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pickleshare-0.7.5.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pickleshare-0.7.5.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pickleshare-0.7.5.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pickleshare-0.7.5.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pickleshare-0.7.5.dist-info/metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pickleshare-0.7.5.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/bridge/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/bridge/graphite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/context_managers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/core.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/decorator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/exposition.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/gc_collector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/metrics_core.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/mmap_dict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/multiprocess.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/openmetrics/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/openmetrics/exposition.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/openmetrics/parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/platform_collector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/process_collector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/registry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/samples.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/twisted/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/twisted/_exposition.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prometheus_client/values.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/application/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/application/application.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/application/current.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/application/dummy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/application/run_in_terminal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/auto_suggest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/buffer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/cache.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/clipboard/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/clipboard/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/clipboard/in_memory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/clipboard/pyperclip.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/completion/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/completion/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/completion/filesystem.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/completion/fuzzy_completer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/completion/nested.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/completion/word_completer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/completers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/completers/system.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/regular_languages/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/regular_languages/compiler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/regular_languages/completion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/regular_languages/lexer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/regular_languages/regex_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/regular_languages/validation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/ssh/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/ssh/server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/telnet/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/telnet/log.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/telnet/protocol.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/contrib/telnet/server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/data_structures.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/document.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/enums.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/eventloop/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/eventloop/async_context_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/eventloop/async_generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/eventloop/dummy_contextvars.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/eventloop/inputhook.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/eventloop/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/eventloop/win32.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/filters/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/filters/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/filters/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/filters/cli.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/filters/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/formatted_text/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/formatted_text/ansi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/formatted_text/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/formatted_text/html.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/formatted_text/pygments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/formatted_text/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/history.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/ansi_escape_sequences.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/defaults.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/posix_pipe.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/posix_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/typeahead.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/vt100.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/vt100_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/win32.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/input/win32_pipe.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/auto_suggest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/basic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/completion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/cpr.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/emacs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/focus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/mouse.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/named_commands.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/open_in_editor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/page_navigation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/scroll.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/bindings/vi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/defaults.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/digraphs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/emacs_state.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/key_bindings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/key_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/key_binding/vi_state.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/keys.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/containers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/controls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/dimension.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/dummy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/layout.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/margins.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/menus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/mouse_handlers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/processors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/screen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/layout/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/lexers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/lexers/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/lexers/pygments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/log.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/mouse_events.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/output/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/output/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/output/color_depth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/output/conemu.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/output/defaults.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/output/vt100.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/output/win32.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/output/windows10.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/patch_stdout.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/renderer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/selection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/shortcuts/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/shortcuts/dialogs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/shortcuts/progress_bar/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/shortcuts/progress_bar/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/shortcuts/progress_bar/formatters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/shortcuts/prompt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/shortcuts/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/styles/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/styles/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/styles/defaults.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/styles/named_colors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/styles/pygments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/styles/style.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/styles/style_transformation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/token.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/validation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/widgets/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/widgets/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/widgets/dialogs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/widgets/menus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/widgets/toolbars.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/prompt_toolkit/win32_types.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/protobuf-3.13.0.dist-info/DESCRIPTION.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/protobuf-3.13.0.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/protobuf-3.13.0.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/protobuf-3.13.0.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/protobuf-3.13.0.dist-info/REQUESTED" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/protobuf-3.13.0.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/protobuf-3.13.0.dist-info/metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/protobuf-3.13.0.dist-info/namespace_packages.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/protobuf-3.13.0.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/ber/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/ber/decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/ber/encoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/ber/eoo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/cer/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/cer/decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/cer/encoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/der/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/der/decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/der/encoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/native/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/native/decoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/codec/native/encoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/compat/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/compat/binary.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/compat/calling.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/compat/dateandtime.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/compat/integer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/compat/octets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/compat/string.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/debug.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/error.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/char.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/constraint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/error.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/namedtype.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/namedval.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/opentype.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/tag.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/tagmap.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/univ.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pyasn1/type/useful.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pycparser-2.20.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pycparser-2.20.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pycparser-2.20.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pycparser-2.20.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pycparser-2.20.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pycparser-2.20.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pydicom-2.0.0.dist-info/INSTALLER" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pydicom-2.0.0.dist-info/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pydicom-2.0.0.dist-info/METADATA" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pydicom-2.0.0.dist-info/RECORD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pydicom-2.0.0.dist-info/WHEEL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pydicom-2.0.0.dist-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/cmdline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/console.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/filter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/formatter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/lexer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/lexers/actionscript.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/lexers/agile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/lexers/algebra.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/lexers/ambient.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/lexers/ampl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/lexers/apl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/lexers/archetype.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/lexers/arrow.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/modeline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/plugin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/regexopt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/scanner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/sphinxext.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/style.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/token.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/unistring.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/venv/Lib/site-packages/pygments/util.py" afterDir="false" />
+    <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/Adam_categorical_crossentropy_batch-4_epoch-1_LR-0.0001_dropout-0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/Adam_test_batch-4_epoch-1_LR-0.0001_dropout-0_test.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/cli_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/cli_util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/imagem_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/imagem_util.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -734,7 +339,9 @@
       <workItem from="1608594802653" duration="1175000" />
       <workItem from="1608892332509" duration="626000" />
       <workItem from="1608925565195" duration="373000" />
-      <workItem from="1608926574691" duration="740000" />
+      <workItem from="1608926574691" duration="1311000" />
+      <workItem from="1609009419867" duration="1023000" />
+      <workItem from="1609087912394" duration="3013000" />
     </task>
     <task id="LOCAL-00001" summary="Teste com as bibliotecas e texto &quot;A Cartomante&quot;">
       <created>1583831588067</created>
@@ -904,7 +511,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607657394136</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="UP: Método p/ gerar versão VOC do dataset e p/ remover causa do nome do arquivo">
+      <created>1608927388956</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1608927388956</updated>
+    </task>
+    <task id="LOCAL-00026" summary="FIX: Porcentagem total da barra de progresso">
+      <created>1608927705986</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1608927705986</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -987,7 +608,8 @@
     <MESSAGE value="CLEAN: Remoção de código de modelos e datasets" />
     <MESSAGE value="REFACT: Remoção de códigos não usados mais e add. opção p/ aplicar transf. morfológicas" />
     <MESSAGE value="UP: Método p/ gerar versão VOC do dataset e p/ remover causa do nome do arquivo" />
-    <option name="LAST_COMMIT_MESSAGE" value="UP: Método p/ gerar versão VOC do dataset e p/ remover causa do nome do arquivo" />
+    <MESSAGE value="FIX: Porcentagem total da barra de progresso" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIX: Porcentagem total da barra de progresso" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1017,10 +639,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1603060852467" />
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1608927323853">
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1608927698963">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1608927323853" />
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1608927698963" />
     <state width="1534" height="440" key="DebuggerActiveHint" timestamp="1603532000780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1073,18 +695,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="393" y="114" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603563524811" />
-    <state x="555" y="17" key="SettingsEditor" timestamp="1606636376798">
+    <state x="538" y="65" key="SettingsEditor" timestamp="1609009563002">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="555" y="17" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1606636376798" />
+    <state x="538" y="65" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1609009563002" />
     <state x="618" y="326" key="VCS.ChangelistChooser" timestamp="1603563828195">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1603563828195" />
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1608927394026">
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1608927708143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1608927394026" />
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1608927708143" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1602478903389">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1101,10 +723,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="673" y="21" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1603937583146" />
-    <state x="579" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604898656504">
+    <state x="579" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609088184299">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="579" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1604898656504" />
+    <state x="579" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1609088184299" />
     <state x="-6" y="0" width="585" height="809" key="dock-window-1" timestamp="1602551441408">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -1113,10 +735,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="562" y="8" width="572" height="809" key="dock-window-2/0.0.1536.824@0.0.1536.824" timestamp="1602548563275" />
-    <state x="349" y="67" key="editAsTableFormatDialogDimension" timestamp="1603078025311">
+    <state x="349" y="67" key="editAsTableFormatDialogDimension" timestamp="1609089736447">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="349" y="67" key="editAsTableFormatDialogDimension/0.0.1536.824@0.0.1536.824" timestamp="1603078025311" />
+    <state x="349" y="67" key="editAsTableFormatDialogDimension/0.0.1536.824@0.0.1536.824" timestamp="1609089736447" />
     <state x="373" y="23" width="1010" height="801" key="find.popup" timestamp="1608925692455">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
