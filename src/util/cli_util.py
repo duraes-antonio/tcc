@@ -128,10 +128,10 @@ def ler_args() -> CLIArgs:
 
 def print_barra_prog(
 		iteracao: int, total: float, prefix='Progresso', suffix='Finalizado',
-		decimals=1, comprimento=100, fill='█', print_char_end='\r'
+		decimals=1, comprimento=50, fill='█', print_char_end='\r'
 ):
 	prog = comprimento * (iteracao / max(float(total), 1))
-	percent = ("{0:." + str(decimals) + "f}").format(prog)
+	percent = ("{0:." + str(decimals) + "f}").format(prog * 2)
 	qtd_atingida = int(comprimento * iteracao // max(total, 1))
 	bar = fill * qtd_atingida + '-' * (comprimento - qtd_atingida)
 	print(f'\r{prefix} |{bar}| {percent}% {suffix}', end=print_char_end)

@@ -24,14 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resultados/unet/512x512_70_20_10_vgg16_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resultados/unet/Adam_categorical_crossentropy_batch-4_epoch-1_LR-0.0001_dropout-0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resultados/unet/Adam_test_batch-4_epoch-1_LR-0.0001_dropout-0_test.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/cli_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/cli_util.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,19 +95,19 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\resultados\unet\576x576" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\datasets\v7labs\links_download" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\datasets\v7labs" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\datasets\v7labs_json" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos\deeplab\datasets\PQR" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos\pytorch-deeplab-xception" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\datasets\v7labs\links_download" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\datasets\v7labs" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\datasets\v7labs_json" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\datasets" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -341,7 +333,7 @@
       <workItem from="1608925565195" duration="373000" />
       <workItem from="1608926574691" duration="1311000" />
       <workItem from="1609009419867" duration="1023000" />
-      <workItem from="1609087912394" duration="3013000" />
+      <workItem from="1609087912394" duration="4917000" />
     </task>
     <task id="LOCAL-00001" summary="Teste com as bibliotecas e texto &quot;A Cartomante&quot;">
       <created>1583831588067</created>
@@ -525,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608927705986</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="REFACT: Organização de logs">
+      <created>1609091006935</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1609091006935</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -584,8 +583,6 @@
       <path value="$PROJECT_DIR$/src/models" />
       <path value="$PROJECT_DIR$/tensorflow_models" />
     </ignored-roots>
-    <MESSAGE value="Teste com as bibliotecas e texto &quot;A Cartomante&quot;" />
-    <MESSAGE value="NEW+DOC: Dataset com imagens de tumografia de pneunomia viral, bacteriana e fungica + Metadados" />
     <MESSAGE value="NEW: Funções para download/atualização das imagens com base no arquivo de metadados + IDE arquivos" />
     <MESSAGE value="TEST: Commit teste usuário" />
     <MESSAGE value="TEST: Commit teste usuário 3" />
@@ -609,7 +606,9 @@
     <MESSAGE value="REFACT: Remoção de códigos não usados mais e add. opção p/ aplicar transf. morfológicas" />
     <MESSAGE value="UP: Método p/ gerar versão VOC do dataset e p/ remover causa do nome do arquivo" />
     <MESSAGE value="FIX: Porcentagem total da barra de progresso" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIX: Porcentagem total da barra de progresso" />
+    <MESSAGE value="REFACT: Organização de logs" />
+    <MESSAGE value="UP: Comprimento da barra de loading 50 c/ valor em porcentagem" />
+    <option name="LAST_COMMIT_MESSAGE" value="UP: Comprimento da barra de loading 50 c/ valor em porcentagem" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -639,10 +638,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1603060852467" />
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1608927698963">
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1609091186035">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1608927698963" />
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609091186035" />
     <state width="1534" height="440" key="DebuggerActiveHint" timestamp="1603532000780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -703,10 +702,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1603563828195" />
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1608927708143">
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1609091008575">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1608927708143" />
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1609091008575" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1602478903389">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
