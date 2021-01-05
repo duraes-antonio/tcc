@@ -123,6 +123,14 @@ def renomear_arquivo(arq_path: str, novo_nome: str) -> None:
 	replace(arq_path, novo_path)
 
 
+def replace_nome_arquivo(dir_path: str, str_substituir: str, str_nova: str) -> None:
+	arqs_nome = obter_path_arquivos(dir_path, ('csv',))
+
+	for arq in arqs_nome:
+		nome_novo = path.basename(arq).replace(str_substituir, str_nova)
+		renomear_arquivo(arq, path.join(path.dirname(arq), nome_novo))
+
+
 def extair_nome_arq(path_arq: str) -> str:
 	"""
 	Extrai somente o nome (sem extensão) do arquivo do path de entrada
@@ -159,3 +167,5 @@ def dir_path(caminho: str) -> str:
 
 	elif path.isfile(caminho):
 		raise argparse.ArgumentTypeError(f"Erro: o caminho '{path}' pertence a um arquivo e não diretório")
+
+# replace_nome_arquivo('../resultados/unet', '19_drop', '19')
