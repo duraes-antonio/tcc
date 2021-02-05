@@ -1,19 +1,14 @@
-import json
 import shutil
-import sys
-from os import path, listdir
+from os import path
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Iterable, Set
 
 import cv2
-import numpy
 from PIL import Image as PILImage
 
 import util.arquivo_util as au
 import util.cli_util as cli
 import util.imagem_util as iu
-
-numpy.set_printoptions(threshold=sys.maxsize)
 
 
 def gerar_lista_arquivos(
@@ -44,7 +39,7 @@ def gerar_lista_arquivos(
 		for nome_subset in fatia_nome_porcent:
 			porcent_fim = porcent_inic + fatia_nome_porcent[nome_subset]
 			arqs_bacteria = arq_nome_bacteria[
-							int(len(arq_nome_bacteria) * porcent_inic):int(len(arq_nome_bacteria) * porcent_fim)]
+			                int(len(arq_nome_bacteria) * porcent_inic):int(len(arq_nome_bacteria) * porcent_fim)]
 			arqs_covid = arq_nome_covid[int(len(arq_nome_covid) * porcent_inic):int(len(arq_nome_covid) * porcent_fim)]
 			arqs_virus = arq_nome_virus[int(len(arq_nome_virus) * porcent_inic):int(len(arq_nome_virus) * porcent_fim)]
 			arqs_nome_salvar = [*arqs_bacteria, *arqs_covid, *arqs_virus]
@@ -146,50 +141,6 @@ def particionar_dados(
 			for i, arq_nome in enumerate(linhas_nome_arq):
 				copiar_img_anot(nome_arq_set, arq_nome.strip())
 				cli.print_barra_prog(i + 1, qtd_arqs)
-
-
-def gerar_json_metadados(
-		path_raiz: str, treino_prefix='train', teste_prefix='val',
-		path_raiz_saida='../input/celulas/celulas_80_20',
-		ds_nome='celulas'
-):
-	treino_imgs = listdir(path.join(path_raiz, treino_prefix))
-	treino_anots = listdir(path.join(path_raiz, f'{treino_prefix}_gt'))
-	teste_imgs = listdir(path.join(path_raiz, teste_prefix))
-	teste_anots = listdir(path.join(path_raiz, f'{teste_prefix}_gt'))
-	json_saida = {
-		"name": ds_nome,
-		"description": "None",
-		"reference": "https://github.com/duraes-antonio/unet/blob/master/2D/00_Prepare-Data.ipynb",
-		"licence": "CC-BY-SA 4.0",
-		"release": "2.0 21/11/2020",
-		"tensorImageSize": "2D",
-		"modality": {
-			"0": "background",
-			"1": "covid",
-			"2": "bacterial",
-			"3": "viral"
-		},
-		"labels": {
-			"0": "background",
-			"1": "covid",
-			"2": "bacterial",
-			"3": "viral"
-		},
-		"numTraining": 145,
-		"numTest": 37,
-		"training": [
-			{
-				"image": f'train/{img}',
-				"label": f'train_gt/{anot}'
-			}
-			for img, anot in zip(treino_imgs, treino_anots)
-		],
-		"test": [f'val/{img}' for img in teste_imgs]
-	}
-
-	with open(path.join(path_raiz, 'metadados.json'), 'w') as arq:
-		arq.write(json.dumps(json_saida))
 
 
 def padronizar_dir_completo(
@@ -358,16 +309,6 @@ def main():
 		# viral
 		(128, 64, 128): (3, 3, 3)
 	}
-
-	# Fazer download das imagens (dataset IEEE - Github)
-	# if (args.download):
-	# 	tarefas: Coroutine = atualizar_imagens(
-	# 		dir_imgs, dir_anots, False, virus=True,
-	# 		bacteria=True, covid=True, altura_largura=tamanho
-	# 	)
-	# 	cli.print_msg('Download: Iniciado!')
-	# 	asyncio.get_event_loop().run_until_complete(tarefas)
-	# 	cli.print_msg('Download: Finalizado!')
 
 	padronizar = args.cor_indice or args.tamanho
 	padronizar_particionar = args.particionar and padronizar
