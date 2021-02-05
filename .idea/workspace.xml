@@ -22,8 +22,92 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="">
+    <list default="true" id="13fa8720-f33c-4630-b88f-3a4e52953bc0" name="Default Changelist" comment="RFEACT: Organização das saídas pré-execução com batch 4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/70_20_10/512x512_70_20_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_hist-equal_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_adam_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-0_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/512x512/80_10_10/512x512_80_10_10_transf-morf_vgg19_rmsprop_categorical_crossentropy_batch-8_epoch-40_LR-0.0001_dropout-1_shuffle-1_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_70_20_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_70_20_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_70_20_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_70_20_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_70_20_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_70_20_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_70_20_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_70_20_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_70_20_10_transf-morf_vgg16_rmsprop_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_70_20_10_transf-morf_vgg16_rmsprop_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_70_20_10_transf-morf_vgg16_rmsprop_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_70_20_10_transf-morf_vgg16_rmsprop_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_75_15_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_75_15_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_75_15_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_75_15_10_hist-equal_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_75_15_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_75_15_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_75_15_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_75_15_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-2_epoch-40_LR-0.0001_dropout-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_75_15_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-4_epoch-40_LR-0.0001_dropout-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_75_15_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-4_epoch-40_LR-0.0001_dropout-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados/unet/batch-8/576x576/576x576_75_15_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-4_epoch-40_LR-0.0001_dropout-0_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resultados/unet/576x576/576x576_75_15_10_transf-morf_vgg16_adam_categorical_crossentropy_batch-4_epoch-40_LR-0.0001_dropout-0_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compartilhado/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compartilhado/constantes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasets/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasets/dataset_util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/datasets/v7labs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/github_util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/imagem_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/imagem_util.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,19 +178,19 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\resultados\unet" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\resultados\deeplab\outras-cofig" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\resultados\unet\batch-8" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\resultados\deeplab\512x512\deeplab_v3plus_tfkeras\70_20_10" />
+      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\resultados\deeplab\512x512\deeplab_v3plus_tfkeras" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos\deeplab\datasets\PQR" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos\pytorch-deeplab-xception" />
       <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\resultados\unet\512x512\80_10_10" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\resultados\unet\512x512\70_20_10" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\resultados\unet\576x576" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\modelos" />
-      <recent name="C:\Users\AntônioCarlosDurãesd\Desktop\tcc\src\datasets\v7labs\links_download" />
     </key>
   </component>
   <component name="RunManager" selected="Python.teste">
@@ -339,6 +423,16 @@
       <workItem from="1609813521144" duration="1309000" />
       <workItem from="1609815565304" duration="2279000" />
       <workItem from="1609822742952" duration="1278000" />
+      <workItem from="1609847920847" duration="1214000" />
+      <workItem from="1609912531971" duration="532000" />
+      <workItem from="1609983596550" duration="135000" />
+      <workItem from="1610284848320" duration="965000" />
+      <workItem from="1610340344982" duration="586000" />
+      <workItem from="1611510188202" duration="991000" />
+      <workItem from="1611965213692" duration="848000" />
+      <workItem from="1612149650823" duration="1587000" />
+      <workItem from="1612222689401" duration="586000" />
+      <workItem from="1612490141641" duration="1184000" />
     </task>
     <task id="LOCAL-00001" summary="Teste com as bibliotecas e texto &quot;A Cartomante&quot;">
       <created>1583831588067</created>
@@ -557,7 +651,28 @@
       <option name="project" value="LOCAL" />
       <updated>1609816895096</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="UP: Resultados com VGG19 apenas">
+      <created>1609848000730</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1609848000730</updated>
+    </task>
+    <task id="LOCAL-00033" summary="RFEACT: Organização das saídas da implementação anterior da Deeplab">
+      <created>1610286738574</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1610286738574</updated>
+    </task>
+    <task id="LOCAL-00034" summary="RFEACT: Organização das saídas pré-execução com batch 4">
+      <created>1611510591665</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1611510591665</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,9 +731,6 @@
       <path value="$PROJECT_DIR$/src/models" />
       <path value="$PROJECT_DIR$/tensorflow_models" />
     </ignored-roots>
-    <MESSAGE value="TEST: Indicadores (IoU, F1, Precision, Recall)" />
-    <MESSAGE value="CLEAN: Remoção de arquivos e trechos de código não usados" />
-    <MESSAGE value="UP: Ajuste em flags e scripts" />
     <MESSAGE value="NEW: Upload dataset parcial com máscaras (virus, bacteria) + imagens" />
     <MESSAGE value="Ajustes scripts, sufixo de anotações,timeout p/ baixar imagens" />
     <MESSAGE value="UP: Aplicação CLI para manipulação e download de imagens (repo. Chest Ray - IEEE)" />
@@ -641,52 +753,29 @@
     <MESSAGE value="REFACT: Organização de resultados de execução" />
     <MESSAGE value="REFACT: Separação de resultados U-Net por particionamento dos dados" />
     <MESSAGE value="CLEAN: Exclusão de resultados com VGG16 + Remoção de 'drop' ao lado do nome do backbone" />
-    <option name="LAST_COMMIT_MESSAGE" value="CLEAN: Exclusão de resultados com VGG16 + Remoção de 'drop' ao lado do nome do backbone" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="UP: Resultados com VGG19 apenas" />
+    <MESSAGE value="RFEACT: Organização das saídas da implementação anterior da Deeplab" />
+    <MESSAGE value="RFEACT: Organização das saídas pré-execução com batch 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="RFEACT: Organização das saídas pré-execução com batch 4" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="395" y="90" key="#Inspections" timestamp="1602123899035">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1612490971220">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="395" y="90" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1602123899035" />
-    <state x="568" y="121" key="#Python" timestamp="1602212680546">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1612490971220" />
+    <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1612491158151">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="568" y="121" key="#Python/0.0.1536.824@0.0.1536.824" timestamp="1602212680546" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601254029065">
+    <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1612491158151" />
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1612490618472">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1601254029065" />
-    <state x="478" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603653262850">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="478" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1603653262850" />
-    <state x="611" y="302" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1602553587167">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="611" y="302" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/0.0.1536.824@0.0.1536.824" timestamp="1602553587167" />
-    <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1603060852467">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="515" y="267" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1603060852467" />
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2" timestamp="1609816888881">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609816888881" />
-    <state width="1534" height="440" key="DebuggerActiveHint" timestamp="1603532000780">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1534" height="440" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1603532000780" />
+    <state x="95" y="0" width="1293" height="808" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1612490618472" />
     <state x="294" y="1" key="DiffContextDialog" timestamp="1604500859660">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="294" y="1" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1604500859660" />
-    <state x="835" y="171" key="EnvironmentVariablesDialog" timestamp="1602199794508">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="835" y="171" key="EnvironmentVariablesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602199794508" />
     <state x="238" y="164" key="FileChooserDialogImpl" timestamp="1606718080401">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -731,22 +820,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="538" y="65" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1609009563002" />
-    <state x="618" y="326" key="VCS.ChangelistChooser" timestamp="1603563828195">
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1611510594465">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1603563828195" />
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2" timestamp="1609816896515">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1609816896515" />
-    <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1602478903389">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1602478903389" />
-    <state x="487" y="69" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForExport" timestamp="1601248106821">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="487" y="69" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForExport/0.0.1536.824@0.0.1536.824" timestamp="1601248106821" />
+    <state x="590" y="81" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1611510594465" />
     <state x="93" y="93" width="1350" height="638" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604896186809">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -755,30 +832,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="673" y="21" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1603937583146" />
-    <state x="579" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609813816295">
+    <state x="579" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612490185998">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="579" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1609813816295" />
-    <state x="-6" y="0" width="585" height="809" key="dock-window-1" timestamp="1602551441408">
+    <state x="579" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1612490185998" />
+    <state x="349" y="67" key="editAsTableFormatDialogDimension" timestamp="1612490489985">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-6" y="0" width="585" height="809" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1602551441408" />
-    <state x="562" y="8" width="572" height="809" key="dock-window-2" timestamp="1602548563275">
+    <state x="349" y="67" key="editAsTableFormatDialogDimension/0.0.1536.824@0.0.1536.824" timestamp="1612490489985" />
+    <state x="373" y="23" width="1010" height="801" key="find.popup" timestamp="1612491245733">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="562" y="8" width="572" height="809" key="dock-window-2/0.0.1536.824@0.0.1536.824" timestamp="1602548563275" />
-    <state x="349" y="67" key="editAsTableFormatDialogDimension" timestamp="1609089736447">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="349" y="67" key="editAsTableFormatDialogDimension/0.0.1536.824@0.0.1536.824" timestamp="1609089736447" />
-    <state x="373" y="23" width="1010" height="801" key="find.popup" timestamp="1608925692455">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="373" y="23" width="1010" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1608925692455" />
-    <state x="996" y="187" key="refactoring.ChangeSignatureDialog" timestamp="1602917329296">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="996" y="187" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1602917329296" />
+    <state x="373" y="23" width="1010" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1612491245733" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605969057196">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
