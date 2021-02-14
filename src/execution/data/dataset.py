@@ -16,4 +16,4 @@ def prepare_datasets(path_to_save: str):
 
 		if not path.exists(path_zip.rsplit('.zip')[0]):
 			with ZipFile(path_zip, 'r') as ds_zipped:
-				ds_zipped.extractall()
+				ds_zipped.extractall(path_to_save)
