@@ -4,6 +4,7 @@ from typing import List
 import keras
 import tensorflow as tf
 import tensorflow.keras.backend as K
+from keras.metrics import Metric
 from tensorflow.keras.callbacks import Callback
 
 
@@ -42,7 +43,7 @@ def get_callbacks(path_save_model: str) -> List[Callback]:
 	]
 
 
-def get_metrics(n_classes: int) -> List[keras.metrics]:
+def get_metrics(n_classes: int) -> List[Metric]:
 	return [
 		'accuracy',
 		tf.keras.metrics.Recall(name='recall'),

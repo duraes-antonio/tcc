@@ -5,8 +5,8 @@ from zipfile import ZipFile
 import requests
 from keras.models import Model
 
-from callbacks_metrics import get_metrics, get_callbacks
-from dataset_dataloader import Dataloader, build_dataloader
+from network.callbacks_metrics import get_metrics, get_callbacks
+from network.dataset_dataloader import Dataloader, build_dataloader
 from enums import Env, Network
 from helper.git import Git
 from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test, timer
