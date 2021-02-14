@@ -46,15 +46,15 @@ def build_data(path_ds: str, classes: List[str], env: Env, batch: int) -> Datalo
 
 def build_dataset_name(params: NetworkParams) -> str:
 	dataset_size = f'{params.size}x{params.size}'
-	dataset_config = '_'.join([dataset_size, params.partition.name, params.format.name])
+	dataset_config = '_'.join([dataset_size, params.partition.value, params.format.value])
 	return f'pneumonia_{dataset_config}'
 
 
 def build_trained_model_name(params: NetworkParams) -> str:
 	fragments = [
 		f'{params.size}x{params.size}',
-		f'{params.partition.name}',
-		f'{params.format.name}',
+		f'{params.partition.value}',
+		f'{params.format.value}',
 		get_name(params.backbone),
 		get_name(params.opt),
 		f'batch-{params.batch}',
