@@ -75,6 +75,7 @@ def main():
 	ws = load_worksheet(path_json_credent=path.join(path_where, 'test_case', 'credentials.json'))
 	test_manager = TestCaseManager(ws)
 	case = test_manager.first_case_free()
+	current_env = Env.train
 
 	# Baixar e extrair datasets
 	prepare_datasets(path_root)
@@ -85,7 +86,7 @@ def main():
 
 	try:
 		# Marcar caso como ocupado
-		case.busy(ws, Env.train)
+		case.busy(ws, current_env)
 
 		# Definir params
 		params = UNetParams(case, classes) if case.net == Network.unet else DeeplabParams(case, classes)
@@ -119,25 +120,29 @@ def main():
 			log = write_csv_metrics(history.history)
 			commit_msg = gh.build_commit_msg(params, Env.train)
 			gh.create_file(path.join(path_results, f'{trained_model_name}.csv'), log, commit_msg)
-			case.done(ws, Env.train)
+			case.done(ws, current_env)
 
 		# Avalair modelo
 		@timer
 		def eval_model():
+			case.busy(ws, current_env)
 			model.load_weights(path.join(path_trained_model, f'{trained_model_name}.h5'))
 			scores = model.evaluate_generator(test_dataloader)
 
 			# Commitar resultados
 			scores_dict = {get_name(m): v for m, v in zip(['loss', *metrics], scores)}
 			log_test = write_csv_metrics_test(scores_dict)
-			commit_msg = gh.build_commit_msg(params, Env.test)
+			commit_msg = gh.build_commit_msg(params, current_env)
 			gh.create_file(path.join(path_results, f'{trained_model_name}_test.csv'), log_test, commit_msg)
-			case.done(ws, Env.eval)
+			case.done(ws, current_env)
 
+		train_model()
+
+		current_env = Env.test
 		eval_model()
 
 	except:
-		case.free(ws, Env.train)
+		case.free(ws, current_env)
 
 	return 0
 

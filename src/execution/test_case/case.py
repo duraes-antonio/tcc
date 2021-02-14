@@ -1,10 +1,10 @@
 from datetime import datetime
-from typing import List, Union
+from typing import List, Union, Optional
 
 from gspread import Worksheet
 from pandas import DataFrame, Series
 
-from enums import State, Network, DatasetPartition, DatasetFormat, Optimizer, Env
+from enums import State, Network, DatasetPartition, DatasetFormat, Optimizer, Env, TestProgress
 
 
 class TestCase:
@@ -15,6 +15,7 @@ class TestCase:
 	]
 
 	def __init__(self, s: Series):
+		self.__cols__ = list(s.columns)
 		self.id = int(s['id'])
 		self.net: Network = Network(s['net'])
 		self.batch = int(s['batch'])
@@ -36,19 +37,26 @@ class TestCase:
 	def parse_data(data: str, fmt: str) -> datetime:
 		return datetime.strptime(data, fmt) if data else None
 
+	def update_date(self, ws: Worksheet, env: Env, prog: TestProgress, date: Optional[datetime] = None):
+		ws.update_cell(
+			self.id + 1, self.__cols__.index(f'{env.name}_{prog.name}') + 1,
+			date.strftime(self.__date_format__) if date else ''
+		)
+
 	def update_state(self, ws: Worksheet, s: State, env: Env):
 		ws.update_cell(self.id + 1, self.__cols__.index(f'{env.name}_state') + 1, s.name)
 
 	def done(self, ws: Worksheet, env: Env):
-		ws.update_cell(self.id + 1, self.__cols__.index(f'{env.name}_end') + 1, str(datetime.now()))
 		self.update_state(ws, State.done, env)
+		self.update_date(ws, env, TestProgress.end, datetime.now())
 
 	def free(self, ws: Worksheet, env: Env):
 		self.update_state(ws, State.free, env)
+		self.update_date(ws, env, TestProgress.end, None)
 
 	def busy(self, ws: Worksheet, env: Env):
-		ws.update_cell(self.id + 1, self.__cols__.index(f'{env.name}_start') + 1, str(datetime.now()))
 		self.update_state(ws, State.busy, env)
+		self.update_date(ws, env, TestProgress.start, datetime.now())
 
 
 class TestCaseManager:

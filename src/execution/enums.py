@@ -31,3 +31,8 @@ class State(Enum):
 	busy = 'busy'
 	done = 'done'
 	free = 'free'
+
+
+class TestProgress(Enum):
+	start = 'start'
+	end = 'end'
