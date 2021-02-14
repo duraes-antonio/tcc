@@ -2,7 +2,7 @@ from github import Github
 
 from enums import Env
 from helper.helpers import get_name
-from params import NetworkParams
+from network.params import NetworkParams
 
 
 class Git:

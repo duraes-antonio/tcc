@@ -1,3 +1,4 @@
+from enum import Enum
 from typing import Dict, Optional, List
 
 import keras.optimizers
@@ -15,10 +16,10 @@ class NetworkParams:
 	batch = 4
 	loss = 'categorical_crossentropy'
 	train_shuffle = False
-	backbone = ''
+	backbone: Enum = ''
 	classes = []
 
-	def __init__(self, case: TestCase, classes: List[str], backbone: Optional[str] = None):
+	def __init__(self, case: TestCase, classes: List[str], backbone: Optional[Enum] = None):
 		self.classes = classes
 		self.n_classes = len(classes) + 1
 		self.backbone = backbone
@@ -37,13 +38,13 @@ class NetworkParams:
 class DeeplabParams(NetworkParams):
 	def __init__(
 			self, case: TestCase, classes: List[str],
-			backbone: DeeplabBackbone = DeeplabBackbone.mobile_net
+			backbone=DeeplabBackbone.mobile_net
 	):
-		super().__init__(case, classes, backbone.name)
+		super().__init__(case, classes, backbone)
 		self.os = 16
 
 
 class UNetParams(NetworkParams):
 	def __init__(self, case: TestCase, classes: List[str]):
 		backbone = UNetBackbone.vgg19_drop if case.dropout > 0 else UNetBackbone.vgg19
-		super().__init__(case, classes, backbone.name)
+		super().__init__(case, classes, backbone)

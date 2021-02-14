@@ -40,14 +40,14 @@ class TestCase:
 		ws.update_cell(self.id + 1, self.__cols__.index(f'{env.name}_state') + 1, s.name)
 
 	def done(self, ws: Worksheet, env: Env):
-		ws.update_cell(self.id + 1, self.__cols__.index(f'{env.name}_end'), datetime.now())
+		ws.update_cell(self.id + 1, self.__cols__.index(f'{env.name}_end') + 1, str(datetime.now()))
 		self.update_state(ws, State.done, env)
 
 	def free(self, ws: Worksheet, env: Env):
 		self.update_state(ws, State.free, env)
 
 	def busy(self, ws: Worksheet, env: Env):
-		ws.update_cell(self.id + 1, self.__cols__.index(f'{env.name}_start'), datetime.now())
+		ws.update_cell(self.id + 1, self.__cols__.index(f'{env.name}_start') + 1, str(datetime.now()))
 		self.update_state(ws, State.busy, env)
 
 

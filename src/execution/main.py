@@ -1,16 +1,14 @@
-from os import path, sep
+from os import path
 from typing import Dict, Union, Callable, List
-from zipfile import ZipFile
 
-import requests
 from keras.models import Model
 
 from data.dataset import prepare_datasets
-from network.callbacks_metrics import get_metrics, get_callbacks
-from network.dataset_dataloader import Dataloader, build_dataloader
 from enums import Env, Network
 from helper.git import Git
 from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test, timer
+from network.callbacks_metrics import get_metrics, get_callbacks
+from network.dataset_dataloader import Dataloader, build_dataloader
 from network.deeplab import deeplabv3
 from network.params import UNetParams, DeeplabParams, NetworkParams
 from test_case.case import TestCaseManager
@@ -21,7 +19,7 @@ def build_deeplab(params: DeeplabParams) -> Callable[[], Model]:
 	def child():
 		return deeplabv3(
 			input_shape=(params.size, params.size, 3),
-			classes=len(params.classes), backbone=params.backbone,
+			classes=len(params.classes), backbone=params.backbone.name,
 			OS=params.os, dropout=params.dropout
 		)
 

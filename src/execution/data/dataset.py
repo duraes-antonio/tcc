@@ -1,5 +1,3 @@
-from os import sep
-from typing import List
 from zipfile import ZipFile
 
 import path
