@@ -1,15 +1,12 @@
 from zipfile import ZipFile
 
-import path
+from os import path
 import requests
 
 
 def prepare_datasets(path_to_save: str):
 	dataset_url = {
-		'pneumonia_512x512_801010_morf.zip': 'https://s22.filetransfer.io/storage/download/etw5ae66lHKz',
-		'pneumonia_512x512_801010_hist.zip': 'https://s22.filetransfer.io/storage/download/liCHYjOVVXa9',
-		'pneumonia_512x512_702010_morf.zip': 'https://s22.filetransfer.io/storage/download/wjPlcQiOJQTN',
-		'pneumonia_512x512_702010_hist.zip': 'https://s22.filetransfer.io/storage/download/iPwQGHJ50Pzs'
+		'pneumonia_512x512_702010_hist.zip': 'https://www.dropbox.com/sh/rmqrdj0o7ca9fin/AAB8jGCH5cHR5TUn1ZtQ7_Hfa?dl=0'
 	}
 
 	for ds in dataset_url:

@@ -70,11 +70,11 @@ def main():
 	classes = ['background', 'covid', 'bacterial', 'viral']
 
 	# Obter dados sobre o caso de teste disponível (ainda não executado)
-	ws = load_worksheet()
+	path_root = '/home/acduraes/content'
+	path_where = path.join(path_root, 'tcc', 'src', 'execution')
+	ws = load_worksheet(path_json_credent=path.join(path_where, 'test_case', 'credentials.json'))
 	test_manager = TestCaseManager(ws)
 	case = test_manager.first_case_free()
-
-	path_root = '/home/acduraes/content'
 
 	# Baixar e extrair datasets
 	prepare_datasets(path_root)
@@ -104,7 +104,8 @@ def main():
 		test_dataloader = build_data(ds_name, classes, Env.test, 1)
 
 		trained_model_name = build_trained_model_name(params)
-		callbacks = get_callbacks(trained_model_name)
+		path_trained_model = path.join(path_current, 'trained')
+		callbacks = get_callbacks(path.join(path_trained_model, trained_model_name))
 
 		# Treinar modelo
 		@timer
@@ -123,7 +124,7 @@ def main():
 		# Avalair modelo
 		@timer
 		def eval_model():
-			model.load_weights(path.join(path_current, f'{trained_model_name}.h5'))
+			model.load_weights(path.join(path_trained_model, f'{trained_model_name}.h5'))
 			scores = model.evaluate_generator(test_dataloader)
 
 			# Commitar resultados
@@ -139,3 +140,6 @@ def main():
 		case.free(ws, Env.train)
 
 	return 0
+
+
+main()
