@@ -15,7 +15,7 @@ class TestCase:
 	]
 
 	def __init__(self, s: Series):
-		self.__cols__ = list(s.columns)
+		self.__cols__ = [k for k in dict(s)]
 		self.id = int(s['id'])
 		self.net: Network = Network(s['net'])
 		self.batch = int(s['batch'])

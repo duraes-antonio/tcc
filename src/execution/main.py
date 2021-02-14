@@ -143,6 +143,7 @@ def main():
 
 	except:
 		case.free(ws, current_env)
+		raise
 
 	return 0
 
