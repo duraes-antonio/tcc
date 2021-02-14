@@ -1,13 +1,15 @@
-from os import path
+from os import path, sep
 from typing import Dict, Union, Callable, List
+from zipfile import ZipFile
 
+import requests
 from keras.models import Model
 
 from callbacks_metrics import get_metrics, get_callbacks
 from dataset_dataloader import Dataloader, build_dataloader
 from enums import Env, Network
 from helper.git import Git
-from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test
+from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test, timer
 from network.deeplab import deeplabv3
 from network.params import UNetParams, DeeplabParams, NetworkParams
 from test_case.case import TestCaseManager
@@ -65,6 +67,21 @@ def build_trained_model_name(params: NetworkParams) -> str:
 	return '_'.join(fragments)
 
 
+def prepare_datasets(path_to_save: str):
+	prefix = 'https://anonfiles.com/t23e4eIep5'
+	urls: List[str] = [
+		'pneumonia_512x512_702010_hist_zip'
+	]
+
+	for u in urls:
+		response = requests.get(path.join(prefix, u))
+		with open(path.join(path_to_save, u.rsplit(sep)[-1]), 'wb') as f:
+			f.write(response.content)
+
+		with ZipFile(u, 'r') as ds_zipped:
+			ds_zipped.extractall()
+
+
 def main():
 	classes = ['background', 'covid', 'bacterial', 'viral']
 
@@ -74,6 +91,10 @@ def main():
 	case = test_manager.first_case_free()
 
 	path_root = '/home/acduraes/content'
+
+	# Baixar e extrair datasets
+	prepare_datasets(path_root)
+
 	path_current = path.join(path_root, 'tcc')
 	path_results = path.join('results', case.net.name, case.partition.name)
 	gh = Git('duraes-antonio', 'tcc')
@@ -100,27 +121,35 @@ def main():
 
 		trained_model_name = build_trained_model_name(params)
 		callbacks = get_callbacks(trained_model_name)
-		history = model.fit_generator(
-			generator=train_dataloader, validation_data=val_dataloader,
-			epochs=params.epochs, callbacks=callbacks, workers=8
-		)
 
-		# Commitar resultados
-		log = write_csv_metrics(history.history)
-		commit_msg = gh.build_commit_msg(params, Env.train)
-		gh.create_file(path.join(path_results, f'{trained_model_name}.csv'), log, commit_msg)
-		case.done(ws, Env.train)
+		# Treinar modelo
+		@timer
+		def train_model():
+			history = model.fit_generator(
+				generator=train_dataloader, validation_data=val_dataloader,
+				epochs=params.epochs, callbacks=callbacks, workers=8
+			)
 
-		# Avalair (MENSURAR TEMPO)
-		model.load_weights(path.join(path_current, f'{trained_model_name}.h5'))
-		scores = model.evaluate_generator(test_dataloader)
+			# Commitar resultados
+			log = write_csv_metrics(history.history)
+			commit_msg = gh.build_commit_msg(params, Env.train)
+			gh.create_file(path.join(path_results, f'{trained_model_name}.csv'), log, commit_msg)
+			case.done(ws, Env.train)
 
-		# Commitar resultados
-		scores_dict = {get_name(m): v for m, v in zip(['loss', *metrics], scores)}
-		log_test = write_csv_metrics_test(scores_dict)
-		commit_msg = gh.build_commit_msg(params, Env.test)
-		gh.create_file(path.join(path_results, f'{trained_model_name}_test.csv'), log_test, commit_msg)
-		case.done(ws, Env.eval)
+		# Avalair modelo
+		@timer
+		def eval_model():
+			model.load_weights(path.join(path_current, f'{trained_model_name}.h5'))
+			scores = model.evaluate_generator(test_dataloader)
+
+			# Commitar resultados
+			scores_dict = {get_name(m): v for m, v in zip(['loss', *metrics], scores)}
+			log_test = write_csv_metrics_test(scores_dict)
+			commit_msg = gh.build_commit_msg(params, Env.test)
+			gh.create_file(path.join(path_results, f'{trained_model_name}_test.csv'), log_test, commit_msg)
+			case.done(ws, Env.eval)
+
+		eval_model()
 
 	except:
 		case.free(ws, Env.train)
