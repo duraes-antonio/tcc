@@ -19,7 +19,7 @@ def build_deeplab(params: DeeplabParams) -> Callable[[], Model]:
 	def child():
 		return deeplabv3(
 			input_shape=(params.size, params.size, 3),
-			classes=len(params.classes), backbone=params.backbone.value,
+			classes=params.n_classes, backbone=params.backbone.value,
 			OS=params.os, dropout=params.dropout
 		)
 
