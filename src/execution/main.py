@@ -99,10 +99,10 @@ def main():
 		model.compile(case.opt.name, params.loss, metrics=metrics)
 
 		# Gerar Dataloaders
-		ds_name = build_dataset_name(params)
-		train_dataloader = build_data(ds_name, classes, Env.train, params.batch)
-		val_dataloader = build_data(ds_name, classes, Env.eval, params.batch)
-		test_dataloader = build_data(ds_name, classes, Env.test, 1)
+		path_dataset = path.join(path_root, build_dataset_name(params))
+		train_dataloader = build_data(path_dataset, classes, Env.train, params.batch)
+		val_dataloader = build_data(path_dataset, classes, Env.eval, params.batch)
+		test_dataloader = build_data(path_dataset, classes, Env.test, 1)
 
 		trained_model_name = build_trained_model_name(params)
 		path_trained_model = path.join(path_current, 'trained')
