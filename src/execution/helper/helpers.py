@@ -3,22 +3,21 @@ import re
 from datetime import datetime
 from typing import Union, Callable, Optional
 
+import keras
 import pandas as pd
-from keras.losses import Loss
-from keras.metrics import Metric
-from keras.optimizers import Optimizer
+import tensorflow as tf
 
 
-def get_name(item: Union[str, Loss, Optimizer, Metric, Callable]) -> str:
+def get_name(item) -> str:
 	"""Função para converter um objeto em string de acordo com seu tipo (otimizador, função de perda, métrica, etc)"""
 	output = ''
 	if isinstance(item, str):
 		output = item
-	elif isinstance(item, Loss):
+	elif isinstance(item, keras.losses.Loss):
 		output = item.name
-	elif isinstance(item, Optimizer):
+	elif isinstance(item, keras.optimizers.Optimizer):
 		output = re.search("'(.+)'", str(type(item))).group(1).rsplit('.', 1)[1]
-	elif isinstance(item, Metric):
+	elif isinstance(item, tf.keras.metrics.Metric):
 		output = item.name
 	elif callable(item):
 		output = item.__name__

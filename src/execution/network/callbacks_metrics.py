@@ -4,7 +4,6 @@ from typing import List
 import keras
 import tensorflow as tf
 import tensorflow.keras.backend as K
-from keras.metrics import Metric
 from tensorflow.keras.callbacks import Callback
 
 
@@ -31,7 +30,7 @@ class GarbageCollectorCallback(Callback):
 		gc.collect()
 
 
-def get_callbacks(path_save_model: str) -> List[Callback]:
+def get_callbacks(path_save_model: str) -> List:
 	path_with_ext = f"{path_save_model}{'.h5' if path_save_model.endswith('.h5') else ''}"
 	return [
 		keras.callbacks.ModelCheckpoint(
@@ -43,7 +42,7 @@ def get_callbacks(path_save_model: str) -> List[Callback]:
 	]
 
 
-def get_metrics(n_classes: int) -> List[Metric]:
+def get_metrics(n_classes: int) -> List:
 	return [
 		'accuracy',
 		tf.keras.metrics.Recall(name='recall'),
