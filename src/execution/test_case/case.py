@@ -8,14 +8,10 @@ from enums import State, Network, DatasetPartition, DatasetFormat, Optimizer, En
 
 
 class TestCase:
-	__date_format__ = '%d/%m/%Y %H:%M:%S'
-	__cols__ = [
-		'id', 'net', 'batch', 'partition', 'opt', 'dropout', 'format',
-		'train_start', 'train_end', 'train_state', 'eval_start', 'eval_end', 'eval_state'
-	]
+	date_fmt = '%d/%m/%Y %H:%M:%S'
 
 	def __init__(self, s: Series):
-		self.__cols__ = [k for k in dict(s)]
+		self.columns = [k for k in dict(s)]
 		self.id = int(s['id'])
 		self.net: Network = Network(s['net'])
 		self.batch = int(s['batch'])
@@ -25,13 +21,15 @@ class TestCase:
 		self.dropout = float(s['dropout'])
 		self.format: DatasetFormat = DatasetFormat(s['format'])
 
-		self.train_start: datetime = self.parse_data(s['train_start'], self.__date_format__)
-		self.train_end: datetime = self.parse_data(s['train_end'], self.__date_format__)
-		self.train_state = State(s['train_state'])
+		env = Env.train
+		self.train_start: datetime = self.parse_data(s[f'{env.name}_{TestProgress.start.name}'], self.date_fmt)
+		self.train_end: datetime = self.parse_data(s[f'{env.name}_{TestProgress.start.name}'], self.date_fmt)
+		self.train_state = State(s[f'{env.name}_state'])
 
-		self.train_start: datetime = self.parse_data(s['eval_start'], self.__date_format__)
-		self.train_end: datetime = self.parse_data(s['eval_end'], self.__date_format__)
-		self.eval_state = State(s['eval_state'])
+		env = Env.test
+		self.test_start: datetime = self.parse_data(s[f'{env.name}_{TestProgress.start.name}'], self.date_fmt)
+		self.test_end: datetime = self.parse_data(s[f'{env.name}_{TestProgress.start.name}'], self.date_fmt)
+		self.test_state = State(s[f'{env.name}_state'])
 
 	@staticmethod
 	def parse_data(data: str, fmt: str) -> datetime:
@@ -39,12 +37,12 @@ class TestCase:
 
 	def update_date(self, ws: Worksheet, env: Env, prog: TestProgress, date: Optional[datetime] = None):
 		ws.update_cell(
-			self.id + 1, self.__cols__.index(f'{env.name}_{prog.name}') + 1,
-			date.strftime(self.__date_format__) if date else ''
+			self.id + 1, self.columns.index(f'{env.name}_{prog.name}') + 1,
+			date.strftime(self.date_fmt) if date else ''
 		)
 
 	def update_state(self, ws: Worksheet, s: State, env: Env):
-		ws.update_cell(self.id + 1, self.__cols__.index(f'{env.name}_state') + 1, s.name)
+		ws.update_cell(self.id + 1, self.columns.index(f'{env.name}_state') + 1, s.name)
 
 	def done(self, ws: Worksheet, env: Env):
 		self.update_state(ws, State.done, env)
@@ -81,7 +79,7 @@ class TestCaseManager:
 	@staticmethod
 	def first_case(cases: List[TestCase], env=Env.train, s=State.free) -> TestCase:
 		def case_free(c: TestCase) -> bool:
-			return (c.train_state if env == Env.train else c.eval_state) == s
+			return (c.train_state if env == Env.train else c.test_state) == s
 
 		cases_free = filter(case_free, sorted(cases, key=lambda c: c.train_state.name.lower()))
 		cases_free = list(cases_free)
