@@ -38,7 +38,7 @@ class TestCase:
 	def update_date(self, ws: Worksheet, env: Env, prog: TestProgress, date: Optional[datetime] = None):
 		ws.update_cell(
 			self.id + 1, self.columns.index(f'{env.name}_{prog.name}') + 1,
-			date.strftime(self.date_fmt) if date else ''
+			date.strftime(self.date_fmt) if date else date
 		)
 
 	def update_state(self, ws: Worksheet, s: State, env: Env):
@@ -48,9 +48,9 @@ class TestCase:
 		self.update_state(ws, State.done, env)
 		self.update_date(ws, env, TestProgress.end, datetime.now())
 
-	def free(self, ws: Worksheet, env: Env):
+	def free(self, ws: Worksheet, env: Env, prog: Optional[TestProgress] = None):
 		self.update_state(ws, State.free, env)
-		self.update_date(ws, env, TestProgress.end, None)
+		self.update_date(ws, env, prog or TestProgress.end, None)
 
 	def busy(self, ws: Worksheet, env: Env):
 		self.update_state(ws, State.busy, env)

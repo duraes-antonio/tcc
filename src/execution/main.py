@@ -4,7 +4,7 @@ from typing import Dict, Union, Callable, List
 from keras.models import Model
 
 from data.dataset import prepare_datasets
-from enums import Env, Network
+from enums import Env, Network, TestProgress
 from helper.git import Git
 from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test, timer
 from network.callbacks_metrics import get_metrics, get_callbacks
@@ -142,7 +142,7 @@ def main():
 		eval_model()
 
 	except:
-		case.free(ws, current_env)
+		case.free(ws, current_env, TestProgress.start)
 		raise
 
 	return 0
