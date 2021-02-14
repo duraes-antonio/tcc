@@ -5,6 +5,7 @@ from zipfile import ZipFile
 import requests
 from keras.models import Model
 
+from data.dataset import prepare_datasets
 from network.callbacks_metrics import get_metrics, get_callbacks
 from network.dataset_dataloader import Dataloader, build_dataloader
 from enums import Env, Network
@@ -65,21 +66,6 @@ def build_trained_model_name(params: NetworkParams) -> str:
 		f'clip-{params.clip_value}'
 	]
 	return '_'.join(fragments)
-
-
-def prepare_datasets(path_to_save: str):
-	prefix = 'https://anonfiles.com/t23e4eIep5'
-	urls: List[str] = [
-		'pneumonia_512x512_702010_hist_zip'
-	]
-
-	for u in urls:
-		response = requests.get(path.join(prefix, u))
-		with open(path.join(path_to_save, u.rsplit(sep)[-1]), 'wb') as f:
-			f.write(response.content)
-
-		with ZipFile(u, 'r') as ds_zipped:
-			ds_zipped.extractall()
 
 
 def main():
