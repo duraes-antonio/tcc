@@ -1,4 +1,6 @@
 import gc
+from os import path
+from pathlib import Path
 from typing import List
 
 import keras
@@ -31,6 +33,7 @@ class GarbageCollectorCallback(Callback):
 
 
 def get_callbacks(path_save_model: str) -> List:
+	Path(path.dirname(path_save_model)).mkdir(parents=True, exist_ok=True)
 	path_with_ext = f"{path_save_model}{'.h5' if path_save_model.endswith('.h5') else ''}"
 	return [
 		keras.callbacks.ModelCheckpoint(

@@ -10,21 +10,21 @@ def prepare_datasets(path_to_save: str, size=448):
 	prefix = f'pneumonia_{size}x{size}'
 	dataset_url = {
 		f'{prefix}_{DatasetPartition.train_70_eval_20_test_10.value}_{DatasetFormat.equal_hist.value}.zip':
-			'https://uc069a24fe6d276313bc6cc43664.dl.dropboxusercontent.com/cd/0/get/BI'
-			'-0_xutkKmibSbrYkr9JDhQIkv5Dv8lEaXufhHIfkDmher5KYXpLD5px53emTjJXkUtWsa48KaIHBlrzc-Deg0daNPXBbgoAqqS5HNX'
-			'-khStpJHV4WDyp9qdRBFyxGWw8M/file#',
+			'https://ucd3426c24b8cce15ceb52c94198.dl.dropboxusercontent.com/cd/0/get/BI_NWA2h_kjVAb'
+			'-idrCqt4koRxdU0RHhY5oWO0zm6g3S4ZWf3msyCA4NPDLCH9Bj2nC-VrEqAX88xLfQY3o'
+			'-_N0tm8ejVt6FssFfCeFipT_qJTP9jtrbL6xp2SeQXehK5hM/file#',
 		f'{prefix}_{DatasetPartition.train_70_eval_20_test_10.value}_{DatasetFormat.morp_transf.value}.zip':
-			'https://uce87d062178e8b2cd8f36f44681.dl.dropboxusercontent.com/cd/0/get'
-			'/BI9cvsigYCwfrZURqSKWEz4yw81Dpmin4Zj9ZbU1w7Wej1UG7DMQWTU'
-			'-uZdW0IiC9JaTK3lAJcGuKZWidMwRopB6KcZcdc5q5BelY2zW7vQhd9wDtizEmJCBe4JstlduAp8/file#',
-		f'{prefix}_{DatasetPartition.train_80_eval_10_test_10.value}_{DatasetFormat.morp_transf.value}.zip':
-			'https://uc7b92abf9423211a0b111f210c6.dl.dropboxusercontent.com/cd/0/get/BI'
-			'-79VbVD1P2DqRPTzxhamVSh2zlQZxwv5R5QIqKqbPDgOUW4_KXkIqLfCe9Y6uEZNP2sXmZ'
-			'-4gDcI4sRExf8UrH1oCSotPxOzlbIFQLWn0qj5ToZDS_pFC7scI7RDvFTHU/file#',
+			'https://uc04f881e88340c7626bdcdad17d.dl.dropboxusercontent.com/cd/0/get'
+			'/BI9m7MDX0T3Xxc6uSp_9f4lsPQ3TMGVybzUZ'
+			'-iCp7zsDflryVEDuj2Z012Pa0ozNgC8fJsli5VqV_pC7PQ6CHmWgJRgy8FvfwdBoHtRYE2dboSFwcx-s6CYuB8GpQTT0JFs/file#',
 		f'{prefix}_{DatasetPartition.train_80_eval_10_test_10.value}_{DatasetFormat.equal_hist.value}.zip':
-			'https://uc1ab11456ee7303f60c74b49039.dl.dropboxusercontent.com/cd/0/get'
-			'/BI9KKd3H6vAT4aoyd2FMJ4VpVwfiJ9Jia3vApuOif9RS_PJ6uYdPOt7C4Q8vUs7wypnWKZl3'
-			'_Dkc6WtAGEXPj2Hy7ZUpbALymSauTiFcjMgBIlT0ovs7tGoCbw9YIV6sSt4/file# '
+			'https://uc57012e2112cb117d519f1a3cfb.dl.dropboxusercontent.com/cd/0/get/BI8oumkJy5DXWrmZHpVkF-oFP81KF6wg'
+			'-0CVPUGzsr3f8B7yXphMc0qdbxeyg5dSaP2RT-q7EIk2uQAOGURkDQBuGdHpvctLvpCyMAd4VhgwBTXbp6DDyiCSfCnD3puAAic/file'
+			'#',
+		f'{prefix}_{DatasetPartition.train_80_eval_10_test_10.value}_{DatasetFormat.morp_transf.value}.zip':
+			'https://uc20c0e54e4d945c4dbc09aec0cf.dl.dropboxusercontent.com/cd/0/get/BI-k_Fs1D'
+			'-yf2jJ8kAvAdbRCXMvFn3fW4z9VPmlcEhlocQggoKYlHZgLV4vaNLZo6dAhfciOyAlPMiHL3tP83PI0HY'
+			'c6EEVF2OVhHFdVnUNrll23MjoCxqwtqG9CMv_wBH4/file# '
 	}
 
 	for ds in dataset_url:

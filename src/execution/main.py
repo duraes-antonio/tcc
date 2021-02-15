@@ -1,3 +1,15 @@
+import tensorflow as tf
+
+
+def tf_gpu_allow_growth():
+	gpus = tf.config.experimental.list_physical_devices('GPU')
+	for gpu in gpus:
+		tf.config.experimental.set_memory_growth(gpu, True)
+
+
+# Define que a alocação de memória da GPU ocorrerá sob demanda e não de uma vez
+tf_gpu_allow_growth()
+
 from os import path
 from typing import Dict, Union, Callable, List
 
@@ -9,21 +21,10 @@ from helper.git import Git
 from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test, timer
 from network.callbacks_metrics import get_metrics, get_callbacks
 from network.dataset_dataloader import Dataloader, build_dataloader
-from network.deeplab import deeplabv3
+from network.deeplab import build_deeplab
 from network.params import UNetParams, DeeplabParams, NetworkParams
 from test_case.case import TestCaseManager
 from test_case.worksheet import load_worksheet
-
-
-def build_deeplab(params: DeeplabParams) -> Callable[[], Model]:
-	def child():
-		return deeplabv3(
-			input_shape=(params.size, params.size, 3),
-			classes=params.n_classes, backbone=params.backbone.value,
-			OS=params.os, dropout=params.dropout
-		)
-
-	return child
 
 
 # TODO: Continuar/Incluir UNET
@@ -55,7 +56,7 @@ def build_trained_model_name(params: NetworkParams) -> str:
 		f'{params.size}x{params.size}',
 		f'{params.partition.value}',
 		f'{params.format.value}',
-		get_name(params.backbone),
+		get_name(params.backbone.value),
 		get_name(params.opt),
 		f'batch-{params.batch}',
 		f'epochs-{params.epochs}',
@@ -78,7 +79,7 @@ def main():
 	current_env = Env.train
 
 	# Baixar e extrair datasets
-	prepare_datasets(path_root)
+	prepare_datasets(path_root, 512)
 
 	path_current = path.join(path_root, 'tcc')
 	path_results = path.join('results', case.net.name, case.partition.name)

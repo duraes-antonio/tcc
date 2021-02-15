@@ -25,6 +25,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+from typing import Callable
+
 import numpy as np
 import tensorflow as tf
 from keras import backend as K
@@ -45,6 +47,8 @@ from keras.layers import Input
 from keras.layers import ZeroPadding2D
 from keras.models import Model
 from keras.utils import conv_utils
+
+from params import DeeplabParams
 
 
 def apply_dropout(x, rate_dropout: float = 0):
@@ -558,3 +562,14 @@ def preprocess_input(x):
 		Input array scaled to [-1.,1.]
 	"""
 	return imagenet_utils.preprocess_input(x, mode='tf')
+
+
+def build_deeplab(params: DeeplabParams) -> Callable[[], Model]:
+	def child():
+		return deeplabv3(
+			input_shape=(params.size, params.size, 3),
+			classes=params.n_classes, backbone=params.backbone.value,
+			OS=params.os, dropout=params.dropout
+		)
+
+	return child
