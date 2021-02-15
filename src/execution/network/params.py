@@ -11,7 +11,7 @@ from test_case.case import TestCase
 class NetworkParams:
 	epochs = 40
 	lr = 0.0001
-	size = 512
+	size = 448
 	clip_value = 0.001
 	batch = 4
 	loss = 'categorical_crossentropy'
