@@ -62,7 +62,7 @@ class TestCase:
 		prefix_col = '' if env == Env.train else f'{env.value}_'
 		for m in metrics:
 			cell = ws.cell(self.id + 1, self.columns.index(prefix_col + m.value) + 1)
-			cell.value = results[(prefix_metrics or '') + m.value]
+			cell.value = str(results[(prefix_metrics or '') + m.value])
 			cells.append(cell)
 		ws.update_cells(cells)
 
