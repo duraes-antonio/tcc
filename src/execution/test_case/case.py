@@ -49,8 +49,9 @@ class TestCase:
 			results: Optional[Dict[str, int]] = None,
 			prefix_metrics: Optional[str] = None
 	):
-		self.update_state(ws, State.done, env)
-		self.update_date(ws, env, TestProgress.end, datetime.now())
+		if env != Env.eval:
+			self.update_state(ws, State.done, env)
+			self.update_date(ws, env, TestProgress.end, datetime.now())
 
 		metrics = [
 			Metrics.loss, Metrics.accuracy, Metrics.f1_score,
@@ -62,7 +63,7 @@ class TestCase:
 		prefix_col = '' if env == Env.train else f'{env.value}_'
 		for m in metrics:
 			cell = ws.cell(self.id + 1, self.columns.index(prefix_col + m.value) + 1)
-			cell.value = str(results[(prefix_metrics or '') + m.value])
+			cell.value = str(results[(prefix_metrics or '') + m.value]).replace('.', ',')
 			cells.append(cell)
 		ws.update_cells(cells)
 
