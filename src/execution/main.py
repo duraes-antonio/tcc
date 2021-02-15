@@ -59,10 +59,10 @@ def mark_done_and_commit_results(
 	commit_msg = gh.build_commit_msg(params, env)
 
 	if env == Env.test:
-		file = write_csv_metrics_test(res, path_file)
+		file = write_csv_metrics_test(res)
 
 	else:
-		file = write_csv_metrics(res, path_file)
+		file = write_csv_metrics(res)
 
 	gh.create_file(path_file, file, commit_msg)
 
@@ -83,7 +83,7 @@ def main():
 	path_where = path.join(path_root, 'tcc', 'src', 'execution')
 
 	path_gsheets_cred = path.join(path_where, 'test_case', 'credentials.json')
-	ws = load_worksheet('tcc', path_gsheets_cred, 'case')
+	ws = load_worksheet('tcc', path_gsheets_cred, 'cases')
 	test_manager = TestCaseManager(ws)
 	case = test_manager.first_case_free()
 

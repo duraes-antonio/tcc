@@ -48,7 +48,7 @@ from keras.layers import ZeroPadding2D
 from keras.models import Model
 from keras.utils import conv_utils
 
-from params import DeeplabParams
+from network.params import DeeplabParams
 
 
 def apply_dropout(x, rate_dropout: float = 0):

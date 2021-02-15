@@ -3,8 +3,8 @@ from typing import Optional
 import gspread
 from gspread import Worksheet
 
-from case import TestCase
 from enums import DatasetPartition, DatasetFormat, Optimizer, Metrics
+from test_case.case import TestCase
 
 
 def load_worksheet(

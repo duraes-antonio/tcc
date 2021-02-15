@@ -4,9 +4,9 @@ from zipfile import ZipFile
 
 import wget
 
-from dataset_dataloader import Dataloader, build_dataloader
 from enums import DatasetPartition, DatasetFormat, Env
-from params import NetworkParams
+from network.dataset_dataloader import Dataloader, build_dataloader
+from network.params import NetworkParams
 
 
 def prepare_datasets(path_to_save: str, size=448):
