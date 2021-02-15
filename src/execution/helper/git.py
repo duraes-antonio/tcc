@@ -14,14 +14,19 @@ class Git:
 		self.repository = self.gh.get_repo(f'{username}/{repository_name}')
 
 	def create_file(self, file_repo_path: str, content: str, commit_msg: str):
-		self.repository.create_file(file_repo_path, commit_msg, content)
+		contents = self.repository.get_contents(file_repo_path)
+
+		if contents and contents.content:
+			self.repository.update_file(file_repo_path, commit_msg, content, contents.sha)
+		else:
+			self.repository.create_file(file_repo_path, commit_msg, content)
 
 	def build_commit_msg(self, params: NetworkParams, env: Env) -> str:
 		fragments = [
 			f'{params.size}x{params.size}',
 			f'{params.partition.name}',
 			f'{params.format.name}',
-			get_name(params.backbone),
+			params.backbone.value,
 			get_name(params.opt),
 			f'batch {params.batch}',
 			f'epochs {params.epochs}',
