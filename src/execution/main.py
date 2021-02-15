@@ -94,7 +94,7 @@ def main():
 		prepare_datasets(path_root, size)
 
 		path_current = path.join(path_root, 'tcc')
-		path_results = path.join('results', case.net.name, case.partition.name)
+		path_results = path.join('results', case.net.value, case.partition.value)
 		gh = Git('duraes-antonio', 'tcc')
 
 		try:
