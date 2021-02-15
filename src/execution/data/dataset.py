@@ -1,9 +1,12 @@
+from os import path
+from typing import Dict, List
 from zipfile import ZipFile
 
-from os import path
 import wget
 
-from enums import DatasetPartition, DatasetFormat
+from dataset_dataloader import Dataloader, build_dataloader
+from enums import DatasetPartition, DatasetFormat, Env
+from params import NetworkParams
 
 
 def prepare_datasets(path_to_save: str, size=448):
@@ -35,3 +38,16 @@ def prepare_datasets(path_to_save: str, size=448):
 		if not path.exists(path_zip.rsplit('.zip')[0]):
 			with ZipFile(path_zip, 'r') as ds_zipped:
 				ds_zipped.extractall(path_to_save)
+
+
+def build_data(path_ds: str, classes: List[str], env: Env, batch: int) -> Dataloader:
+	prefix: Dict[Env, str] = {Env.eval: 'val', Env.test: 'test', Env.train: 'train'}
+	path_imgs = path.join(path_ds, prefix[env])
+	path_masks = path_imgs + '_gt'
+	return build_dataloader(path_imgs, path_masks, classes, batch)
+
+
+def build_dataset_name(params: NetworkParams) -> str:
+	dataset_size = f'{params.size}x{params.size}'
+	dataset_config = '_'.join([dataset_size, params.partition.value, params.format.value])
+	return f'pneumonia_{dataset_config}'

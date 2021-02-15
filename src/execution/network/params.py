@@ -11,7 +11,6 @@ from test_case.case import TestCase
 class NetworkParams:
 	epochs = 40
 	lr = 0.0001
-	size = 448
 	clip_value = 0.001
 	batch = 4
 	loss = 'categorical_crossentropy'
@@ -19,11 +18,15 @@ class NetworkParams:
 	backbone: Enum = ''
 	classes = []
 
-	def __init__(self, case: TestCase, classes: List[str], backbone: Optional[Enum] = None):
+	def __init__(
+			self, case: TestCase, classes: List[str],
+			backbone: Optional[Enum] = None, size=512
+	):
 		self.classes = classes
 		self.n_classes = len(classes) + 1
 		self.backbone = backbone
 		self.batch = case.batch
+		self.size = size
 
 		opts: Dict[Optimizer, keras.optimizers.Optimizer] = {
 			Optimizer.adam: keras.optimizers.Adam(lr=self.lr, clipnorm=self.clip_value),
@@ -38,13 +41,13 @@ class NetworkParams:
 class DeeplabParams(NetworkParams):
 	def __init__(
 			self, case: TestCase, classes: List[str],
-			backbone=DeeplabBackbone.mobile_net
+			backbone=DeeplabBackbone.mobile_net, size=512
 	):
-		super().__init__(case, classes, backbone)
+		super().__init__(case, classes, backbone, size)
 		self.os = 16
 
 
 class UNetParams(NetworkParams):
-	def __init__(self, case: TestCase, classes: List[str]):
+	def __init__(self, case: TestCase, classes: List[str], size=512):
 		backbone = UNetBackbone.vgg19_drop if case.dropout > 0 else UNetBackbone.vgg19
-		super().__init__(case, classes, backbone)
+		super().__init__(case, classes, backbone, size)

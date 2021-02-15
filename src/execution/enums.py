@@ -21,6 +21,20 @@ class Optimizer(Enum):
 	rmsprop = 'rmsprop'
 
 
+class Dropout(Enum):
+	dropout = 'dropout'
+	no_dropout = 'no-dropout'
+
+
+class Metrics(Enum):
+	loss = 'loss'
+	accuracy = 'accuracy'
+	f1_score = 'f1_score'
+	miou = 'miou'
+	precision = 'precision'
+	recall = 'recall'
+
+
 class Env(Enum):
 	train = 'train'
 	eval = 'eval'

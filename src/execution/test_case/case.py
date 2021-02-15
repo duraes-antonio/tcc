@@ -1,10 +1,10 @@
 from datetime import datetime
-from typing import List, Union, Optional
+from typing import List, Optional, Dict
 
 from gspread import Worksheet
 from pandas import DataFrame, Series
 
-from enums import State, Network, DatasetPartition, DatasetFormat, Optimizer, Env, TestProgress
+from enums import State, Network, DatasetPartition, DatasetFormat, Optimizer, Env, TestProgress, Metrics
 
 
 class TestCase:
@@ -44,9 +44,27 @@ class TestCase:
 	def update_state(self, ws: Worksheet, s: State, env: Env):
 		ws.update_cell(self.id + 1, self.columns.index(f'{env.name}_state') + 1, s.name)
 
-	def done(self, ws: Worksheet, env: Env):
+	def done(
+			self, ws: Worksheet, env: Env,
+			results: Optional[Dict[str, int]] = None,
+			prefix_metrics: Optional[str] = None
+	):
 		self.update_state(ws, State.done, env)
 		self.update_date(ws, env, TestProgress.end, datetime.now())
+
+		metrics = [
+			Metrics.loss, Metrics.accuracy, Metrics.f1_score,
+			Metrics.miou, Metrics.precision, Metrics.recall
+		]
+
+		cells = []
+
+		prefix_col = '' if env == Env.train else f'{env.value}_'
+		for m in metrics:
+			cell = ws.cell(self.id + 1, self.columns.index(prefix_col + m.value) + 1)
+			cell.value = results[prefix_metrics + m.value]
+			cells.append(cell)
+		ws.update_cells(cells)
 
 	def free(self, ws: Worksheet, env: Env, prog: Optional[TestProgress] = None):
 		self.update_state(ws, State.free, env)
@@ -58,15 +76,9 @@ class TestCase:
 
 
 class TestCaseManager:
-	cases: List[TestCase]
 
-	def __init__(self, cases: Union[List[TestCase], DataFrame, Worksheet]):
-		if isinstance(cases, List):
-			self.cases = cases
-		elif isinstance(cases, DataFrame):
-			self.cases = self.parse_dataframe(cases)
-		elif isinstance(cases, Worksheet):
-			self.cases = self.parse_worksheet(cases)
+	def __init__(self, ws: Worksheet):
+		self.worksheet = ws
 
 	@staticmethod
 	def parse_dataframe(data: DataFrame) -> List[TestCase]:
@@ -86,4 +98,5 @@ class TestCaseManager:
 		return cases_free[0] if len(cases_free) > 0 else None
 
 	def first_case_free(self, env=Env.train) -> TestCase:
-		return self.first_case(self.cases, env, State.free)
+		cases = self.parse_worksheet(self.worksheet)
+		return self.first_case(cases, env, State.free)

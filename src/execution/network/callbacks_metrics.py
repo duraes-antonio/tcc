@@ -8,8 +8,10 @@ import tensorflow as tf
 import tensorflow.keras.backend as K
 from tensorflow.keras.callbacks import Callback
 
-
 # taken from old keras source code
+from enums import Metrics
+
+
 def f1_score(y_true, y_pred):
 	true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
 	possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
@@ -47,9 +49,9 @@ def get_callbacks(path_save_model: str) -> List:
 
 def get_metrics(n_classes: int) -> List:
 	return [
-		'accuracy',
-		tf.keras.metrics.Recall(name='recall'),
-		tf.keras.metrics.Precision(name='precision'),
-		ModifiedMeanIOU(num_classes=n_classes + 1, name='miou'),
+		Metrics.accuracy.value,
+		tf.keras.metrics.Recall(name=Metrics.recall.value),
+		tf.keras.metrics.Precision(name=Metrics.precision.value),
+		ModifiedMeanIOU(num_classes=n_classes + 1, name=Metrics.miou.value),
 		f1_score
 	]

@@ -1,4 +1,5 @@
 import tensorflow as tf
+from gspread import Worksheet
 
 
 def tf_gpu_allow_growth():
@@ -11,44 +12,28 @@ def tf_gpu_allow_growth():
 tf_gpu_allow_growth()
 
 from os import path
-from typing import Dict, Union, Callable, List
+from typing import Dict, Union, Callable
 
 from keras.models import Model
 
-from data.dataset import prepare_datasets
+from data.dataset import prepare_datasets, build_dataset_name, build_data
 from enums import Env, Network, TestProgress
 from helper.git import Git
-from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test, timer
+from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test
 from network.callbacks_metrics import get_metrics, get_callbacks
-from network.dataset_dataloader import Dataloader, build_dataloader
 from network.deeplab import build_deeplab
 from network.params import UNetParams, DeeplabParams, NetworkParams
-from test_case.case import TestCaseManager
+from test_case.case import TestCaseManager, TestCase
 from test_case.worksheet import load_worksheet
 
 
 # TODO: Continuar/Incluir UNET
-def build_network(
-		net: Network, config: Union[DeeplabParams, UNetParams]
-) -> Model:
+def build_network(net: Network, config: Union[DeeplabParams, UNetParams]) -> Model:
 	handlers: Dict[Network, Callable[[], Model]] = {
 		Network.unet: None,
 		Network.deeplab: build_deeplab(config)
 	}
 	return handlers[net]()
-
-
-def build_data(path_ds: str, classes: List[str], env: Env, batch: int) -> Dataloader:
-	prefix: Dict[Env, str] = {Env.eval: 'val', Env.test: 'test', Env.train: 'train'}
-	path_imgs = path.join(path_ds, prefix[env])
-	path_masks = path_imgs + '_gt'
-	return build_dataloader(path_imgs, path_masks, classes, batch)
-
-
-def build_dataset_name(params: NetworkParams) -> str:
-	dataset_size = f'{params.size}x{params.size}'
-	dataset_config = '_'.join([dataset_size, params.partition.value, params.format.value])
-	return f'pneumonia_{dataset_config}'
 
 
 def build_trained_model_name(params: NetworkParams) -> str:
@@ -67,84 +52,104 @@ def build_trained_model_name(params: NetworkParams) -> str:
 	return '_'.join(fragments)
 
 
+def mark_done_and_commit_results(
+		case: TestCase, ws: Worksheet, path_file: str, env: Env,
+		gh: Git, params: NetworkParams, res: Dict[str, Union[int, list]]
+):
+	commit_msg = gh.build_commit_msg(params, env)
+
+	if env == Env.test:
+		file = write_csv_metrics_test(res, path_file)
+
+	else:
+		file = write_csv_metrics(res, path_file)
+
+	gh.create_file(path_file, file, commit_msg)
+
+	if env == Env.test:
+		case.done(ws, env, res)
+	else:
+		last_epoch_results = {k: res[k][-1] for k in res}
+		case.done(ws, env.train, last_epoch_results)
+		case.done(ws, env.eval, last_epoch_results, 'val_')
+
+
 def main():
 	classes = ['background', 'covid', 'bacterial', 'viral']
+	size = 512
 
 	# Obter dados sobre o caso de teste disponível (ainda não executado)
 	path_root = '/home/acduraes/content'
 	path_where = path.join(path_root, 'tcc', 'src', 'execution')
-	ws = load_worksheet(path_json_credent=path.join(path_where, 'test_case', 'credentials.json'))
+
+	path_gsheets_cred = path.join(path_where, 'test_case', 'credentials.json')
+	ws = load_worksheet('tcc', path_gsheets_cred, 'case')
 	test_manager = TestCaseManager(ws)
 	case = test_manager.first_case_free()
-	current_env = Env.train
 
-	# Baixar e extrair datasets
-	prepare_datasets(path_root, 512)
+	while case is not None:
+		current_env = Env.train
 
-	path_current = path.join(path_root, 'tcc')
-	path_results = path.join('results', case.net.name, case.partition.name)
-	gh = Git('duraes-antonio', 'tcc')
+		# Baixar e extrair datasets
+		prepare_datasets(path_root, size)
 
-	try:
-		# Marcar caso como ocupado
-		case.busy(ws, current_env)
+		path_current = path.join(path_root, 'tcc')
+		path_results = path.join('results', case.net.name, case.partition.name)
+		gh = Git('duraes-antonio', 'tcc')
 
-		# Definir params
-		params = UNetParams(case, classes) if case.net == Network.unet else DeeplabParams(case, classes)
+		try:
+			# Marcar caso como ocupado
+			case.busy(ws, current_env)
 
-		# Instanciar modelo
-		model: Model = build_network(case.net, params)
+			# Definir params
+			if case.net == Network.unet:
+				params = UNetParams(case, classes, size)
+			else:
+				params = DeeplabParams(case, classes, size=size)
 
-		# Compilar modelo
-		metrics = get_metrics(len(classes))
-		model.compile(case.opt.name, params.loss, metrics=metrics)
+			# Instanciar modelo
+			model: Model = build_network(case.net, params)
 
-		# Gerar Dataloaders
-		path_dataset = path.join(path_root, build_dataset_name(params))
-		train_dataloader = build_data(path_dataset, classes, Env.train, params.batch)
-		val_dataloader = build_data(path_dataset, classes, Env.eval, params.batch)
-		test_dataloader = build_data(path_dataset, classes, Env.test, 1)
+			# Compilar modelo
+			metrics = get_metrics(len(classes))
+			model.compile(case.opt.name, params.loss, metrics=metrics)
 
-		trained_model_name = build_trained_model_name(params)
-		path_trained_model = path.join(path_current, 'trained')
-		callbacks = get_callbacks(path.join(path_trained_model, trained_model_name))
+			# Gerar Dataloaders
+			path_dataset = path.join(path_root, build_dataset_name(params))
+			train_dataloader = build_data(path_dataset, classes, Env.train, params.batch)
+			val_dataloader = build_data(path_dataset, classes, Env.eval, params.batch)
+			test_dataloader = build_data(path_dataset, classes, Env.test, 1)
 
-		# Treinar modelo
-		@timer
-		def train_model():
+			trained_model_name = build_trained_model_name(params)
+			path_trained_model = path.join(path_current, 'trained')
+			callbacks = get_callbacks(path.join(path_trained_model, trained_model_name))
+
+			# Treinar modelo
 			history = model.fit_generator(
 				generator=train_dataloader, validation_data=val_dataloader,
 				epochs=params.epochs, callbacks=callbacks, workers=8
 			)
+			mark_done_and_commit_results(
+				case, ws, path.join(path_results, f'{trained_model_name}.csv'),
+				current_env, gh, params, history.history
+			)
 
-			# Commitar resultados
-			log = write_csv_metrics(history.history)
-			commit_msg = gh.build_commit_msg(params, Env.train)
-			gh.create_file(path.join(path_results, f'{trained_model_name}.csv'), log, commit_msg)
-			case.done(ws, current_env)
-
-		# Avalair modelo
-		@timer
-		def eval_model():
+			# Avaliar modelo
+			current_env = Env.test
 			case.busy(ws, current_env)
 			model.load_weights(path.join(path_trained_model, f'{trained_model_name}.h5'))
 			scores = model.evaluate_generator(test_dataloader)
 
-			# Commitar resultados
 			scores_dict = {get_name(m): v for m, v in zip(['loss', *metrics], scores)}
-			log_test = write_csv_metrics_test(scores_dict)
-			commit_msg = gh.build_commit_msg(params, current_env)
-			gh.create_file(path.join(path_results, f'{trained_model_name}_test.csv'), log_test, commit_msg)
-			case.done(ws, current_env)
+			mark_done_and_commit_results(
+				case, ws, path.join(path_results, f'{trained_model_name}_test.csv'),
+				current_env, gh, params, scores_dict
+			)
+			case = test_manager.first_case_free()
 
-		train_model()
-
-		current_env = Env.test
-		eval_model()
-
-	except:
-		case.free(ws, current_env, TestProgress.start)
-		raise
+		except:
+			case.free(ws, current_env, TestProgress.start)
+			raise
 
 	return 0
 
