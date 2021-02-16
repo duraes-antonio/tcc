@@ -1,4 +1,5 @@
 from os import path
+from pathlib import Path
 from typing import Dict, List, Union, Tuple
 from zipfile import ZipFile
 
@@ -34,7 +35,7 @@ def get_dataset_512x512(prefix='pneumonia') -> List[DatasetDownload]:
 			DatasetFormat.equal_hist, size,
 			'https://ucd3426c24b8cce15ceb52c94198.dl.dropboxusercontent.com/cd/0/get/BI_NWA2h_kjVAb'
 			'-idrCqt4koRxdU0RHhY5oWO0zm6g3S4ZWf3msyCA4NPDLCH9Bj2nC-VrEqAX88xLfQY3o'
-			'-_N0tm8ejVt6FssFfCeFipT_qJTP9jtrbL6xp2SeQXehK5hM/file#'
+			'-_N0tm8ejVt6FssFfCeFipT_qJTP9jtrbL6xp2SeQXehK5hM/file#',
 		),
 		DatasetDownload(
 			prefix, DatasetPartition.train_70_eval_20_test_10,
@@ -66,22 +67,28 @@ def get_dataset_448x448(prefix='pneumonia') -> List[DatasetDownload]:
 		DatasetDownload(
 			prefix, DatasetPartition.train_70_eval_20_test_10,
 			DatasetFormat.equal_hist, size,
-			'https://drive.google.com/u/0/uc?export=download&confirm=LezY&id=1_hPTB6p6bqkUNzN4QTXBW4U9W7txFDyL'
+			'https://ucbeaceceb81dd75a2cff03c4a3c.dl.dropboxusercontent.com/cd/0/get'
+			'/BJBN2xAxTA6ecM2SOyEI1LphASmxljggHJa6rk_J58l7YT0kzG7K6OhN0ESRwMXn3rzWLu4lcHKsiI0MWDxLTgjCcgo86VANRV2ie5U3C2kvlhEFkvFge9XHDA1RBiuTpqs/file# '
 		),
 		DatasetDownload(
 			prefix, DatasetPartition.train_70_eval_20_test_10,
 			DatasetFormat.morp_transf, size,
-			'https://drive.google.com/u/0/uc?export=download&confirm=9JNO&id=16ydo48sN7RsN_mSjYPfLqANSZW079JWi'
+			'https://ucaab2200f9cd2a25395a3f867ff.dl.dropboxusercontent.com/cd/0/get'
+			'/BJCHeV1A8SvjPlq7DEcwYDziqQWXvkWYZUJ4ggEWNLfF6mXTQJRiLf2iiTLEcNyxr4u3JR9CVUvRMKN9qoFV3XikFHKAMTR2hQLJfeFDqzKv1LolKYLsYMMZ-AA2cIar_pA/file# '
 		),
 		DatasetDownload(
 			prefix, DatasetPartition.train_80_eval_10_test_10,
 			DatasetFormat.equal_hist, size,
-			'https://drive.google.com/u/0/uc?export=download&confirm=-RoB&id=1gLQrItHappIg2oJTSe1B1DGxt0RtVZsR'
+			'https://uc6c5cf8ef83708e40a6b350a6d7.dl.dropboxusercontent.com/cd/0/get/BJCKHQL-vVjf85ub0aSElsEq'
+			'-XTsmr4aSVPk5cO7R70q0WHqtV9Whb12T9gkeLkgpNSNuQWViunlIILdwSWQzDJmroMPZlCp1XIWV9rL0mf6yOvma32bNNekqn'
+			'-qYgr7rYo/file# '
 		),
 		DatasetDownload(
 			prefix, DatasetPartition.train_80_eval_10_test_10,
 			DatasetFormat.morp_transf, size,
-			'https://drive.google.com/u/0/uc?export=download&confirm=5otE&id=1LirPpJf4z9WEhuV3zbHXmrnWkWgOa1HO'
+			'https://ucb4819599fb7269550aa1ca84ab.dl.dropboxusercontent.com/cd/0/get/BJDxOHnqMhSmfmTPRbfPm8UFHxjF91K'
+			'-7ieP6UPBno3lhxVpcdVLQvndH8TfwIz-is20HRzPkHcrEyiWyAzN0KzQUUat8Vr6k8L9QXpaV-gMpM3IJCMhAiogQnynFas72SA'
+			'/file# '
 		),
 	]
 
@@ -91,6 +98,7 @@ def prepare_datasets(path_to_save: str, size=448):
 		448: get_dataset_448x448(),
 		512: get_dataset_512x512()
 	}
+	Path(path_to_save).mkdir(parents=True, exist_ok=True)
 
 	for ds in size_dataset[size]:
 		path_zip = path.join(path_to_save, ds.get_name() + '.zip')

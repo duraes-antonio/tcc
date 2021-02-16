@@ -81,6 +81,7 @@ def main():
 	repository_name = 'tcc'
 	path_where = pathlib.Path().absolute()
 	path_root = str(path_where).split(repository_name)[0]
+	path_datasets = path.join(path_root, 'datasets')
 
 	args = read_args()
 	path_gsheets_cred = args.credentials_path
@@ -92,7 +93,7 @@ def main():
 		current_env = Env.train
 
 		# Baixar e extrair datasets
-		prepare_datasets(path_root, args.size)
+		prepare_datasets(path_datasets, args.size)
 
 		path_current = path.join(path_root, repository_name)
 		path_results = path.join('results', case.net.value, case.partition.value)
