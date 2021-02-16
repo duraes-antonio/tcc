@@ -117,7 +117,7 @@ def main():
 			model.compile(case.opt.name, params.loss, metrics=metrics)
 
 			# Gerar Dataloaders
-			path_dataset = path.join(path_root, build_dataset_name(params))
+			path_dataset = path.join(path_datasets, build_dataset_name(params))
 			train_dataloader = build_data(path_dataset, classes, Env.train, params.batch)
 			val_dataloader = build_data(path_dataset, classes, Env.eval, params.batch)
 			test_dataloader = build_data(path_dataset, classes, Env.test, 1)

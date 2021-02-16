@@ -1,4 +1,5 @@
 from github import Github
+from github.GithubException import UnknownObjectException
 
 from enums import Env
 from helper.helpers import get_name
@@ -12,7 +13,10 @@ class Git:
 		self.repository = self.gh.get_repo(f'{username}/{repository_name}')
 
 	def create_file(self, file_repo_path: str, content: str, commit_msg: str):
-		contents = self.repository.get_contents(file_repo_path)
+		try:
+			contents = self.repository.get_contents(file_repo_path)
+		except UnknownObjectException:
+			contents = None
 
 		if contents and contents.content:
 			self.repository.update_file(file_repo_path, commit_msg, content, contents.sha)
