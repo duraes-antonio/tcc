@@ -2,7 +2,7 @@ from typing import Callable
 
 from keras import Model
 
-from params import UNetParams
+from network.params import UNetParams
 from unet.unet import Unet
 
 
