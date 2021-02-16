@@ -112,12 +112,12 @@ def prepare_datasets(path_to_save: str, size=448):
 
 def build_data(
 		path_ds: str, classes: List[str], env: Env, batch: int,
-		fn_preprocessing: Optional[Callable] = None
+		fn_preprocessing=None
 ) -> Dataloader:
 	prefix: Dict[Env, str] = {Env.eval: 'val', Env.test: 'test', Env.train: 'train'}
 	path_imgs = path.join(path_ds, prefix[env])
 	path_masks = path_imgs + '_gt'
-	return build_dataloader(path_imgs, path_masks, classes, batch, fn_preprocessing)
+	return build_dataloader(path_imgs, path_masks, classes, batch, fn_preproc=fn_preprocessing)
 
 
 def build_dataset_name(params: NetworkParams) -> str:

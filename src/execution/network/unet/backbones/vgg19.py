@@ -13,9 +13,9 @@ from __future__ import print_function
 import os
 
 from classification_models import get_submodules_from_kwargs
-from keras.layers import Dropout
 from keras_applications import imagenet_utils
 from keras_applications.imagenet_utils import _obtain_input_shape
+from keras.layers import Dropout
 
 preprocess_input = imagenet_utils.preprocess_input
 
@@ -28,7 +28,6 @@ WEIGHTS_PATH_NO_TOP = ('https://github.com/fchollet/deep-learning-models/'
 
 def add_dropout(x, dropout: float = 0):
     return Dropout(dropout)(x) if dropout > 0 else x
-
 
 def VGG19(
         include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None,

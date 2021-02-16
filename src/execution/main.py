@@ -109,6 +109,7 @@ def main():
 
 			# Gerar Dataloaders
 			preprocess_fn = get_preprocessing(params.backbone.value) if case.net == Network.unet else None
+			print(preprocess_fn)
 			path_dataset = path.join(path_datasets, build_dataset_name(params))
 			train_dataloader = build_data(path_dataset, classes, Env.train, params.batch, preprocess_fn)
 			val_dataloader = build_data(path_dataset, classes, Env.eval, params.batch, preprocess_fn)
