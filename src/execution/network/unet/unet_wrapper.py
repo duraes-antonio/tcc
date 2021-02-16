@@ -3,7 +3,7 @@ from typing import Callable
 from keras import Model
 
 from network.params import UNetParams
-from unet.models.unet import Unet
+from network.unet.models.unet import Unet
 
 
 def build_unet(params: UNetParams) -> Callable[[], Model]:

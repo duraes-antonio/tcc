@@ -4,9 +4,9 @@ import efficientnet.model as eff
 import keras_applications as ka
 from classification_models.models_factory import ModelsFactory
 
-from unet.backbones import inception_resnet_v2 as irv2
-from unet.backbones import inception_v3 as iv3
-from unet.backbones import vgg19
+from . import inception_resnet_v2 as irv2
+from . import inception_v3 as iv3
+from . import vgg19
 
 
 class BackbonesFactory(ModelsFactory):
