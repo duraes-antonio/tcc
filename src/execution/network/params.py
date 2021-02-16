@@ -27,14 +27,9 @@ class NetworkParams:
 		self.backbone = backbone
 		self.batch = case.batch
 		self.size = size
-
-		opts: Dict[Optimizer, keras.optimizers.Optimizer] = {
-			Optimizer.adam: keras.optimizers.Adam(lr=self.lr, clipnorm=self.clip_value),
-			Optimizer.rmsprop: keras.optimizers.RMSprop(lr=self.lr, clipnorm=self.clip_value)
-		}
 		self.partition = case.partition
 		self.format = case.format
-		self.opt = opts[case.opt]
+		self.opt = case.opt
 		self.dropout = case.dropout
 
 

@@ -33,30 +33,22 @@ def get_dataset_512x512(prefix='pneumonia') -> List[DatasetDownload]:
 		DatasetDownload(
 			prefix, DatasetPartition.train_70_eval_20_test_10,
 			DatasetFormat.equal_hist, size,
-			'https://ucd3426c24b8cce15ceb52c94198.dl.dropboxusercontent.com/cd/0/get/BI_NWA2h_kjVAb'
-			'-idrCqt4koRxdU0RHhY5oWO0zm6g3S4ZWf3msyCA4NPDLCH9Bj2nC-VrEqAX88xLfQY3o'
-			'-_N0tm8ejVt6FssFfCeFipT_qJTP9jtrbL6xp2SeQXehK5hM/file#',
+			'https://uc3c4b0a0ca8ba49c2425747255f.dl.dropboxusercontent.com/cd/0/get/BJFjOq2ZHpyHx_drZuv1cZaVUByHCt2wkEOjO4K_QfQued1hsU0wFEBPnV-mZP227oTcVXx8jFSBGqul4W5EuLU_cbxX5XFzXlN77a0u5Tkl07tU_lLC9iYsaiGliAlPHQU/file#',
 		),
 		DatasetDownload(
 			prefix, DatasetPartition.train_70_eval_20_test_10,
 			DatasetFormat.morp_transf, size,
-			'https://uc04f881e88340c7626bdcdad17d.dl.dropboxusercontent.com/cd/0/get'
-			'/BI9m7MDX0T3Xxc6uSp_9f4lsPQ3TMGVybzUZ'
-			'-iCp7zsDflryVEDuj2Z012Pa0ozNgC8fJsli5VqV_pC7PQ6CHmWgJRgy8FvfwdBoHtRYE2dboSFwcx-s6CYuB8GpQTT0JFs/file#',
+			'https://uc18668b9d15fbaeafa6ea7d32ea.dl.dropboxusercontent.com/cd/0/get/BJFcDCk03JJ9klUuJ2l3akhN8MXiimIAz9F3fPrfDkO-R95sMCm6NwGtugKsPS5iXNL3RnvaIIeBxofllRieT2DLoBAA-52na5MxyejeByD3ed5zYsjJ3eMiySotEcCQlek/file#',
 		),
 		DatasetDownload(
 			prefix, DatasetPartition.train_80_eval_10_test_10,
 			DatasetFormat.equal_hist, size,
-			'https://uc57012e2112cb117d519f1a3cfb.dl.dropboxusercontent.com/cd/0/get/BI8oumkJy5DXWrmZHpVkF-oFP81KF6wg'
-			'-0CVPUGzsr3f8B7yXphMc0qdbxeyg5dSaP2RT-q7EIk2uQAOGURkDQBuGdHpvctLvpCyMAd4VhgwBTXbp6DDyiCSfCnD3puAAic/file'
-			'#'
+			'https://uc9a11a8951effd828167e1b04c9.dl.dropboxusercontent.com/cd/0/get/BJF1wGKgoxnLszmLOLUysOaI1AFNEMQZHAn2H_NTxL7xJd2RlPjwYXsoHsI72muTAflYIXU4HfNrE3E_wKPUVhagGvl2KfaJ9BdMzI6PfwqGQgFtEw4d5b07imufYTMooM8/file#'
 		),
 		DatasetDownload(
 			prefix, DatasetPartition.train_80_eval_10_test_10,
 			DatasetFormat.morp_transf, size,
-			'https://uc20c0e54e4d945c4dbc09aec0cf.dl.dropboxusercontent.com/cd/0/get/BI-k_Fs1D'
-			'-yf2jJ8kAvAdbRCXMvFn3fW4z9VPmlcEhlocQggoKYlHZgLV4vaNLZo6dAhfciOyAlPMiHL3tP83PI0HY'
-			'c6EEVF2OVhHFdVnUNrll23MjoCxqwtqG9CMv_wBH4/file#'
+			'https://ucf7d617260b33de44ece0136292.dl.dropboxusercontent.com/cd/0/get/BJFYypoXS3qP9e1v4lc9aIZyWuIBaHZ-DspqsUZRADoyQelPSJY-kVsWrAP8a_2a9VTUqFto1Mn8STNhq9WbjQC53tThQQOTNeqzsazobG8COxcHICs5yjRgO2z-mpjUQhc/file#'
 		),
 	]
 
