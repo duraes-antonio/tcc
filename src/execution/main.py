@@ -13,9 +13,9 @@ from helper.git import Git
 from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test
 from network.common import get_metrics, get_callbacks, build_network
 from network.params import UNetParams, DeeplabParams, NetworkParams
+from network.unet import get_preprocessing
 from test_case.case import TestCaseManager, TestCase
 from test_case.worksheet import load_worksheet
-from unet import get_preprocessing
 
 
 def tf_gpu_allow_growth():
