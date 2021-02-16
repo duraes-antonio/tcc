@@ -1,13 +1,17 @@
 import copy
 
+import efficientnet.model as eff
 import keras_applications as ka
 from classification_models.models_factory import ModelsFactory
 
-from . import vgg19
+from unet.backbones import inception_resnet_v2 as irv2
+from unet.backbones import inception_v3 as iv3
+from unet.backbones import vgg19
 
 
 class BackbonesFactory(ModelsFactory):
     _default_feature_layers = {
+
         # List of layers to take features from backbone in the following order:
         # (x16, x8, x4, x2, x1) - `x4` mean that features has 4 times less spatial
         # resolution (Height x Width) than input image.
@@ -28,6 +32,10 @@ class BackbonesFactory(ModelsFactory):
         'resnext50': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
         'resnext101': ('stage4_unit1_relu1', 'stage3_unit1_relu1', 'stage2_unit1_relu1', 'relu0'),
 
+        # Inception
+        'inceptionv3': (228, 86, 16, 9),
+        'inceptionresnetv2': (594, 260, 16, 9),
+
         # DenseNet
         'densenet121': (311, 139, 51, 4),
         'densenet169': (367, 139, 51, 4),
@@ -45,10 +53,41 @@ class BackbonesFactory(ModelsFactory):
 
         # Mobile Nets
         'mobilenet': ('conv_pw_11_relu', 'conv_pw_5_relu', 'conv_pw_3_relu', 'conv_pw_1_relu'),
-        'mobilenetv2': ('block_13_expand_relu', 'block_6_expand_relu', 'block_3_expand_relu', 'block_1_expand_relu'),
+        'mobilenetv2': ('block_13_expand_relu', 'block_6_expand_relu', 'block_3_expand_relu',
+                        'block_1_expand_relu'),
+
+        # EfficientNets
+        'efficientnetb0': ('block6a_expand_activation', 'block4a_expand_activation',
+                           'block3a_expand_activation', 'block2a_expand_activation'),
+        'efficientnetb1': ('block6a_expand_activation', 'block4a_expand_activation',
+                           'block3a_expand_activation', 'block2a_expand_activation'),
+        'efficientnetb2': ('block6a_expand_activation', 'block4a_expand_activation',
+                           'block3a_expand_activation', 'block2a_expand_activation'),
+        'efficientnetb3': ('block6a_expand_activation', 'block4a_expand_activation',
+                           'block3a_expand_activation', 'block2a_expand_activation'),
+        'efficientnetb4': ('block6a_expand_activation', 'block4a_expand_activation',
+                           'block3a_expand_activation', 'block2a_expand_activation'),
+        'efficientnetb5': ('block6a_expand_activation', 'block4a_expand_activation',
+                           'block3a_expand_activation', 'block2a_expand_activation'),
+        'efficientnetb6': ('block6a_expand_activation', 'block4a_expand_activation',
+                           'block3a_expand_activation', 'block2a_expand_activation'),
+        'efficientnetb7': ('block6a_expand_activation', 'block4a_expand_activation',
+                           'block3a_expand_activation', 'block2a_expand_activation'),
+
     }
 
     _models_update = {
+        'inceptionresnetv2': [irv2.InceptionResNetV2, irv2.preprocess_input],
+        'inceptionv3': [iv3.InceptionV3, iv3.preprocess_input],
+
+        'efficientnetb0': [eff.EfficientNetB0, eff.preprocess_input],
+        'efficientnetb1': [eff.EfficientNetB1, eff.preprocess_input],
+        'efficientnetb2': [eff.EfficientNetB2, eff.preprocess_input],
+        'efficientnetb3': [eff.EfficientNetB3, eff.preprocess_input],
+        'efficientnetb4': [eff.EfficientNetB4, eff.preprocess_input],
+        'efficientnetb5': [eff.EfficientNetB5, eff.preprocess_input],
+        'efficientnetb6': [eff.EfficientNetB6, eff.preprocess_input],
+        'efficientnetb7': [eff.EfficientNetB7, eff.preprocess_input],
         'vgg19_drop': [vgg19.VGG19, ka.vgg19.preprocess_input],
     }
 

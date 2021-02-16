@@ -3,13 +3,17 @@ from keras_applications import get_submodules_from_kwargs
 
 from ._common_blocks import Conv2dBn
 from ._utils import freeze_model, filter_keras_submodules
-from .backbones_factory import Backbones
+from ..backbones.backbones_factory import Backbones
 
 backend = None
 layers = None
 models = None
 keras_utils = None
 
+
+# ---------------------------------------------------------------------
+#  Utility functions
+# ---------------------------------------------------------------------
 
 def get_submodules():
 	return {
@@ -19,6 +23,10 @@ def get_submodules():
 		'utils': keras_utils,
 	}
 
+
+# ---------------------------------------------------------------------
+#  Blocks
+# ---------------------------------------------------------------------
 
 def Conv3x3BnReLU(filters, use_batchnorm, name=None):
 	kwargs = get_submodules()
@@ -101,6 +109,10 @@ def DecoderTransposeX2Block(
 	return layer
 
 
+# ---------------------------------------------------------------------
+#  Unet Decoder
+# ---------------------------------------------------------------------
+
 def build_unet(
 		backbone,
 		decoder_block,
@@ -151,6 +163,10 @@ def build_unet(
 
 	return model
 
+
+# ---------------------------------------------------------------------
+#  Unet Model
+# ---------------------------------------------------------------------
 
 def Unet(
 		backbone_name='vgg16',

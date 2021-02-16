@@ -49,5 +49,5 @@ class DeeplabParams(NetworkParams):
 
 class UNetParams(NetworkParams):
 	def __init__(self, case: TestCase, classes: List[str], size=512):
-		backbone = UNetBackbone.vgg19_drop if case.dropout > 0 else UNetBackbone.vgg19
+		backbone = UNetBackbone.vgg19_drop
 		super().__init__(case, classes, backbone, size)

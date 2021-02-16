@@ -6,7 +6,7 @@ from . import base
 _KERAS_FRAMEWORK_NAME = 'keras'
 _TF_KERAS_FRAMEWORK_NAME = 'tf.keras'
 
-_DEFAULT_KERAS_FRAMEWORK = _TF_KERAS_FRAMEWORK_NAME
+_DEFAULT_KERAS_FRAMEWORK = _KERAS_FRAMEWORK_NAME
 _KERAS_FRAMEWORK = None
 _KERAS_BACKEND = None
 _KERAS_LAYERS = None
@@ -97,9 +97,12 @@ except ImportError:
 
 print('Segmentation Models: using `{}` framework.'.format(_KERAS_FRAMEWORK))
 
+# import helper modules
+from . import utils
+
 # wrap segmentation models with framework modules
-from .backbones_factory import Backbones
-from .unet import Unet as _Unet
+from .backbones.backbones_factory import Backbones
+from .models.unet import Unet as _Unet
 
 Unet = inject_global_submodules(_Unet)
 get_available_backbone_names = Backbones.models_names
@@ -117,6 +120,6 @@ def get_preprocessing(name):
 
 
 __all__ = [
-    'Unet', 'set_framework', 'framework',
-    'get_preprocessing', 'get_available_backbone_names',
+    'Unet', 'set_framework', 'framework', 'get_preprocessing',
+    'get_available_backbone_names', 'utils',
 ]
