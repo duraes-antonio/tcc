@@ -105,7 +105,6 @@ class BackbonesFactory(ModelsFactory):
 
     def get_backbone(self, name, *args, **kwargs):
         model_fn, _ = self.get(name)
-        print('---> get_backbone - kwargs', kwargs)
         model = model_fn(*args, **kwargs)
         return model
 

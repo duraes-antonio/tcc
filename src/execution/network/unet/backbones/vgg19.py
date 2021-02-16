@@ -34,7 +34,6 @@ def VGG19(
         include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None,
         classes=1000, dropout: float = 0, **kwargs
 ):
-    print('# DROPOUT:', dropout > 0)
     """Instantiates the VGG19 architecture.
 
     Optionally loads weights pre-trained on ImageNet.

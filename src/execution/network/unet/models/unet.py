@@ -229,7 +229,6 @@ def Unet(
 		raise ValueError('Decoder block type should be in ("upsampling", "transpose"). '
 		                 'Got: {}'.format(decoder_block_type))
 
-	print('---> UNet - backend', backend)
 	backbone = Backbones.get_backbone(
 		backbone_name,
 		input_shape=input_shape,
