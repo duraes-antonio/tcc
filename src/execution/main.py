@@ -11,7 +11,7 @@ from data.dataset import prepare_datasets, build_dataset_name, build_data
 from enums import Env, Network, TestProgress
 from helper.git import Git
 from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test
-from network.common import get_metrics, get_callbacks, build_network
+from network.common import get_metrics, get_callbacks, build_network, get_optimizer
 from network.params import UNetParams, DeeplabParams, NetworkParams
 from network.unet import get_preprocessing
 from test_case.case import TestCaseManager, TestCase
@@ -105,11 +105,11 @@ def main():
 
 			# Compilar modelo
 			metrics = get_metrics(len(classes))
-			model.compile(case.opt.name, params.loss, metrics=metrics)
+			optim = get_optimizer(params.opt, params.lr, params.clip_value)
+			model.compile(optim, params.loss, metrics=metrics)
 
 			# Gerar Dataloaders
 			preprocess_fn = get_preprocessing(params.backbone.value) if case.net == Network.unet else None
-			print(preprocess_fn)
 			path_dataset = path.join(path_datasets, build_dataset_name(params))
 			train_dataloader = build_data(path_dataset, classes, Env.train, params.batch, preprocess_fn)
 			val_dataloader = build_data(path_dataset, classes, Env.eval, params.batch, preprocess_fn)

@@ -68,9 +68,9 @@ def get_metrics(n_classes: int) -> List:
 	]
 
 
-def get_optimizer(opt: Optimizer, lr: float) -> keras.optimizers.Optimizer:
+def get_optimizer(opt: Optimizer, lr: float, clip_value: float) -> keras.optimizers.Optimizer:
 	options = {
-		Optimizer.adam: keras.optimizers.Adam(lr),
-		Optimizer.rmsprop: keras.optimizers.RMSprop(lr)
+		Optimizer.adam: keras.optimizers.Adam(lr, clipnorm=clip_value),
+		Optimizer.rmsprop: keras.optimizers.RMSprop(lr, clipnorm=clip_value)
 	}
 	return options[opt]
