@@ -1,5 +1,20 @@
+import pathlib
+from os import path
+from typing import Dict, Union, Callable
+
 import tensorflow as tf
 from gspread import Worksheet
+
+from cli import read_args
+from data.dataset import prepare_datasets, build_dataset_name, build_data
+from enums import Env, Network, TestProgress
+from helper.git import Git
+from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test
+from network.callbacks_metrics import get_metrics, get_callbacks
+from network.deeplab import build_deeplab
+from network.params import UNetParams, DeeplabParams, NetworkParams
+from test_case.case import TestCaseManager, TestCase
+from test_case.worksheet import load_worksheet
 
 
 def tf_gpu_allow_growth():
@@ -11,20 +26,7 @@ def tf_gpu_allow_growth():
 # Define que a alocação de memória da GPU ocorrerá sob demanda e não de uma vez
 tf_gpu_allow_growth()
 
-from os import path
-from typing import Dict, Union, Callable
-
 from keras.models import Model
-
-from data.dataset import prepare_datasets, build_dataset_name, build_data
-from enums import Env, Network, TestProgress
-from helper.git import Git
-from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test
-from network.callbacks_metrics import get_metrics, get_callbacks
-from network.deeplab import build_deeplab
-from network.params import UNetParams, DeeplabParams, NetworkParams
-from test_case.case import TestCaseManager, TestCase
-from test_case.worksheet import load_worksheet
 
 
 # TODO: Continuar/Incluir UNET
@@ -76,13 +78,12 @@ def mark_done_and_commit_results(
 
 def main():
 	classes = ['background', 'covid', 'bacterial', 'viral']
-	size = 512
+	repository_name = 'tcc'
+	path_where = pathlib.Path().absolute()
+	path_root = str(path_where).split(repository_name)[0]
 
-	# Obter dados sobre o caso de teste disponível (ainda não executado)
-	path_root = '/home/acduraes/content'
-	path_where = path.join(path_root, 'tcc', 'src', 'execution')
-
-	path_gsheets_cred = path.join(path_where, 'test_case', 'credentials.json')
+	args = read_args()
+	path_gsheets_cred = args.credentials_path
 	ws = load_worksheet('tcc', path_gsheets_cred, 'cases')
 	test_manager = TestCaseManager(ws)
 	case = test_manager.first_case_free()
@@ -91,11 +92,11 @@ def main():
 		current_env = Env.train
 
 		# Baixar e extrair datasets
-		prepare_datasets(path_root, size)
+		prepare_datasets(path_root, args.size)
 
-		path_current = path.join(path_root, 'tcc')
+		path_current = path.join(path_root, repository_name)
 		path_results = path.join('results', case.net.value, case.partition.value)
-		gh = Git('duraes-antonio', 'tcc')
+		gh = Git('duraes-antonio', repository_name, args.gh_token)
 
 		try:
 			# Marcar caso como ocupado
@@ -103,9 +104,9 @@ def main():
 
 			# Definir params
 			if case.net == Network.unet:
-				params = UNetParams(case, classes, size)
+				params = UNetParams(case, classes, args.size)
 			else:
-				params = DeeplabParams(case, classes, size=size)
+				params = DeeplabParams(case, classes, size=args.size)
 
 			# Instanciar modelo
 			model: Model = build_network(case.net, params)

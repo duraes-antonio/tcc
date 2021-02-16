@@ -6,11 +6,9 @@ from network.params import NetworkParams
 
 
 class Git:
-	__token__ = ''
-
-	def __init__(self, username: str, repository_name: str):
+	def __init__(self, username: str, repository_name: str, token: str):
 		self.user = username
-		self.gh = Github(self.__token__)
+		self.gh = Github(token)
 		self.repository = self.gh.get_repo(f'{username}/{repository_name}')
 
 	def create_file(self, file_repo_path: str, content: str, commit_msg: str):
