@@ -1,8 +1,5 @@
 import argparse
 
-import dataset_prepare.arquivo_util as au
-
-
 class ArgsCLI:
 	def __init__(self, size: int, gh_token: str, credentials_path: str):
 		self.size = size
@@ -13,7 +10,7 @@ class ArgsCLI:
 def read_args() -> ArgsCLI:
 	parser = argparse.ArgumentParser()
 	parser.add_argument(
-		'--cred', '-c', type=au.dir_path, default=None, metavar='credentials',
+		'--cred', '-c', type=str, default=None, metavar='credentials',
 		required=True, help="Path to the Google Drive service credentials JSON file",
 	)
 	parser.add_argument(
