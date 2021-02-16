@@ -1,6 +1,6 @@
 from os import path
 from pathlib import Path
-from typing import Dict, List, Union, Tuple
+from typing import Dict, List, Union, Tuple, Optional, Callable
 from zipfile import ZipFile
 
 import wget
@@ -110,11 +110,14 @@ def prepare_datasets(path_to_save: str, size=448):
 				ds_zipped.extractall(path_to_save)
 
 
-def build_data(path_ds: str, classes: List[str], env: Env, batch: int) -> Dataloader:
+def build_data(
+		path_ds: str, classes: List[str], env: Env, batch: int,
+		fn_preprocessing: Optional[Callable] = None
+) -> Dataloader:
 	prefix: Dict[Env, str] = {Env.eval: 'val', Env.test: 'test', Env.train: 'train'}
 	path_imgs = path.join(path_ds, prefix[env])
 	path_masks = path_imgs + '_gt'
-	return build_dataloader(path_imgs, path_masks, classes, batch)
+	return build_dataloader(path_imgs, path_masks, classes, batch, fn_preprocessing)
 
 
 def build_dataset_name(params: NetworkParams) -> str:

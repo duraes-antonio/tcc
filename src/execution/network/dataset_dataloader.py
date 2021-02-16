@@ -1,5 +1,5 @@
 import os
-from typing import List
+from typing import List, Optional, Callable
 
 import cv2
 import keras
@@ -108,7 +108,7 @@ class Dataloader(keras.utils.Sequence):
 
 def build_dataloader(
 		path_imgs: str, path_masks: str, classes: List[str],
-		batch_size=1, shuffle=False
+		batch_size=1, shuffle=False, fn_preproc: Optional[Callable] = None
 ) -> Dataloader:
-	dataset = Dataset(path_imgs, path_masks, classes=classes)
+	dataset = Dataset(path_imgs, path_masks, classes=classes, preprocessing=fn_preproc)
 	return Dataloader(dataset, batch_size=batch_size, shuffle=shuffle)

@@ -2,8 +2,8 @@ from github import Github
 from github.GithubException import UnknownObjectException
 
 from enums import Env
-from helper.helpers import get_name
 from network.params import NetworkParams
+from .helpers import get_name
 
 
 class Git:

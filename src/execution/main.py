@@ -1,6 +1,7 @@
+import gc
 import pathlib
 from os import path
-from typing import Dict, Union, Callable
+from typing import Dict, Union
 
 import tensorflow as tf
 from gspread import Worksheet
@@ -10,11 +11,11 @@ from data.dataset import prepare_datasets, build_dataset_name, build_data
 from enums import Env, Network, TestProgress
 from helper.git import Git
 from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test
-from network.callbacks_metrics import get_metrics, get_callbacks
-from network.deeplab import build_deeplab
+from network.common import get_metrics, get_callbacks, build_network
 from network.params import UNetParams, DeeplabParams, NetworkParams
 from test_case.case import TestCaseManager, TestCase
 from test_case.worksheet import load_worksheet
+from unet import get_preprocessing
 
 
 def tf_gpu_allow_growth():
@@ -27,15 +28,6 @@ def tf_gpu_allow_growth():
 tf_gpu_allow_growth()
 
 from keras.models import Model
-
-
-# TODO: Continuar/Incluir UNET
-def build_network(net: Network, config: Union[DeeplabParams, UNetParams]) -> Model:
-	handlers: Dict[Network, Callable[[], Model]] = {
-		Network.unet: None,
-		Network.deeplab: build_deeplab(config)
-	}
-	return handlers[net]()
 
 
 def build_trained_model_name(params: NetworkParams) -> str:
@@ -89,15 +81,14 @@ def main():
 	test_manager = TestCaseManager(ws)
 	case = test_manager.first_case_free()
 
+	# Baixar e extrair datasets
+	prepare_datasets(path_datasets, args.size)
+	path_current = path.join(path_root, repository_name)
+	path_results = path.join('results', case.net.value, case.partition.value)
+	gh = Git('duraes-antonio', repository_name, args.gh_token)
+
 	while case is not None:
 		current_env = Env.train
-
-		# Baixar e extrair datasets
-		prepare_datasets(path_datasets, args.size)
-
-		path_current = path.join(path_root, repository_name)
-		path_results = path.join('results', case.net.value, case.partition.value)
-		gh = Git('duraes-antonio', repository_name, args.gh_token)
 
 		try:
 			# Marcar caso como ocupado
@@ -117,10 +108,11 @@ def main():
 			model.compile(case.opt.name, params.loss, metrics=metrics)
 
 			# Gerar Dataloaders
+			preprocess_fn = get_preprocessing(params.backbone.value) if case.net == Network.unet else None
 			path_dataset = path.join(path_datasets, build_dataset_name(params))
-			train_dataloader = build_data(path_dataset, classes, Env.train, params.batch)
-			val_dataloader = build_data(path_dataset, classes, Env.eval, params.batch)
-			test_dataloader = build_data(path_dataset, classes, Env.test, 1)
+			train_dataloader = build_data(path_dataset, classes, Env.train, params.batch, preprocess_fn)
+			val_dataloader = build_data(path_dataset, classes, Env.eval, params.batch, preprocess_fn)
+			test_dataloader = build_data(path_dataset, classes, Env.test, 1, preprocess_fn)
 
 			trained_model_name = build_trained_model_name(params)
 			path_trained_model = path.join(path_current, 'trained')
@@ -147,6 +139,12 @@ def main():
 				case, ws, path.join(path_results, f'{trained_model_name}_test.csv'),
 				current_env, gh, params, scores_dict
 			)
+
+			del model
+			del train_dataloader
+			del val_dataloader
+			del test_dataloader
+			gc.collect()
 			case = test_manager.first_case_free()
 
 		except:

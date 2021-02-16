@@ -1,7 +1,7 @@
 import os
 import re
 from datetime import datetime
-from typing import Union, Callable, Optional
+from typing import Callable, Optional
 
 import keras
 import pandas as pd

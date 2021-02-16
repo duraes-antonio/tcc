@@ -1,15 +1,18 @@
 import gc
 from os import path
 from pathlib import Path
-from typing import List
+from typing import List, Dict, Union, Callable
 
 import keras
 import tensorflow as tf
 import tensorflow.keras.backend as K
+from keras import Model
 from tensorflow.keras.callbacks import Callback
 
-# taken from old keras source code
-from enums import Metrics
+from enums import Metrics, Optimizer, Network
+from .deeplab import build_deeplab
+from .params import DeeplabParams, UNetParams
+from .unet.unet_wrapper import build_unet
 
 
 def f1_score(y_true, y_pred):
@@ -34,6 +37,14 @@ class GarbageCollectorCallback(Callback):
 		gc.collect()
 
 
+def build_network(net: Network, config: Union[DeeplabParams, UNetParams]) -> Model:
+	handlers: Dict[Network, Callable[[], Model]] = {
+		Network.unet: build_unet(config),
+		Network.deeplab: build_deeplab(config)
+	}
+	return handlers[net]()
+
+
 def get_callbacks(path_save_model: str) -> List:
 	Path(path.dirname(path_save_model)).mkdir(parents=True, exist_ok=True)
 	path_with_ext = f"{path_save_model}{'' if path_save_model.endswith('.h5') else '.h5'}"
@@ -55,3 +66,11 @@ def get_metrics(n_classes: int) -> List:
 		ModifiedMeanIOU(num_classes=n_classes + 1, name=Metrics.miou.value),
 		f1_score
 	]
+
+
+def get_optimizer(opt: Optimizer, lr: float) -> keras.optimizers.Optimizer:
+	options = {
+		Optimizer.adam: keras.optimizers.Adam(lr),
+		Optimizer.rmsprop: keras.optimizers.RMSprop(lr)
+	}
+	return options[opt]
