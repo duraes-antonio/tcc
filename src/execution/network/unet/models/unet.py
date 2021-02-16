@@ -180,6 +180,7 @@ def Unet(
 		decoder_block_type='upsampling',
 		decoder_filters=(256, 128, 64, 32, 16),
 		decoder_use_batchnorm=True,
+		dropout=0,
 		**kwargs
 ):
 	""" Unet_ is a fully convolution neural network for image semantic segmentation
@@ -228,11 +229,13 @@ def Unet(
 		raise ValueError('Decoder block type should be in ("upsampling", "transpose"). '
 		                 'Got: {}'.format(decoder_block_type))
 
+	print('---> UNet - backend', backend)
 	backbone = Backbones.get_backbone(
 		backbone_name,
 		input_shape=input_shape,
 		weights=encoder_weights,
 		include_top=False,
+		dropout=dropout,
 		**kwargs,
 	)
 
@@ -248,6 +251,7 @@ def Unet(
 		activation=activation,
 		n_upsample_blocks=len(decoder_filters),
 		use_batchnorm=decoder_use_batchnorm,
+		dropout=dropout
 	)
 
 	# lock encoder weights for fine-tuning
