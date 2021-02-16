@@ -2,7 +2,7 @@ import argparse
 import datetime
 from typing import Iterable
 
-import util.arquivo_util as au
+import dataset_prepare.arquivo_util as au
 
 
 def boolean(valor: str) -> bool:

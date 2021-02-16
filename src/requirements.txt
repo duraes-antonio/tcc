@@ -1,0 +1,15 @@
+gspread
+oauth2client
+wget
+matplotlib
+numpy
+pandas
+segmentation-models
+Pillow
+keras==2.3.1
+tensorflow==2.1.0
+keras_applications==1.0.8
+image-classifiers==1.0.0
+albumentations==0.5.2
+efficientnet==1.0.0
+h5py==2.10.0

@@ -6,9 +6,9 @@ from typing import Dict, List, Optional, Tuple, Iterable, Set
 import cv2
 from PIL import Image as PILImage
 
-import util.arquivo_util as au
-import util.cli_util as cli
-import util.imagem_util as iu
+import arquivo_util as au
+import cli_util as cli
+import imagem_util as iu
 
 
 def gerar_lista_arquivos(
