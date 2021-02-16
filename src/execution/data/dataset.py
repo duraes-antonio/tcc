@@ -66,22 +66,22 @@ def get_dataset_448x448(prefix='pneumonia') -> List[DatasetDownload]:
 		DatasetDownload(
 			prefix, DatasetPartition.train_70_eval_20_test_10,
 			DatasetFormat.equal_hist, size,
-			'https://drive.google.com/uc?export=download&confirm=CVkk&id=1_hPTB6p6bqkUNzN4QTXBW4U9W7txFDyL '
+			'https://drive.google.com/u/0/uc?export=download&confirm=LezY&id=1_hPTB6p6bqkUNzN4QTXBW4U9W7txFDyL'
 		),
 		DatasetDownload(
 			prefix, DatasetPartition.train_70_eval_20_test_10,
 			DatasetFormat.morp_transf, size,
-			'https://drive.google.com/uc?export=download&confirm=jiJC&id=16ydo48sN7RsN_mSjYPfLqANSZW079JWi'
+			'https://drive.google.com/u/0/uc?export=download&confirm=9JNO&id=16ydo48sN7RsN_mSjYPfLqANSZW079JWi'
 		),
 		DatasetDownload(
 			prefix, DatasetPartition.train_80_eval_10_test_10,
 			DatasetFormat.equal_hist, size,
-			'https://drive.google.com/uc?export=download&confirm=Fw9R&id=1gLQrItHappIg2oJTSe1B1DGxt0RtVZsR'
+			'https://drive.google.com/u/0/uc?export=download&confirm=-RoB&id=1gLQrItHappIg2oJTSe1B1DGxt0RtVZsR'
 		),
 		DatasetDownload(
 			prefix, DatasetPartition.train_80_eval_10_test_10,
 			DatasetFormat.morp_transf, size,
-			'https://drive.google.com/uc?export=download&confirm=aI3u&id=1LirPpJf4z9WEhuV3zbHXmrnWkWgOa1HO'
+			'https://drive.google.com/u/0/uc?export=download&confirm=5otE&id=1LirPpJf4z9WEhuV3zbHXmrnWkWgOa1HO'
 		),
 	]
 
