@@ -10,7 +10,7 @@ class ArgsCLI:
 def read_args() -> ArgsCLI:
 	parser = argparse.ArgumentParser()
 	parser.add_argument(
-		'--cred', '-c', type=str, default=None, metavar='credentials',
+		'--credentials', '-c', type=str, default=None, metavar='credentials',
 		required=True, help="Path to the Google Drive service credentials JSON file",
 	)
 	parser.add_argument(
