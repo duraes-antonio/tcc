@@ -106,7 +106,7 @@ def main():
 			# Compilar modelo
 			metrics = get_metrics(len(classes))
 			optim = get_optimizer(params.opt, params.lr, params.clip_value)
-			model.compile(optim, params.loss, metrics=metrics)
+			model.compile(optimizer=optim, loss=params.loss, metrics=metrics)
 
 			# Gerar Dataloaders
 			preprocess_fn = get_preprocessing(params.backbone.value) if case.net == Network.unet else None
