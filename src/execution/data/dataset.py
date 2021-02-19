@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import List, Union, Tuple, Dict
 from zipfile import ZipFile
 
-from dropbox_wrapper import DropboxWrapper
+from .dropbox_wrapper import DropboxWrapper
 from enums import DatasetPartition, DatasetFormat, Env
 from network.dataset_dataloader import build_dataloader
 from network.params import NetworkParams

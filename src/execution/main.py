@@ -1,5 +1,6 @@
 import gc
 import pathlib
+from pandas import DataFrame
 from os import path
 from typing import Dict, Union
 
@@ -27,6 +28,7 @@ def tf_gpu_allow_growth():
 # Define que a alocação de memória da GPU ocorrerá sob demanda e não de uma vez
 tf_gpu_allow_growth()
 
+import keras
 from keras.models import Model
 
 
@@ -66,6 +68,15 @@ def mark_done_and_commit_results(
 		last_epoch_results = {k: res[k][-1] for k in res}
 		case.done(ws, env.train, last_epoch_results)
 		case.done(ws, env.eval, last_epoch_results, 'val_')
+
+
+def print_params(params: NetworkParams, opt: keras.optimizers.Optimizer):
+	divider = '- - - - -'
+	print(divider, 'CONFIG', divider)
+	print(DataFrame.from_dict(params.__dict__))
+	print(divider, 'OPTIMIZER CONFIG', divider)
+	print(DataFrame.from_dict({**opt.get_config(), 'lr': opt.lr}))
+	print(' '.join([divider, divider, divider]))
 
 
 def main():
@@ -112,17 +123,18 @@ def main():
 			preprocess_fn = get_preprocessing(params.backbone.value) if case.net == Network.unet else None
 			path_dataset = path.join(path_datasets, build_dataset_name(params))
 			train_dataloader = build_data(path_dataset, classes, Env.train, params.batch, preprocess_fn)
-			val_dataloader = build_data(path_dataset, classes, Env.eval, params.batch, preprocess_fn)
+			val_dataloader = build_data(path_dataset, classes, Env.eval, 1, preprocess_fn)
 			test_dataloader = build_data(path_dataset, classes, Env.test, 1, preprocess_fn)
 
 			trained_model_name = build_trained_model_name(params)
 			path_trained_model = path.join(path_current, 'trained')
 			callbacks = get_callbacks(path.join(path_trained_model, trained_model_name))
+			print_params(params, optim)
 
 			# Treinar modelo
 			history = model.fit_generator(
 				generator=train_dataloader, validation_data=val_dataloader,
-				epochs=params.epochs, callbacks=callbacks, workers=8
+				epochs=params.epochs, callbacks=callbacks, workers=4
 			)
 			mark_done_and_commit_results(
 				case, ws, path.join(path_results, f'{trained_model_name}.csv'),
