@@ -72,11 +72,12 @@ def mark_done_and_commit_results(
 
 def print_params(params: NetworkParams, opt: keras.optimizers.Optimizer):
 	divider = '- - - - -'
-	print(divider, 'CONFIG', divider)
+	print('\n\n\n', divider, 'CONFIG', divider)
 	print(DataFrame.from_dict(params.__dict__))
-	print(divider, 'OPTIMIZER CONFIG', divider)
+	print('\n\n', divider, 'OPTIMIZER CONFIG', divider)
 	print(DataFrame.from_dict({**opt.get_config(), 'lr': opt.lr}))
 	print(' '.join([divider, divider, divider]))
+	print('\n\n\n')
 
 
 def main():
