@@ -79,7 +79,7 @@ def print_params(params: NetworkParams, opt: keras.optimizers.Optimizer):
 	print('\n\n', divider, 'OPTIMIZER CONFIG', divider)
 	params_opt_dict = dict(opt.get_config())
 	params_opt_dict.update({'lr': opt.lr})
-	print(DataFrame.from_dict(params_dict))
+	print(DataFrame.from_dict(params_dict, orient='index'))
 	print(' '.join([divider, divider, divider]))
 	print('\n\n\n')
 
