@@ -54,7 +54,6 @@ def get_callbacks(path_save_model: str) -> List:
 			save_best_only=True, mode='min'
 		),
 		keras.callbacks.ReduceLROnPlateau(),
-		GarbageCollectorCallback()
 	]
 
 
