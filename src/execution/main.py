@@ -73,9 +73,13 @@ def mark_done_and_commit_results(
 def print_params(params: NetworkParams, opt: keras.optimizers.Optimizer):
 	divider = '- - - - -'
 	print('\n\n\n', divider, 'CONFIG', divider)
-	print(DataFrame.from_dict(params.__dict__))
+	params_dict = params.__dict__
+	params_dict.pop('classes')
+	print(DataFrame.from_dict(params_dict))
 	print('\n\n', divider, 'OPTIMIZER CONFIG', divider)
-	print(DataFrame.from_dict({**opt.get_config(), 'lr': opt.lr}))
+	params_opt_dict = dict(opt.get_config())
+	params_opt_dict.update({'lr': opt.lr})
+	print(DataFrame.from_dict(params_dict))
 	print(' '.join([divider, divider, divider]))
 	print('\n\n\n')
 
