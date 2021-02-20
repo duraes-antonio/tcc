@@ -29,7 +29,7 @@ class Git:
 			f'{params.partition.name}',
 			f'{params.format.name}',
 			params.backbone.value,
-			get_name(params.opt),
+			get_name(params.opt.value),
 			f'batch {params.batch}',
 			f'epochs {params.epochs}',
 			f'lr {params.lr}',

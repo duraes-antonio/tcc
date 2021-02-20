@@ -38,7 +38,7 @@ def build_trained_model_name(params: NetworkParams) -> str:
 		f'{params.partition.value}',
 		f'{params.format.value}',
 		get_name(params.backbone.value),
-		get_name(params.opt),
+		get_name(params.opt.value),
 		f'batch-{params.batch}',
 		f'epochs-{params.epochs}',
 		f'lr-{params.lr}',
@@ -71,15 +71,13 @@ def mark_done_and_commit_results(
 
 
 def print_params(params: NetworkParams, opt: keras.optimizers.Optimizer):
-	divider = '- - - - -'
+	divider = ' '.join(['-'] * 15)
 	print('\n\n\n', divider, 'CONFIG', divider)
 	params_dict = params.__dict__
 	params_dict.pop('classes')
 	print(DataFrame.from_dict(params_dict, orient='index'))
 	print('\n\n', divider, 'OPTIMIZER CONFIG', divider)
-	params_opt_dict = dict(opt.get_config())
-	params_opt_dict.update({'lr': opt.lr})
-	print(DataFrame.from_dict(params_opt_dict, orient='index'))
+	print(DataFrame.from_dict(dict(opt.get_config()), orient='index'))
 	print(' '.join([divider, divider, divider]))
 	print('\n\n\n')
 
