@@ -108,5 +108,3 @@ def build_dataset_name(params: NetworkParams) -> str:
 	dataset_config = '_'.join([dataset_size, params.partition.value, params.format.value])
 	return f'pneumonia_{dataset_config}'
 
-
-prepare_datasets('../help', 448)
