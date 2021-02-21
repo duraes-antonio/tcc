@@ -73,7 +73,7 @@ class TestCase:
 			for m in metrics:
 				name_key_best_val = f'best_{prefix_col}{m.value}'
 				cell = ws.cell(self.id + 1, self.columns.index(name_key_best_val) + 1)
-				value = results['best_' + prefix_metrics + m.value]
+				value = results['best_' + (prefix_metrics or '') + m.value]
 				cell.value = "{:.6f}".format(value).replace('.', ',')
 				cells.append(cell)
 		ws.update_cells(cells)
