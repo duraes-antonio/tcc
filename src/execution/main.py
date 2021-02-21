@@ -2,19 +2,22 @@ import tensorflow as tf
 
 
 def tf_gpu_allow_growth():
-	gpus = tf.config.list_physical_devices('GPU')
+	gpus = tf.config.experimental.list_physical_devices('GPU')
 	for gpu in gpus:
-		tf.config.set_memory_growth(gpu, True)
+		tf.config.experimental.set_memory_growth(gpu, True)
 
 
-gpus = tf.config.list_physical_devices('GPU')
-tf.config.set_logical_device_configuration(
-	gpus[0],
-	[tf.config.LogicalDeviceConfiguration(memory_limit=5750)]
-)
+def set_max_ram(limit=5750):
+	gpus = tf.config.list_physical_devices('GPU')
+	tf.config.set_logical_device_configuration(
+		gpus[0],
+		[tf.config.LogicalDeviceConfiguration(memory_limit=limit)]
+	)
+
 
 # Define que a alocação de memória da GPU ocorrerá sob demanda e não de uma vez
 # tf_gpu_allow_growth()
+set_max_ram()
 
 import gc
 import pathlib
