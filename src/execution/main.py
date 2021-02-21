@@ -139,6 +139,8 @@ def main():
 				generator=train_dataloader, validation_data=val_dataloader,
 				epochs=params.epochs, callbacks=callbacks, workers=4
 			)
+
+			ws = load_worksheet('tcc', path_gsheets_cred, 'cases')
 			mark_done_and_commit_results(
 				case, ws, path.join(path_results, f'{trained_model_name}.csv'),
 				current_env, gh, params, history.history
