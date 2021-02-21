@@ -1,6 +1,7 @@
 from datetime import datetime
+from time import sleep
 from typing import List, Optional, Dict
-
+from requests.exceptions import ReadTimeout
 from gspread import Worksheet
 from pandas import DataFrame, Series
 
@@ -67,6 +68,14 @@ class TestCase:
 			value = results[(prefix_metrics or '') + m.value]
 			cell.value = "{:.6f}".format(value).replace('.', ',')
 			cells.append(cell)
+
+		if env != env.test:
+			for m in metrics:
+				name_key_best_val = f'best_{prefix_col}{m.value}'
+				cell = ws.cell(self.id + 1, self.columns.index(name_key_best_val) + 1)
+				value = results['best_' + prefix_metrics + m.value]
+				cell.value = "{:.6f}".format(value).replace('.', ',')
+				cells.append(cell)
 		ws.update_cells(cells)
 
 	def free(self, ws: Worksheet, env: Env, prog: Optional[TestProgress] = None):
@@ -89,7 +98,23 @@ class TestCaseManager:
 
 	@staticmethod
 	def parse_worksheet(data: Worksheet) -> List[TestCase]:
-		return TestCaseManager.parse_dataframe(DataFrame.from_dict(data.get_all_records()))
+		retries_left = 3
+		records = None
+
+		def get_content_sheet():
+			return data.get_all_records()
+
+		while not records and retries_left > 0:
+			try:
+				records = get_content_sheet()
+			except ReadTimeout:
+				sleep(20)
+				retries_left -= 1
+				if retries_left < 0:
+					raise
+			finally:
+				if records:
+					return TestCaseManager.parse_dataframe(DataFrame.from_dict(records))
 
 	@staticmethod
 	def first_case(cases: List[TestCase], env=Env.train, s=State.free) -> TestCase:

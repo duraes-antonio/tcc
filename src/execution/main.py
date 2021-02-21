@@ -27,7 +27,7 @@ from pandas import DataFrame
 
 from cli import read_args
 from data.dataset import prepare_datasets, build_dataset_name, build_data
-from enums import Env, Network, TestProgress
+from enums import Env, Network, TestProgress, Metrics
 from helper.git import Git
 from helper.helpers import get_name, write_csv_metrics, write_csv_metrics_test
 from network.common import get_metrics, get_callbacks, build_network, get_optimizer
@@ -37,7 +37,7 @@ from test_case.case import TestCaseManager, TestCase
 from test_case.worksheet import load_worksheet
 
 
-def build_trained_model_name(params: NetworkParams) -> str:
+def build_trained_model_name(params: NetworkParams, id: int) -> str:
 	fragments = [
 		f'{params.size}x{params.size}',
 		f'{params.partition.value}',
@@ -48,31 +48,39 @@ def build_trained_model_name(params: NetworkParams) -> str:
 		f'epochs-{params.epochs}',
 		f'lr-{params.lr}',
 		f'drop-{1 if params.dropout > 0 else 0}',
-		f'clip-{params.clip_value}'
+		f'clip-{params.clip_value}',
+		str(id) if id else None
 	]
-	return '_'.join(fragments)
+	return '_'.join([frag for frag in fragments if frag])
 
 
 def mark_done_and_commit_results(
 		case: TestCase, ws: Worksheet, path_file: str, env: Env,
-		gh: Git, params: NetworkParams, res: Dict[str, Union[int, list]]
+		gh: Git, params: NetworkParams, metric_result: Dict[str, Union[int, list]]
 ):
 	commit_msg = gh.build_commit_msg(params, env)
 
 	if env == Env.test:
-		file = write_csv_metrics_test(res)
+		file = write_csv_metrics_test(metric_result)
 
 	else:
-		file = write_csv_metrics(res)
+		file = write_csv_metrics(metric_result)
 
 	gh.create_file(path_file, file, commit_msg)
 
 	if env == Env.test:
-		case.done(ws, env, res)
+		case.done(ws, env, metric_result)
 	else:
-		last_epoch_results = {k: res[k][-1] for k in res}
-		case.done(ws, env.train, last_epoch_results)
-		case.done(ws, env.eval, last_epoch_results, 'val_')
+		last_epoch_results = {k: metric_result[k][-1] for k in metric_result}
+		best_results = {
+			f'best_{m}': max(metric_result[m])
+			if m not in (Metrics.loss.value, f'val_{Metrics.loss.value}')
+			else min(metric_result[m])
+			for m in metric_result
+		}
+		final_results = {**last_epoch_results, **best_results}
+		case.done(ws, env.train, final_results)
+		case.done(ws, env.eval, final_results, 'val_')
 
 
 def print_params(params: NetworkParams, opt: keras.optimizers.Optimizer):
@@ -134,7 +142,7 @@ def main():
 			val_dataloader = build_data(path_dataset, classes, Env.eval, 1, preprocess_fn)
 			test_dataloader = build_data(path_dataset, classes, Env.test, 1, preprocess_fn)
 
-			trained_model_name = build_trained_model_name(params)
+			trained_model_name = build_trained_model_name(params, case.id)
 			path_trained_model = path.join(path_current, 'trained')
 			callbacks = get_callbacks(path.join(path_trained_model, trained_model_name))
 			print_params(params, optim)
