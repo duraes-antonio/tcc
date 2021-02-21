@@ -1,11 +1,29 @@
+import tensorflow as tf
+
+
+def tf_gpu_allow_growth():
+	gpus = tf.config.list_physical_devices('GPU')
+	for gpu in gpus:
+		tf.config.set_memory_growth(gpu, True)
+
+
+gpus = tf.config.list_physical_devices('GPU')
+tf.config.set_logical_device_configuration(
+	gpus[0],
+	[tf.config.LogicalDeviceConfiguration(memory_limit=5750)]
+)
+
+# Define que a alocação de memória da GPU ocorrerá sob demanda e não de uma vez
+# tf_gpu_allow_growth()
+
 import gc
 import pathlib
-from pandas import DataFrame
 from os import path
 from typing import Dict, Union
-
-import tensorflow as tf
+import keras
 from gspread import Worksheet
+from keras.models import Model
+from pandas import DataFrame
 
 from cli import read_args
 from data.dataset import prepare_datasets, build_dataset_name, build_data
@@ -17,19 +35,6 @@ from network.params import UNetParams, DeeplabParams, NetworkParams
 from network.unet import get_preprocessing
 from test_case.case import TestCaseManager, TestCase
 from test_case.worksheet import load_worksheet
-
-
-def tf_gpu_allow_growth():
-	gpus = tf.config.experimental.list_physical_devices('GPU')
-	for gpu in gpus:
-		tf.config.experimental.set_memory_growth(gpu, True)
-
-
-# Define que a alocação de memória da GPU ocorrerá sob demanda e não de uma vez
-tf_gpu_allow_growth()
-
-import keras
-from keras.models import Model
 
 
 def build_trained_model_name(params: NetworkParams) -> str:
