@@ -11,8 +11,13 @@ from .helpers import get_name
 class Git:
 	def __init__(self, username: str, repository_name: str, token: str):
 		self.user = username
-		self.gh = Github(token)
-		self.repository = self.gh.get_repo(f'{username}/{repository_name}')
+		self.repo_name = repository_name
+		self.token = token
+		self.start_session()
+
+	def start_session(self):
+		self.gh = Github(self.token)
+		self.repository = self.gh.get_repo(f'{self.user}/{self.repo_name}')
 
 	def create_file(self, file_repo_path: str, content: str, commit_msg: str):
 
@@ -25,6 +30,7 @@ class Git:
 
 			while not contents and retries_left > 0:
 				try:
+					self.start_session()
 					contents = get_content()
 				except ReadTimeout:
 					sleep(20)
