@@ -1,6 +1,8 @@
+from time import sleep
+
 from github import Github
 from github.GithubException import UnknownObjectException
-
+from requests.exceptions import ReadTimeout
 from enums import Env
 from network.params import NetworkParams
 from .helpers import get_name
@@ -13,10 +15,29 @@ class Git:
 		self.repository = self.gh.get_repo(f'{username}/{repository_name}')
 
 	def create_file(self, file_repo_path: str, content: str, commit_msg: str):
-		try:
-			contents = self.repository.get_contents(file_repo_path)
-		except UnknownObjectException:
+
+		def get_content():
+			return self.repository.get_contents(file_repo_path)
+
+		def get_content_manager():
+			retries_left = 3
 			contents = None
+
+			while not contents and retries_left > 0:
+				try:
+					contents = get_content()
+				except ReadTimeout:
+					sleep(20)
+					retries_left -= 1
+					if retries_left < 0:
+						raise
+				except UnknownObjectException:
+					contents = None
+				finally:
+					if contents:
+						return contents
+
+		contents = get_content_manager()
 
 		if contents and contents.content:
 			self.repository.update_file(file_repo_path, commit_msg, content, contents.sha)
