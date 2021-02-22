@@ -63,13 +63,13 @@ def mark_done_and_commit_results(
 ):
 	commit_msg = gh.build_commit_msg(params, env)
 	filename = path.basename(path_file)
+
 	if env == Env.test:
-		file = write_csv_metrics_test(metric_result, filename=filename)
-
+		write_csv_metrics_test(metric_result, path_file, filename=filename)
 	else:
-		file = write_csv_metrics(metric_result, filename=filename)
+		write_csv_metrics(metric_result, path_file, filename=filename)
 
-	gh.create_file(path_file, file, commit_msg)
+	gh.commit_file(path_file, commit_msg)
 
 	if env == Env.test:
 		case.done(ws, env, metric_result)
@@ -114,8 +114,8 @@ def main():
 	# Baixar e extrair datasets
 	prepare_datasets(path_datasets, args.size)
 	path_current = path.join(path_root, repository_name)
-	path_results = path.join('results', case.net.value, case.partition.value)
-	gh = Git('duraes-antonio', repository_name, args.gh_token)
+	path_results = path.join(path_current, 'results', case.net.value, case.partition.value)
+	gh = Git('duraes-antonio', 'garotoseis@gmail.com', repository_name, args.gh_token)
 
 	while case is not None:
 		current_env = Env.train

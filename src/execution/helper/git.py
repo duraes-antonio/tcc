@@ -1,5 +1,5 @@
+import os
 from time import sleep
-
 from github import Github
 from github.GithubException import UnknownObjectException
 from requests.exceptions import ReadTimeout, ConnectTimeout, Timeout
@@ -11,15 +11,17 @@ from .helpers import get_name
 class Git:
 	def __init__(self, username: str, repository_name: str, token: str):
 		self.user = username
+		self.user_email = user_email
 		self.repo_name = repository_name
 		self.token = token
-		self.start_session()
+
+	# self.start_session()
 
 	def start_session(self):
 		self.gh = Github(self.token)
 		self.repository = self.gh.get_repo(f'{self.user}/{self.repo_name}')
 
-	def create_file(self, file_repo_path: str, content: str, commit_msg: str):
+	def create_file_remote(self, file_repo_path: str, content: str, commit_msg: str):
 
 		def get_content():
 			return self.repository.get_contents(file_repo_path)
@@ -49,6 +51,16 @@ class Git:
 			self.repository.update_file(file_repo_path, commit_msg, content, contents.sha)
 		else:
 			self.repository.create_file(file_repo_path, commit_msg, content)
+
+	def commit_file(self, file_repo_path: str, commit_msg: str):
+		os.system(f"""!git config --global user.email "{self.user_email}" """)
+		os.system(f"""!git config --global user.name "{self.user}" """)
+		os.system(f"!git add {file_repo_path}")
+		os.system(f"""!git commit -m "{commit_msg}" """)
+
+		os.system(f"!git pull")
+		os.system(f"!git pull origin master")
+		os.system(f"!git push https://{self.user}:{self.token}@github.com/{self.user}/{self.repo_name}.git")
 
 	def build_commit_msg(self, params: NetworkParams, env: Env) -> str:
 		fragments = [
