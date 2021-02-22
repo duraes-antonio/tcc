@@ -2,7 +2,7 @@ from time import sleep
 
 from github import Github
 from github.GithubException import UnknownObjectException
-from requests.exceptions import ReadTimeout
+from requests.exceptions import ReadTimeout, ConnectTimeout, Timeout
 from enums import Env
 from network.params import NetworkParams
 from .helpers import get_name
@@ -32,7 +32,7 @@ class Git:
 				try:
 					self.start_session()
 					contents = get_content()
-				except ReadTimeout:
+				except (ReadTimeout, ConnectTimeout, Timeout):
 					sleep(20)
 					retries_left -= 1
 					if retries_left < 0:
