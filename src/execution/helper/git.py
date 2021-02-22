@@ -9,7 +9,8 @@ from .helpers import get_name
 
 
 class Git:
-	def __init__(self, username: str, repository_name: str, token: str):
+
+	def __init__(self, username: str, user_email: str, repository_name: str, token: str):
 		self.user = username
 		self.user_email = user_email
 		self.repo_name = repository_name
