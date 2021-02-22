@@ -62,12 +62,12 @@ def mark_done_and_commit_results(
 		gh: Git, params: NetworkParams, metric_result: Dict[str, Union[int, list]]
 ):
 	commit_msg = gh.build_commit_msg(params, env)
-
+	filename = path.basename(path_file)
 	if env == Env.test:
-		file = write_csv_metrics_test(metric_result)
+		file = write_csv_metrics_test(metric_result, filename=filename)
 
 	else:
-		file = write_csv_metrics(metric_result)
+		file = write_csv_metrics(metric_result, filename=filename)
 
 	gh.create_file(path_file, file, commit_msg)
 

@@ -1,4 +1,5 @@
 import os
+import pathlib
 import re
 from datetime import datetime
 from typing import Callable, Optional
@@ -24,7 +25,7 @@ def get_name(item) -> str:
 	return output.lower()
 
 
-def write_csv_metrics(model_history: dict, out_path: Optional[str] = None):
+def write_csv_metrics(model_history: dict, out_path: Optional[str] = None, filename: str = None):
 	if out_path:
 		os.makedirs(os.path.dirname(out_path), exist_ok=True)
 	data = {
@@ -36,13 +37,19 @@ def write_csv_metrics(model_history: dict, out_path: Optional[str] = None):
 		**data
 	}
 	df = pd.DataFrame.from_dict(data)
+
+	if filename:
+		df.to_csv(pathlib.Path().absolute().joinpath(filename), sep=',', index=False)
 	return df.to_csv(out_path, sep=',', index=False)
 
 
-def write_csv_metrics_test(model_history: dict, out_path: Optional[str] = None):
+def write_csv_metrics_test(model_history: dict, out_path: Optional[str] = None, filename: str = None):
 	if out_path:
 		os.makedirs(os.path.dirname(out_path), exist_ok=True)
 	df = pd.DataFrame(model_history, index=[0])
+
+	if filename:
+		df.to_csv(pathlib.Path().absolute().joinpath(filename), sep=',', index=False)
 	return df.to_csv(out_path, sep=',', index=False)
 
 
