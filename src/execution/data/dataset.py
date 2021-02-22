@@ -84,10 +84,10 @@ def prepare_datasets(path_to_save: str, size=448):
 	for ds in size_dataset[size]:
 		filename = ds.get_name() + '.zip'
 		path_zip = path.join(path_to_save, filename)
-		if not path.exists(path_zip):
-			dbx.download_dataset(filename, path_zip)
 
 		if not path.exists(path_zip.rsplit('.zip')[0]):
+			dbx.download_dataset(filename, path_zip)
+
 			with ZipFile(path_zip, 'r') as ds_zipped:
 				ds_zipped.extractall(path_to_save)
 				remove(path_zip)
