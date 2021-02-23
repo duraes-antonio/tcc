@@ -54,14 +54,14 @@ class Git:
 			self.repository.create_file(file_repo_path, commit_msg, content)
 
 	def commit_file(self, file_repo_path: str, commit_msg: str):
-		os.system(f"""!git config --global user.email "{self.user_email}" """)
-		os.system(f"""!git config --global user.name "{self.user}" """)
-		os.system(f"!git add {file_repo_path}")
-		os.system(f"""!git commit -m "{commit_msg}" """)
+		os.system(f"""git config --global user.email "{self.user_email}" """)
+		os.system(f"""git config --global user.name "{self.user}" """)
+		os.system(f"""git add {file_repo_path}""")
+		os.system(f"""git commit -m "{commit_msg}" """)
 
-		os.system(f"!git pull")
-		os.system(f"!git pull origin master")
-		os.system(f"!git push https://{self.user}:{self.token}@github.com/{self.user}/{self.repo_name}.git")
+		os.system(f"git pull")
+		os.system(f"git pull origin master")
+		os.system(f"git push https://{self.user}:{self.token}@github.com/{self.user}/{self.repo_name}.git")
 
 	def build_commit_msg(self, params: NetworkParams, env: Env) -> str:
 		fragments = [
