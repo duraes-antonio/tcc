@@ -1,5 +1,6 @@
 import argparse
 
+
 class ArgsCLI:
 	def __init__(self, size: int, gh_token: str, credentials_path: str):
 		self.size = size

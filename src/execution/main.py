@@ -69,7 +69,7 @@ def mark_done_and_commit_results(
 	else:
 		write_csv_metrics(metric_result, path_file, filename=filename)
 
-	gh.commit_file(path_file, commit_msg)
+	gh.save_item(path_file, commit_msg)
 
 	if env == Env.test:
 		case.done(ws, env, metric_result)

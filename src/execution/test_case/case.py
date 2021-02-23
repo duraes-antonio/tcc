@@ -1,9 +1,10 @@
 from datetime import datetime
 from time import sleep
 from typing import List, Optional, Dict
-from requests.exceptions import ReadTimeout
+
 from gspread import Worksheet
 from pandas import DataFrame, Series
+from requests.exceptions import ReadTimeout
 
 from enums import State, Network, DatasetPartition, DatasetFormat, Optimizer, Env, TestProgress, Metrics
 

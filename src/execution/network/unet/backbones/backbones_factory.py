@@ -1,6 +1,5 @@
 import copy
 
-import efficientnet.model as eff
 import keras_applications as ka
 from classification_models.models_factory import ModelsFactory
 
@@ -55,39 +54,11 @@ class BackbonesFactory(ModelsFactory):
         'mobilenet': ('conv_pw_11_relu', 'conv_pw_5_relu', 'conv_pw_3_relu', 'conv_pw_1_relu'),
         'mobilenetv2': ('block_13_expand_relu', 'block_6_expand_relu', 'block_3_expand_relu',
                         'block_1_expand_relu'),
-
-        # EfficientNets
-        'efficientnetb0': ('block6a_expand_activation', 'block4a_expand_activation',
-                           'block3a_expand_activation', 'block2a_expand_activation'),
-        'efficientnetb1': ('block6a_expand_activation', 'block4a_expand_activation',
-                           'block3a_expand_activation', 'block2a_expand_activation'),
-        'efficientnetb2': ('block6a_expand_activation', 'block4a_expand_activation',
-                           'block3a_expand_activation', 'block2a_expand_activation'),
-        'efficientnetb3': ('block6a_expand_activation', 'block4a_expand_activation',
-                           'block3a_expand_activation', 'block2a_expand_activation'),
-        'efficientnetb4': ('block6a_expand_activation', 'block4a_expand_activation',
-                           'block3a_expand_activation', 'block2a_expand_activation'),
-        'efficientnetb5': ('block6a_expand_activation', 'block4a_expand_activation',
-                           'block3a_expand_activation', 'block2a_expand_activation'),
-        'efficientnetb6': ('block6a_expand_activation', 'block4a_expand_activation',
-                           'block3a_expand_activation', 'block2a_expand_activation'),
-        'efficientnetb7': ('block6a_expand_activation', 'block4a_expand_activation',
-                           'block3a_expand_activation', 'block2a_expand_activation'),
-
     }
 
     _models_update = {
         'inceptionresnetv2': [irv2.InceptionResNetV2, irv2.preprocess_input],
         'inceptionv3': [iv3.InceptionV3, iv3.preprocess_input],
-
-        'efficientnetb0': [eff.EfficientNetB0, eff.preprocess_input],
-        'efficientnetb1': [eff.EfficientNetB1, eff.preprocess_input],
-        'efficientnetb2': [eff.EfficientNetB2, eff.preprocess_input],
-        'efficientnetb3': [eff.EfficientNetB3, eff.preprocess_input],
-        'efficientnetb4': [eff.EfficientNetB4, eff.preprocess_input],
-        'efficientnetb5': [eff.EfficientNetB5, eff.preprocess_input],
-        'efficientnetb6': [eff.EfficientNetB6, eff.preprocess_input],
-        'efficientnetb7': [eff.EfficientNetB7, eff.preprocess_input],
         'vgg19_drop': [vgg19.VGG19, ka.vgg19.preprocess_input],
     }
 

@@ -1,15 +1,12 @@
 from enum import Enum
-from typing import Dict, Optional, List
+from typing import Optional, List
 
-import keras.optimizers
-
-from enums import Optimizer
 from network.backbones import DeeplabBackbone, UNetBackbone
 from test_case.case import TestCase
 
 
 class NetworkParams:
-	epochs = 40
+	epochs = 35
 	lr = 0.0001
 	clip_value = 0.001
 	batch = 4

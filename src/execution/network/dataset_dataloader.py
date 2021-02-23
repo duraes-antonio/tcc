@@ -1,5 +1,5 @@
 import os
-from typing import List, Optional, Callable
+from typing import List
 
 import cv2
 import keras
