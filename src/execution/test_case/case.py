@@ -1,3 +1,4 @@
+import socket
 from datetime import datetime
 from time import sleep
 from typing import List, Optional, Dict
@@ -45,6 +46,7 @@ class TestCase:
 
 	def update_state(self, ws: Worksheet, s: State, env: Env):
 		ws.update_cell(self.id + 1, self.columns.index(f'{env.name}_state') + 1, s.name)
+		ws.update_cell(self.id + 1, self.columns.index('machine') + 1, socket.gethostname())
 
 	def done(
 			self, ws: Worksheet, env: Env,
@@ -77,7 +79,9 @@ class TestCase:
 				value = results['best_' + (prefix_metrics or '') + m.value]
 				cell.value = "{:.6f}".format(value).replace('.', ',')
 				cells.append(cell)
-		ws.update_cells(cells)
+		cell = ws.cell(self.id + 1, self.columns.index('machine') + 1)
+		cell.value = socket.gethostname()
+		ws.update_cells([*cells, cell])
 
 	def free(self, ws: Worksheet, env: Env, prog: Optional[TestProgress] = None):
 		self.update_state(ws, State.free, env)
