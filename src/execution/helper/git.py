@@ -16,10 +16,11 @@ class Git:
 	def config_user(self):
 		os.system(f"""git config --global user.email "{self.user_email}" """)
 		os.system(f"""git config --global user.name "{self.user}" """)
+		os.system("""git config --global core.mergeoptions --no-edit""")
 
 	def add_commit_item(self, item_local_path: str, commit_msg: str):
 		os.system(f"""git add {item_local_path}""")
-		os.system(f"""git commit -m "{commit_msg}" """)
+		os.system(f"""git commit -m "{commit_msg}" --no-edit """)
 
 	def pull_changes(self):
 		os.system("git pull")
@@ -30,8 +31,8 @@ class Git:
 
 	def save_item(self, file_repo_path: str, commit_msg: str):
 		self.config_user()
-		self.add_commit_item(file_repo_path, commit_msg)
 		self.pull_changes()
+		self.add_commit_item(file_repo_path, commit_msg)
 		self.push()
 
 	def build_commit_msg(self, params: NetworkParams, env: Env) -> str:
