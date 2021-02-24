@@ -30,8 +30,8 @@ class Git:
 
 	def save_item(self, file_repo_path: str, commit_msg: str):
 		self.config_user()
-		self.add_commit_item(file_repo_path, commit_msg)
 		self.pull_changes()
+		self.add_commit_item(file_repo_path, commit_msg)
 		self.push()
 
 	def build_commit_msg(self, params: NetworkParams, env: Env) -> str:
