@@ -114,10 +114,10 @@ def main():
 	# Baixar e extrair datasets
 	prepare_datasets(path_datasets, args.size)
 	path_current = path.join(path_root, repository_name)
-	path_results = path.join(path_current, 'results', case.net.value, case.partition.value)
 	gh = Git('duraes-antonio', 'garotoseis@gmail.com', repository_name, args.gh_token)
 
 	while case is not None:
+		path_results = path.join(path_current, 'results', case.net.value, case.partition.value)
 		current_env = Env.train
 
 		try:
