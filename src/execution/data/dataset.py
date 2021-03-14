@@ -1,13 +1,14 @@
-import albumentations
 from os import path, remove
 from pathlib import Path
 from typing import List, Union, Tuple, Dict
 from zipfile import ZipFile
 
-from .dropbox_wrapper import DropboxWrapper
+import albumentations
+
 from enums import DatasetPartition, DatasetFormat, Env
-from network.dataset_dataloader import build_dataloader
-from network.params import NetworkParams
+from network.dataset_dataloader import build_dataloader, build_dataset, Dataset
+from network.params import DatasetBasicParams
+from .dropbox_wrapper import DropboxWrapper
 
 
 class DatasetDownload:
@@ -113,8 +114,14 @@ def build_data(
 	return build_dataloader(path_imgs, path_masks, classes, batch, fn_preproc=fn_preprocessing)
 
 
-def build_dataset_name(params: NetworkParams) -> str:
+def build_data_for_visualization(path_ds: str, classes: List[str], env: Env, fn_preprocessing=None) -> Dataset:
+	prefix: Dict[Env, str] = {Env.eval: 'val', Env.test: 'test', Env.train: 'train'}
+	path_imgs = path.join(path_ds, prefix[env])
+	path_masks = path_imgs + '_gt'
+	return build_dataset(path_imgs, path_masks, classes, fn_preprocessing)
+
+
+def build_dataset_name(params: DatasetBasicParams) -> str:
 	dataset_size = f'{params.size}x{params.size}'
 	dataset_config = '_'.join([dataset_size, params.partition.value, params.format.value])
 	return f'pneumonia_{dataset_config}'
-

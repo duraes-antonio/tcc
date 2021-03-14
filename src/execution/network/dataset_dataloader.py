@@ -33,35 +33,30 @@ class Dataset:
 		self.preprocessing = preprocessing
 
 	def __getitem__(self, i):
-		try:
-			image = cv2.imread(self.images_fps[i])
-			image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-			mask = cv2.imread(self.masks_fps[i], 0)
+		image = cv2.imread(self.images_fps[i])
+		image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+		mask = cv2.imread(self.masks_fps[i], 0)
 
-			# extract certain classes from mask (e.g. cars)
-			masks = [(mask == v) for v in self.class_values]
-			mask = np.stack(masks, axis=-1).astype('float')
+		# extract certain classes from mask (e.g. cars)
+		masks = [(mask == v) for v in self.class_values]
+		mask = np.stack(masks, axis=-1).astype('float')
 
-			# add background if mask is not binary
-			if mask.shape[-1] != 1:
-				background = 1 - mask.sum(axis=-1, keepdims=True)
-				mask = np.concatenate((mask, background), axis=-1)
+		# add background if mask is not binary
+		if mask.shape[-1] != 1:
+			background = 1 - mask.sum(axis=-1, keepdims=True)
+			mask = np.concatenate((mask, background), axis=-1)
 
-			# apply augmentations
-			if self.augmentation:
-				sample = self.augmentation(image=image, mask=mask)
-				image, mask = sample['image'], sample['mask']
+		# apply augmentations
+		if self.augmentation:
+			sample = self.augmentation(image=image, mask=mask)
+			image, mask = sample['image'], sample['mask']
 
-			# apply preprocessing
-			if self.preprocessing:
-				sample = self.preprocessing(image=image, mask=mask)
-				image, mask = sample['image'], sample['mask']
+		# apply preprocessing
+		if self.preprocessing:
+			sample = self.preprocessing(image=image, mask=mask)
+			image, mask = sample['image'], sample['mask']
 
-			return image, mask
-		except:
-			print(f'ERRO AO LER IMG | i = {i}, imgs = {len(self.images_fps)}, masks = {len(self.masks_fps)}')
-			print(f'img = {self.images_fps[i]}, masks = {self.masks_fps[i]}')
-			print(f'img = {self.images_fps[i - 1]}, masks = {self.masks_fps[i - 1]}')
+		return image, mask
 
 	def __len__(self):
 		return len(self.ids)
@@ -112,3 +107,9 @@ def build_dataloader(
 ) -> Dataloader:
 	dataset = Dataset(path_imgs, path_masks, classes=classes, preprocessing=fn_preproc)
 	return Dataloader(dataset, batch_size=batch_size, shuffle=shuffle)
+
+
+def build_dataset(
+		path_imgs: str, path_masks: str, classes: List[str], fn_preproc=None
+) -> Dataset:
+	return Dataset(path_imgs, path_masks, classes=classes, preprocessing=fn_preproc)
