@@ -6,15 +6,15 @@ import matplotlib
 import numpy as np
 from matplotlib import pyplot as plt
 
-from backbones import UNetBackbone, DeeplabBackbone
 from cli import read_args_visualize
 from data.dataset import prepare_datasets, build_dataset_name, build_data_for_visualization
-from dataset_dataloader import Dataset
-from deeplab import deeplabv3
 from enums import Env, Network
+from network.backbones import UNetBackbone, DeeplabBackbone
 from network.common import get_optimizer
+from network.dataset_dataloader import Dataset
+from network.deeplab import deeplabv3
+from network.params import ParamsVisualization
 from network.unet import get_preprocessing, Unet
-from params import ParamsVisualization
 
 
 def visualize(**images):

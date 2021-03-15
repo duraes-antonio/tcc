@@ -1,7 +1,6 @@
 from enum import Enum
+from os import path
 from typing import Optional, List
-
-import path
 
 from enums import DatasetPartition, DatasetFormat, Optimizer
 from network.backbones import DeeplabBackbone, UNetBackbone
@@ -47,8 +46,8 @@ class ParamsVisualization(DatasetBasicParams):
 		self.size = int(params[0].split('x')[0])
 		self.partition = DatasetPartition(params[1])
 		self.format = DatasetFormat(params[2])
-		self.backbone = DeeplabBackbone.mobile_net if DatasetFormat(
-			params[3]) == DeeplabBackbone.mobile_net.value else UNetBackbone.vgg19_drop
+		self.backbone = DeeplabBackbone.mobile_net if params[
+			                                              3] == DeeplabBackbone.mobile_net.value else UNetBackbone.vgg19_drop
 		self.batch = int(params[-6].split('-')[-1])
 		self.opt = Optimizer(params[-7])
 		self.lr = float(params[-4].split('-')[-1])

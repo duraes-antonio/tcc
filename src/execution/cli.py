@@ -56,4 +56,4 @@ def read_args_visualize() -> ArgsVisualize:
 		required=True, help="Path for trained model (h5 format)",
 	)
 	_args = parser.parse_args()
-	return ArgsVisualize(_args.size, _args.ghtoken, _args.partition, _args.trained)
+	return ArgsVisualize(_args.size, _args.size, _args.partition, _args.trained)
