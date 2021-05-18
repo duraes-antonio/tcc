@@ -10,12 +10,12 @@
 
 ## Datasets
 Transformação morfológica:<br>
-[70% treino, 20% validação, 10% teste](https://www.google.com.br/)<br>
-[80% treino, 10% validação, 10% teste](https://www.google.com.br/)<br>
+[70% treino, 20% validação, 10% teste](https://drive.google.com/drive/folders/1-oZSPBLnJCp0dcX_-sPbHGebSxi5iixm?usp=sharing)<br>
+[80% treino, 10% validação, 10% teste](https://drive.google.com/drive/folders/1v5heIr5iDcbxNqEtslRasdy0NmcZWMpS?usp=sharing)<br>
 
 Histograma equalizado:<br>
-[70% treino, 20% validação, 10% teste](https://www.google.com.br/)<br>
-[80% treino, 10% validação, 10% teste](https://www.google.com.br/)<br>
+[70% treino, 20% validação, 10% teste](https://drive.google.com/drive/folders/1OdmphnhpfjI6EDORZqtCopS-x3Ogk3dI?usp=sharing)<br>
+[80% treino, 10% validação, 10% teste](https://drive.google.com/drive/folders/1pjHhnfRrYUTt7e4EjwYNJR9ZeSmUnSwb?usp=sharing)<br>
 
 ## Resultados (em CSV)
 [DeepLab](https://github.com/duraes-antonio/tcc/tree/master/resultados/deeplab)<br>
