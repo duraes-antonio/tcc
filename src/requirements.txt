@@ -6,7 +6,7 @@ opencv-python
 numpy
 pandas
 keras==2.3.1
-tensorflow==2.1.0
+tensorflow==2.9.3
 keras_applications==1.0.8
 image-classifiers==1.0.0
 albumentations==0.5.2
